@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ForumComponent } from './components/forum/forum.component';
-import { PostsComponent } from './components/posts/posts.component';
+import { CommentsComponent } from './components/comments/comments.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { PostCardComponent } from './components/post-card/post-card.component';
-import { EditPostComponent } from './components/edit-post/edit-post.component';
-import { CreatePostComponent } from './components/create-post/create-post.component';
+import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
+import { CreateCommentComponent } from './components/create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +19,16 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     HeaderComponent,
     FooterComponent,
     ForumComponent,
-    PostsComponent,
+    CommentsComponent,
     LoginComponent,
     RegisterComponent,
-    PostCardComponent,
-    EditPostComponent,
-    CreatePostComponent
+    EditCommentComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

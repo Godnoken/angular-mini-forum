@@ -1,5 +1,8 @@
 :host {
     min-height: 80vh;
     margin-top: 5vh;
+    padding: 0 5vw;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
     background-color: var(--secondary-color);
 }
