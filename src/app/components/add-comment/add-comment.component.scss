@@ -1,0 +1,27 @@
+:host {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 35px;
+    background-color: var(--primary-color);
+}
+
+
+.add-comment-content {
+    width: 100%;
+    min-height: 64px;
+    margin: 1vh 2.5vw;
+    padding: 1vh 2.5vw;
+    outline: 1px var(--accent-color) solid;
+}
+
+button {
+    width: 100px;
+    height: 25px;
+    border: 1px var(--accent-color) solid;
+    background-color: transparent;
+    color: white;
+}

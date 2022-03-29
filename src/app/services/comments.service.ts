@@ -27,4 +27,8 @@ export class CommentsService {
   updateComment(comment: Comment): Observable<Comment> {
     return this.http.put<Comment>(`${this.commentsUrl}/${comment.id}`, comment, httpOptions);
   }
+
+  addComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.commentsUrl, comment, httpOptions);
+  }
 }

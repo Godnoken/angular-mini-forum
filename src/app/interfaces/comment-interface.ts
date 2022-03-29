@@ -1,5 +1,5 @@
 export interface Comment {
-    id: number;
+    id?: number;
     threadId: number;
     parentId: number;
     user: string;

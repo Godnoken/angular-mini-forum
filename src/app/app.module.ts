@@ -11,8 +11,9 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
-import { CreateCommentComponent } from './components/create-comment/create-comment.component';
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { ThreadBottomNavigationComponent } from './components/thread-bottom-navigation/thread-bottom-navigation.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
     LoginComponent,
     RegisterComponent,
     EditCommentComponent,
-    CreateCommentComponent,
-    CommentCardComponent
+    CommentCardComponent,
+    AddCommentComponent,
+    ThreadBottomNavigationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { CommentsService } from 'src/app/services/comments.service';
@@ -10,6 +10,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
+  public isCreatingComment?: boolean = false;
 
   constructor(
     private commentService: CommentsService,
@@ -30,5 +31,19 @@ export class CommentsComponent implements OnInit {
       this.commentService.updateComment(comment)
         .subscribe();
     }
+  }
+
+  displayCreateComment(): void {
+    this.isCreatingComment = true;
+  }
+
+  deleteCreateComment(): void {
+    this.isCreatingComment = false;
+  }
+
+  addComment(comment: Comment): void {
+    this.commentService.addComment(comment)
+      .subscribe(comment => this.comments.push(comment));
+    this.isCreatingComment = false;
   }
 }

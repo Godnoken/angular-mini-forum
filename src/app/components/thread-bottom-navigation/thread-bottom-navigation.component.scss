@@ -1,0 +1,26 @@
+:host {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1vh;
+}
+
+.thread-link-navigation {
+    grid-row: 1/2;
+    justify-self: center;
+    width: 40%;
+    background-color: white;
+}
+
+.thread-button-navigation {
+    grid-row: 2/3;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    width: 100px;
+    height: 25px;
+    border: 1px var(--accent-color) solid;
+    background-color: transparent;
+    color: white;
+}
