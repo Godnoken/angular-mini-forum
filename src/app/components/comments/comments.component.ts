@@ -23,4 +23,12 @@ export class CommentsComponent implements OnInit {
     this.commentService.getCommentsFromDb()
       .subscribe(comments => this.comments = comments);
   }
+
+  editComment(comment: Comment): void {
+    comment.isEditing = true;
+    if (comment) {
+      this.commentService.updateComment(comment)
+        .subscribe();
+    }
+  }
 }

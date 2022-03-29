@@ -47,10 +47,8 @@ button {
     color: white;
 }
 
-.edit-comment-content {
-    margin: 1vh 2.5vw;
-    padding: 1vh 2.5vw;
-    outline: 1px var(--accent-color) solid;
+.comment-content {
+    padding: 2vh 5vw;
 }
 
 .comment-date {

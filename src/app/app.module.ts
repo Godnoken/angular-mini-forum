@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
 import { CreateCommentComponent } from './components/create-comment/create-comment.component';
+import { CommentCardComponent } from './components/comment-card/comment-card.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import { CreateCommentComponent } from './components/create-comment/create-comme
     LoginComponent,
     RegisterComponent,
     EditCommentComponent,
-    CreateCommentComponent
+    CreateCommentComponent,
+    CommentCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,12 +6,7 @@
             <p class="comment-user-title">Fanbärare</p>
         </div>
     </div>
-    <div>
-        <button (click)="onExit()">Cancel</button>
-        <button (click)="onSave()">Save</button>
-    </div>
+    <button (click)="editComment(comment)">Edit</button>
 </div>
-<div class="edit-comment-content" role="textarea" contenteditable="true">
-    {{ comment.content }}
-</div>
+<p class="comment-content">{{ comment.content }}</p>
 <p class="comment-date">{{ comment.date }}</p>
