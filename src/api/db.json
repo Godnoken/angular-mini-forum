@@ -98,7 +98,7 @@
       "parent_id": null,
       "user": "Amelia",
       "date": "2016-02-23",
-      "content": "                                                  Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque.gfdgdfdfgfdg\n",
+      "content": "                                                       Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel ni",
       "isEditing": false
     },
     {
@@ -152,26 +152,8 @@
       "parent_id": null,
       "user": "Natashia",
       "date": "2016-03-17",
-      "content": "Nunc facilisis nisi vitae dapibus sodales. Proin vitae nunc turpis.",
+      "content": " Nunc facilisis nisi vitae dapibus sodales. Proin vitae nunc tu",
       "isEditing": false
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "user": "Larsa",
-      "date": "23:43  2022/2/29",
-      "content": " testing",
-      "isEditing": false,
-      "id": 8
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "user": "Larsa",
-      "date": "23:44  2022/2/29",
-      "content": "     test",
-      "isEditing": false,
-      "id": 9
     }
   ]
 }

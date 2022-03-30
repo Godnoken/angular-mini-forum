@@ -30,21 +30,15 @@
     justify-content: space-evenly;
 }
 
-.comment-user-name {
-    
-}
-
 .comment-user-title {
     font-size: 10px;
     color: var(--accent-color);
 }
 
-button {
-    width: 100px;
-    height: 25px;
-    border: 1px var(--accent-color) solid;
-    background-color: transparent;
-    color: white;
+.edit-comment-buttons {
+    width: 32.5%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .edit-comment-content {

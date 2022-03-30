@@ -1,8 +1,12 @@
+:host {
+    grid-column: 1/2;
+}
+
 .comments-container {
-    margin: 4vh 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    grid-template-columns: minmax(0, 1fr);
     row-gap: 2.5vh;
+    margin: 4vh 0;
     color: white;
 }
 
@@ -12,4 +16,5 @@
     width: 100%;
     padding: 10px;
     background-color: var(--primary-color);
+    box-shadow: var(--card-shadow);
 }

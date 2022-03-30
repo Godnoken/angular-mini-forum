@@ -1,9 +1,7 @@
 :host {
-    
     height: 100%;
     width: 100%;
     padding: 10px;
-    
 }
 
 .comment-top-container {
@@ -37,14 +35,6 @@
 .comment-user-title {
     font-size: 10px;
     color: var(--accent-color);
-}
-
-button {
-    width: 100px;
-    height: 25px;
-    border: 1px var(--accent-color) solid;
-    background-color: transparent;
-    color: white;
 }
 
 .comment-content {
