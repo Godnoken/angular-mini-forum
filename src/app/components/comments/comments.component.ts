@@ -42,8 +42,10 @@ export class CommentsComponent implements OnInit {
   }
 
   addComment(comment: Comment): void {
-    this.commentService.addComment(comment)
-      .subscribe(comment => this.comments.push(comment));
-    this.isCreatingComment = false;
+    if (comment) {
+      this.commentService.addComment(comment)
+        .subscribe(comment => this.comments.push(comment));
+      this.isCreatingComment = false;
+    }
   }
 }

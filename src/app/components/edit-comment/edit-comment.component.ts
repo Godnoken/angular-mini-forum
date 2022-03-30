@@ -28,7 +28,7 @@ export class EditCommentComponent implements OnInit {
 
   onSave(): void {
     const content = this.renderer.selectRootElement(".edit-comment-content", true);
-    this.comment.content = content.textContent;
+    this.comment.content = content.outerText;
 
     this.onExit();
   }
