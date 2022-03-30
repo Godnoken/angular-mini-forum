@@ -14,6 +14,7 @@ import { EditCommentComponent } from './components/edit-comment/edit-comment.com
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { ThreadBottomNavigationComponent } from './components/thread-bottom-navigation/thread-bottom-navigation.component';
+import { QuoteCommentComponent } from './components/quote-comment/quote-comment.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ThreadBottomNavigationComponent } from './components/thread-bottom-navi
     EditCommentComponent,
     CommentCardComponent,
     AddCommentComponent,
-    ThreadBottomNavigationComponent
+    ThreadBottomNavigationComponent,
+    QuoteCommentComponent
   ],
   imports: [
     BrowserModule,
