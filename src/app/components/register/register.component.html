@@ -1,1 +1,47 @@
-<p>register works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="register-container">
+    <div class="input-container">
+        <label>
+            Username
+            <input type="text" id="user-name" formControlName="userName">
+            <p *ngIf="userName!.hasError('userNameTaken') && (userName!.touched || userName!.dirty)" class="error-message">
+                Name is not available
+            </p>
+            <p *ngIf="userName!.hasError('minlength') && (userName!.touched || userName!.dirty)" class="error-message">
+                Name is too short
+            </p>
+        </label>
+        <label>
+            E-mail
+            <input type="email" id="email" formControlName="email" [ngClass]="{'invalid' : email!.hasError('emailUsed')}">
+            <p *ngIf="email!.hasError('emailUsed') && (email!.touched || email!.dirty)" class="error-message">
+                Email is already in use
+            </p>
+            <p *ngIf="email!.hasError('email') && (email!.touched || email!.dirty)" class="error-message">
+                Email form not valid
+            </p>
+        </label>
+        <label>
+            Password
+            <input type="password" id="password" formControlName="password">
+        </label>
+        <label>
+            Confirm Password
+            <input type="password" id="confirm-password" formControlName="confirmPassword" [ngClass]="{'ng-invalid' : userForm!.hasError('noMatch') && (confirmPassword!.touched || confirmPassword!.dirty)}">
+            <p *ngIf="userForm!.hasError('noMatch') && (confirmPassword!.touched || confirmPassword!.dirty)" class="error-message">
+                Passwords do not match
+            </p>
+        </label>
+    </div>
+    <div class="register-bottom-container">
+        <button class="register-button" type="submit">Register</button>
+        <div class="password-requirements-container">
+            <h3>Password must contain</h3>
+            <div class="password-requirements">
+                <p [ngClass]="{'ng-invalid' : password!.hasError('notEnoughCharacters') && (password!.touched || password!.dirty)}">8 characters</p>
+                <p [ngClass]="{'ng-invalid' : password!.hasError('noUpperOrLower') && (password!.touched || password!.dirty)}">A uppercase and lowercase letter</p>
+                <p [ngClass]="{'ng-invalid' : password!.hasError('noNumber') && (password!.touched || password!.dirty)}">A number</p>
+                <p [ngClass]="{'ng-invalid' : password!.hasError('noSpecialCharacter') && (password!.touched || password!.dirty)}">A special character (!?@#%&$^*)</p>
+            </div>
+        </div>
+    </div>
+</form>

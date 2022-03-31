@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Bugs
+
+Confirm password's input styling only reacts to errors when it first has successfully matched to password and then unmatched again.
+As of right now, I do not know how to solve this in angular without doing a dirty fix.
+
+## Wishbox
+
+Since Angular has no way of dynamically changing "updateOn" prop on formControl, I can not implement passive/aggressive rules to user validation messages/styling without making some ugly fix.

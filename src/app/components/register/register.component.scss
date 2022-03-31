@@ -1,0 +1,94 @@
+:host {
+    width: 70%;
+    min-height: 80vh;
+    margin-top: 5vh;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+
+.register-container {
+    height: 85%;
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    grid-template-rows: 4fr 1fr;
+    padding: 3vh 5vw;
+    background-color: var(--primary-color);
+}
+
+.input-container {
+    width: 55%;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+label {
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    user-select: none;
+}
+
+input {
+    width: 100%;
+    display: block;
+    border-width: 0 0 2px;
+    border-color: var(--accent-color);
+    background-color: transparent;
+    outline: none;
+    color: white;
+    padding: 14px 6px 2px 6px;
+    font-size: 16px;
+    text-align: center;
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .3s;
+    box-shadow: var(--primary-color) 0px 0px 0px 30px inset;
+    -webkit-text-fill-color: white;
+    caret-color: var(--accent-color);
+}
+
+input.ng-dirty.ng-invalid {
+    color: var(--warning-color);
+    -webkit-text-fill-color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+input.ng-valid {
+    border-color: var(--accent-color);
+}
+
+.error-message {
+    height: 0;
+    color: var(--warning-color);
+    font-size: 12px;
+    transform: translateY(6px);
+}
+
+.register-bottom-container {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-requirements-container {
+    color: white;
+    font-size: 12px;
+}
+
+p.ng-invalid {
+    color: var(--warning-color);
+}
+
+h3 {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
