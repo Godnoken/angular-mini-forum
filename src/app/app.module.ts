@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { ThreadBottomNavigationComponent } from './components/thread-bottom-navigation/thread-bottom-navigation.component';
 import { QuoteCommentComponent } from './components/quote-comment/quote-comment.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { QuoteCommentComponent } from './components/quote-comment/quote-comment.
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

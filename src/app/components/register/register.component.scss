@@ -83,12 +83,22 @@ input.ng-valid {
     font-size: 12px;
 }
 
+.password-requirements-header {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
 p.ng-invalid {
     color: var(--warning-color);
 }
 
-h3 {
+.registration-successful-header {
+    color: white;
     text-align: center;
-    font-size: 14px;
-    margin-bottom: 6px;
+    line-height: 24px;
+}
+
+.registration-successful-header span {
+    color: var(--accent-color);
 }

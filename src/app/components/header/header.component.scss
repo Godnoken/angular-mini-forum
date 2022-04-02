@@ -18,12 +18,20 @@
 .header-sides {
     width: 20vw;
     height: 100%;
-}
-
-.header-login-register {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.header-profile-name {
+    color: var(--accent-color);
+}
+
+.header-profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 1000px;
+    background-color: white;
 }
 
 .nav-item {

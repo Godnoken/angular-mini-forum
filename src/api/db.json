@@ -97,8 +97,9 @@
       "postId": 1,
       "parent_id": null,
       "user": "Amelia",
+      "userTitle": "Livstidsmedlem",
       "date": "2016-02-23",
-      "content": "                                                       Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel ni",
+      "content": "Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nifgsfs",
       "isEditing": false
     },
     {
@@ -106,8 +107,9 @@
       "postId": 1,
       "parent_id": 1,
       "user": "Jake",
+      "userTitle": "Supporter",
       "date": "2016-02-23",
-      "content": "                                      Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasd",
+      "content": "Nulla in nulla vel nisi ulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasdd",
       "isEditing": false
     },
     {
@@ -115,8 +117,9 @@
       "postId": 1,
       "parent_id": 2,
       "user": "Amelia",
+      "userTitle": "Livstidsmedlem",
       "date": "2016-02-24",
-      "content": "                                    Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. gdfgfdgfdg",
+      "content": "Nulla in nulla vel n gdfgfdgfdg",
       "isEditing": false
     },
     {
@@ -124,47 +127,31 @@
       "postId": 1,
       "parent_id": 1,
       "user": "Natashia",
+      "userTitle": "Fanbärare",
       "date": "2016-02-23",
       "content": "Mauris malesuada a tellus at mollis. Nam eu eros ipsum.",
       "isEditing": false
     },
     {
-      "id": 5,
-      "postId": 1,
-      "parent_id": null,
-      "user": "Shella",
-      "date": "2016-02-24",
-      "content": "Mauris vitae sem in nisl pharetra dapibus in nec orci.",
-      "isEditing": false
-    },
-    {
-      "id": 6,
-      "postId": 2,
-      "parent_id": null,
-      "user": "Hermina",
-      "date": "2016-03-16",
-      "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames.",
-      "isEditing": false
-    },
-    {
-      "id": 7,
-      "postId": 2,
-      "parent_id": null,
-      "user": "Natashia",
-      "date": "2016-03-17",
-      "content": " Nunc facilisis nisi vitae dapibus sodales. Proin vitae nunc tu",
-      "isEditing": false
-    },
-    {
       "threadId": 2,
       "parentId": 2,
-      "user": "Larsa",
-      "date": "12:18  2022/2/30",
-      "content": "tes",
+      "userId": 1,
+      "user": "Godnoken",
+      "userTitle": "Supporter",
+      "date": "22:18  2022/3/2",
+      "content": "Testing",
       "isEditing": false,
-      "id": 8
+      "id": 5
     }
   ],
   "users": [
+    {
+      "email": "sebastian.ojefors@gmail.com",
+      "password": "$2a$10$dMyg/PjBR3KwY1utITRdq.TJLILKlqLeXbJOMGKaJlG1tMV8RrjKy",
+      "userName": "Godnoken",
+      "isOnline": true,
+      "title": "Supporter",
+      "id": 1
+    }
   ]
 }

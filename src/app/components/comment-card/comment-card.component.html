@@ -3,10 +3,11 @@
         <div class="comment-user-profile-img"></div>
         <div class="comment-user-titles-container">
             <h3 class="comment-user-name">{{ comment.user }}</h3>
-            <p class="comment-user-title">Fanbärare</p>
+            <p class="comment-user-title">{{ comment.userTitle }}</p>
         </div>
     </div>
-    <button (click)="editComment(comment)">Edit</button>
+    <button *ngIf="userService.loggedUserId === comment.userId" (click)="editComment(comment)">Edit</button>
+    <button *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId" (click)="replyComment(comment)">Reply</button>
 </div>
 <p class="comment-content">{{ comment.content }}</p>
 <p class="comment-date">{{ comment.date }}</p>

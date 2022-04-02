@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2, Output, EventEmitter } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-comment',
@@ -11,7 +12,8 @@ export class AddCommentComponent implements OnInit {
   @Output() onAddComment: EventEmitter<Comment> = new EventEmitter();
 
   constructor(
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,9 @@ export class AddCommentComponent implements OnInit {
     const comment = {
       threadId: 2,
       parentId: 2,
-      user: "Larsa",
+      userId: this.userService.loggedUserId,
+      user: this.userService.user.userName,
+      userTitle: this.userService.user.title,
       date: this.getCurrentDate(),
       content: content,
       isEditing: false

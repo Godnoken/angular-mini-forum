@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user.service';
 import { EmailService } from 'src/app/services/validators/email.service';
@@ -12,11 +13,14 @@ import { PasswordService } from 'src/app/services/validators/password.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  public submitted: boolean = false;
+
   constructor(
     private userService: UserService,
     private userNameValidator: UserNameService,
     private emailValidator: EmailService,
-    private passwordValidator: PasswordService
+    private passwordValidator: PasswordService,
+    private router: Router
   ) { }
 
   userForm = new FormGroup({
@@ -26,7 +30,7 @@ export class RegisterComponent {
         Validators.minLength(3)
       ],
       asyncValidators:
-      [this.userNameValidator.validate.bind(this.userNameValidator)],
+        [this.userNameValidator.validate.bind(this.userNameValidator)],
       updateOn: "blur"
     }),
     email: new FormControl("", {
@@ -35,22 +39,22 @@ export class RegisterComponent {
         Validators.email
       ],
       asyncValidators:
-      [this.emailValidator.validate.bind(this.emailValidator)],
+        [this.emailValidator.validate.bind(this.emailValidator)],
       updateOn: "blur"
     }),
-    password: new FormControl("", { 
-    validators: [
-      Validators.required,
-      this.passwordValidator.validateLength,
-      this.passwordValidator.validateUpperAndLower,
-      this.passwordValidator.validateNumber,
-      this.passwordValidator.validateSpecialCharacter
-    ], updateOn: "change"
-  }),
+    password: new FormControl("", {
+      validators: [
+        Validators.required,
+        this.passwordValidator.validateLength,
+        this.passwordValidator.validateUpperAndLower,
+        this.passwordValidator.validateNumber,
+        this.passwordValidator.validateSpecialCharacter
+      ], updateOn: "change"
+    }),
     confirmPassword: new FormControl("", [
       Validators.required
     ])
-  }, { 
+  }, {
     validators: this.passwordValidator.validatePasswordMatch,
     updateOn: "blur"
   })
@@ -62,10 +66,25 @@ export class RegisterComponent {
 
   onSubmit(): void {
     if (this.userForm.valid) {
-      this.userService.registerUser(this.userForm.value)
-        .subscribe();
+      this.submitted = true;
+      delete this.userForm.value.confirmPassword;
 
-      this.userForm.reset();
+      this.userService.registerUser(this.userForm.value)
+        .subscribe(res => {
+          console.log(res)
+          this.userService.jwtToken = res.accessToken;
+          this.userService.loggedUserId = res.user.id;
+          this.userService.user = res.user;
+        }
+        );
+
+      setTimeout(() => {
+        this.userForm.reset();
+        this.router.navigateByUrl("/");
+      }, 1500)
+    }
+    else {
+      this.submitted = false;
     }
   }
 }

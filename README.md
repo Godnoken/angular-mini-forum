@@ -32,6 +32,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Confirm password's input styling only reacts to errors when it first has successfully matched to password and then unmatched again.
 As of right now, I do not know how to solve this in angular without doing a dirty fix.
 
+---
+
+Login validation only checks if email is valid *first* when the password provided in the input is longer than 3 characters due to how json-server-auth reports errors. Not sure how to solve it at this time.
+
 ## Wishbox
 
 Since Angular has no way of dynamically changing "updateOn" prop on formControl, I can not implement passive/aggressive rules to user validation messages/styling without making some ugly fix.
+
+---
+
+Time on forum comments doesn't display pleasingly when it's between 00:00 and 01:00. It drops to 0:0, 0:5 and so on.
+
+---
+

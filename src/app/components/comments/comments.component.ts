@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { CommentsService } from 'src/app/services/comments.service';
@@ -14,7 +14,8 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private commentService: CommentsService,
-  ) { }
+  ) { 
+  }
 
   ngOnInit(): void {
     this.getComments();

@@ -1,1 +1,24 @@
-<p>login works!</p>
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="register-container">
+    <div class="input-container">
+        <label>
+            E-mail
+            <input type="email" id="email" formControlName="email">
+            <p *ngIf="authForm!.hasError('incorrectEmail')" class="error-message">
+                Incorrect email
+            </p>
+        </label>
+        <label>
+            Password
+            <input type="password" id="password" formControlName="password">
+            <p *ngIf="authForm!.hasError('incorrectPassword')" class="error-message">
+                Incorrect password
+            </p>
+        </label>
+    </div>
+    <div class="login-bottom-container">
+        <button class="login-button" type="submit">Login</button>
+        <h3 *ngIf="authForm.valid && submitted" class="login-successful-header">
+            Login successful.<br>Welcome <span>{{userService.user.userName}}</span>!
+        </h3>
+    </div>
+</form>

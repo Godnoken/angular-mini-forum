@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="register-container">
+<form [formGroup]="userForm" #ngForm="ngForm" (ngSubmit)="onSubmit()" class="register-container">
     <div class="input-container">
         <label>
             Username
@@ -34,8 +34,8 @@
     </div>
     <div class="register-bottom-container">
         <button class="register-button" type="submit">Register</button>
-        <div class="password-requirements-container">
-            <h3>Password must contain</h3>
+        <div *ngIf="!submitted" class="password-requirements-container">
+            <h3 class="password-requirements-header">Password must contain</h3>
             <div class="password-requirements">
                 <p [ngClass]="{'ng-invalid' : password!.hasError('notEnoughCharacters') && (password!.touched || password!.dirty)}">8 characters</p>
                 <p [ngClass]="{'ng-invalid' : password!.hasError('noUpperOrLower') && (password!.touched || password!.dirty)}">A uppercase and lowercase letter</p>
@@ -43,5 +43,8 @@
                 <p [ngClass]="{'ng-invalid' : password!.hasError('noSpecialCharacter') && (password!.touched || password!.dirty)}">A special character (!?@#%&$^*)</p>
             </div>
         </div>
+        <h3 *ngIf="userForm.valid && submitted" class="registration-successful-header">
+            Registration successful.<br>Welcome <span>{{userName!.value}}</span>!
+        </h3>
     </div>
 </form>
