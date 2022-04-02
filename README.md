@@ -46,3 +46,9 @@ Time on forum comments doesn't display pleasingly when it's between 00:00 and 01
 
 ---
 
+I have an enormous amount of styling that is duplicated in one way or another. Struggling to understand what the best practise is for structuring styling in angular. Will have to look into it and decide something to go with so I can remove loads of unecessary code.
+
+---
+
+Pretty much all styling in place is just thrown together without responsiveness in mind. Will redo it all when I have decided the above.
+
