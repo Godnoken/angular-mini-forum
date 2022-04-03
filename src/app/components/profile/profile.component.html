@@ -1,0 +1,50 @@
+<img src="../../../assets/Djurgården.jpg" alt="Djurgårdare" class="background-image">
+<div *ngIf="user" class="profile-container">
+    <div class="profile-top-container">
+        <div class="profile-top-user-container">
+            <div src="" alt="profile picture" class="profile-picture"></div>
+            <div>
+                <h2 class="profile-username">{{ user.userName }}</h2>
+                <p class="profile-title">{{ user.title }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="profile-bottom-container">
+        <div class="profile-navigation-container">
+            <button (click)="showInfo()" class="button">Info</button>
+            <button (click)="showComments()" class="button">Comments</button>
+        </div>
+        <div *ngIf="displayItem === 'info'" class="profile-information-container">
+            <div class="info-item-container">
+                <p>Member since:</p>
+                <p>02/06/22</p>
+            </div>
+            <div class="info-breaker"></div>
+            <div class="info-item-container">
+                <p>Favourite player:</p>
+                <p>Omar Colley</p>
+            </div>
+            <div class="info-breaker"></div>
+            <div class="info-item-container">
+                <p>Location:</p>
+                <p>Spain</p>
+            </div>
+        </div>
+        <div *ngIf="displayItem === 'comments'" class="comments-container">
+            <div *ngFor="let comment of comments" class="comment-card-container">
+                <div class="comment-top-container">
+                    <div class="comment-user-container">
+                        <a routerLink="/profile/{{ comment.userId }}"><div class="comment-user-profile-img"></div></a>
+                        <div class="comment-user-titles-container">
+                            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ comment.user }}</h3></a>
+                            <p class="comment-user-title">{{ comment.userTitle }}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <p class="comment-content">{{ comment.content }}</p>
+                <p class="comment-date">{{ comment.date }}</p>
+            </div>
+        </div>
+    </div>
+</div>

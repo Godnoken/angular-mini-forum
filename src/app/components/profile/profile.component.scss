@@ -1,0 +1,143 @@
+:host {
+    width: 100%;
+    min-height: 80vh;
+    margin-top: 5vh;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+}
+
+.background-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+}
+
+.profile-top-container {
+    transform: translateY(-5vw);
+    display: flex;
+    align-items: flex-start;
+    padding-left: 3vw;
+    color: white;
+}
+
+.profile-picture {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 1000px;
+    background-color: white;
+}
+
+.profile-top-user-container {
+    display: flex;
+    column-gap: 2vw;
+    align-items: flex-end;
+}
+
+.profile-username {
+    font-size: 2.4vw;
+}
+
+.profile-title {
+    color: var(--accent-color);
+    font-size: 1vw;
+}
+
+.profile-bottom-container {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+}
+
+.profile-navigation-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 2vw;
+}
+
+.profile-information-container {
+    height: 40vh;
+    width: 90%;
+    max-width: 400px;
+    margin: 4vh 0 8vh;
+    padding: 4vh 2vw;
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    word-wrap: break-word;
+    color: white;
+}
+
+.info-item-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-breaker {
+    border: solid 1px var(--accent-color);
+}
+
+.comments-container {
+    height: max-content;
+    width: 50vw;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 2.5vh;
+    margin: 4vh 0;
+    color: white;
+}
+
+.comment-card-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primary-color);
+    box-shadow: var(--card-shadow);
+    color: white;
+}
+
+.comment-top-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2vw;
+}
+
+.comment-user-container {
+    display: flex;
+    column-gap: 2vw;
+}
+
+.comment-user-profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 1000px;
+    background-color: white;
+}
+
+.comment-user-titles-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.comment-user-title {
+    font-size: 10px;
+    color: var(--accent-color);
+}
+
+.comment-content {
+    padding: 2vh 5vw;
+}
+
+.comment-date {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+}

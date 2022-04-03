@@ -1,8 +1,8 @@
 <div class="comment-top-container">
     <div class="comment-user-container">
-        <div class="comment-user-profile-img"></div>
+        <a routerLink="/profile/{{ comment.userId }}"><div class="comment-user-profile-img"></div></a>
         <div class="comment-user-titles-container">
-            <h3 class="comment-user-name">{{ comment.user }}</h3>
+            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ comment.user }}</h3></a>
             <p class="comment-user-title">{{ comment.userTitle }}</p>
         </div>
     </div>

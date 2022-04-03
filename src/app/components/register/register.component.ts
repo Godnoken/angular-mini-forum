@@ -71,7 +71,6 @@ export class RegisterComponent {
 
       this.userService.registerUser(this.userForm.value)
         .subscribe(res => {
-          console.log(res)
           this.userService.jwtToken = res.accessToken;
           this.userService.loggedUserId = res.user.id;
           this.userService.user = res.user;

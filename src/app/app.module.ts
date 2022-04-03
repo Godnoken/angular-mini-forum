@@ -17,6 +17,7 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
 import { ThreadBottomNavigationComponent } from './components/thread-bottom-navigation/thread-bottom-navigation.component';
 import { QuoteCommentComponent } from './components/quote-comment/quote-comment.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     CommentCardComponent,
     AddCommentComponent,
     ThreadBottomNavigationComponent,
-    QuoteCommentComponent
+    QuoteCommentComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

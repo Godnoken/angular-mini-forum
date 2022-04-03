@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 import { Comment } from '../interfaces/comment-interface';
 
@@ -22,6 +22,14 @@ export class CommentsService {
 
   getCommentsFromDb(): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.apiUrl}/664/comments`);
+  }
+
+  getCommentsFromUser(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/664/comments`)
+      .pipe(
+        map((comments: any) => comments.filter((comments: any) => id === comments.userId)),
+        map((comments: any) => comments)
+      )
   }
 
   updateComment(comment: Comment): Observable<Comment> {

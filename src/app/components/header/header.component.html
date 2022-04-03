@@ -1,8 +1,8 @@
 <div class="header-sides"></div>
 <a routerLink="/"><h1 class="home-title">Djurgårdens IF</h1></a>
 <div *ngIf="userService.loggedUserId !== 0" class="header-sides">
-    <p class="header-profile-name">{{ userService.user.userName }}</p>
-    <div class="header-profile-img"></div>
+    <a routerLink="/profile/{{ userService.loggedUserId }}"><p class="header-profile-name">{{ userService.user.userName }}</p></a>
+    <a routerLink="/profile/{{ userService.loggedUserId }}"><div class="header-profile-img"></div></a>
 </div>
 <nav *ngIf="userService.loggedUserId === 0" class="header-sides">
     <a routerLink="/login" class="nav-item">Login</a>
