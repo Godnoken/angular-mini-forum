@@ -1,9 +1,9 @@
-<div class="comment-top-container">
+<div *ngIf="users[comment.userId -1]" class="comment-top-container">
     <div class="comment-user-container">
-        <div class="comment-user-profile-img"></div>
+        <a routerLink="/profile/{{ comment.userId }}"><img src="{{ users[comment.userId -1].profilePic }}" alt="profile pic" class="comment-user-profile-img"></a>
         <div class="comment-user-titles-container">
-            <h3 class="comment-user-name">{{ comment.user }}</h3>
-            <p class="comment-user-title">Fanbärare</p>
+            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ users[comment.userId - 1].userName }}</h3></a>
+            <p class="comment-user-title">{{ users[comment.userId - 1].title }}</p>
         </div>
     </div>
     <div class="edit-comment-buttons">

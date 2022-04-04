@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
+import { User } from 'src/app/interfaces/user-interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CommentCardComponent implements OnInit {
   @Input() comment!: Comment;
+  @Input() users!: User[];
   @Output() onEdit: EventEmitter<Comment> = new EventEmitter();
 
   constructor(

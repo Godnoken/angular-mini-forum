@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Renderer2, HostListener } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
+import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class EditCommentComponent implements OnInit {
   @Input() comment!: Comment;
+  @Input() users!: User[];
 
   constructor(
     private renderer: Renderer2,

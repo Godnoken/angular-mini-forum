@@ -20,6 +20,7 @@ export class UserService {
   public jwtToken: string = "none";
   public loggedUserId: number = 0;
   public user!: User;
+  private password: string = "";
 
   constructor(
     private http: HttpClient,
@@ -28,6 +29,8 @@ export class UserService {
   registerUser(user: User): Observable<any> {
     user.isOnline = true;
     user.title = "Supporter";
+    user.profilePic = "";
+    this.password = user.password;
     return this.http.post<any>(`${this.authUrl}/register`, user, httpOptions);
   }
 
@@ -37,15 +40,14 @@ export class UserService {
 
   loginUser(user: User): Observable<any> {
     user.isOnline = true;
+    this.password = user.password;
     return this.http.post<any>(`${this.authUrl}/login`, user, httpOptions)
   }
-
-  getUsers(name: string) {
-    return this.http.get<User[]>(this.usersUrl)
-      .pipe(
-        map((response: any) => {
-          return response.filter((res: any) => res.userName === name)
-        })
-      );
+  
+  uploadProfilePic(image: string): Observable<User> {
+    this.user.profilePic = image;
+    this.user.password = this.password;
+    return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
   }
+
 }

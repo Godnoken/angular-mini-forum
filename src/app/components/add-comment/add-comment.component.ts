@@ -26,8 +26,6 @@ export class AddCommentComponent implements OnInit {
       threadId: 2,
       parentId: 2,
       userId: this.userService.loggedUserId,
-      user: this.userService.user.userName,
-      userTitle: this.userService.user.title,
       date: this.getCurrentDate(),
       content: content,
       isEditing: false

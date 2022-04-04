@@ -5,5 +5,6 @@ export interface User {
     title: string;
     email: string;
     password: string;
+    profilePic: string;
     isOnline: boolean;
 }

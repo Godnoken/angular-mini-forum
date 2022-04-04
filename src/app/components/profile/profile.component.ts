@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 import { UserService } from 'src/app/services/user.service';
@@ -18,7 +19,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     public userService: UserService,
     private commentsService: CommentsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -40,8 +42,19 @@ export class ProfileComponent implements OnInit {
     this.getComments();
   }
 
+  showSettings(): void {
+    this.displayItem = "settings";
+  }
+
   getComments(): void {
     this.commentsService.getCommentsFromUser(this.user.id!)
       .subscribe(comments => this.comments = comments);
+  }
+
+  uploadProfilePic(): void {
+    const image = this.renderer.selectRootElement(".profile-pic-input", true).value;
+    
+    this.userService.uploadProfilePic(image)
+      .subscribe(user => this.user.profilePic = user.profilePic)
   }
 }

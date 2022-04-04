@@ -2,7 +2,7 @@
 <div *ngIf="user" class="profile-container">
     <div class="profile-top-container">
         <div class="profile-top-user-container">
-            <div src="" alt="profile picture" class="profile-picture"></div>
+            <img src="{{ user.profilePic }}" alt="profile picture" class="profile-picture">
             <div>
                 <h2 class="profile-username">{{ user.userName }}</h2>
                 <p class="profile-title">{{ user.title }}</p>
@@ -13,6 +13,7 @@
         <div class="profile-navigation-container">
             <button (click)="showInfo()" class="button">Info</button>
             <button (click)="showComments()" class="button">Comments</button>
+            <button (click)="showSettings()" class="button">Settings</button>
         </div>
         <div *ngIf="displayItem === 'info'" class="profile-information-container">
             <div class="info-item-container">
@@ -36,14 +37,23 @@
                     <div class="comment-user-container">
                         <a routerLink="/profile/{{ comment.userId }}"><div class="comment-user-profile-img"></div></a>
                         <div class="comment-user-titles-container">
-                            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ comment.user }}</h3></a>
-                            <p class="comment-user-title">{{ comment.userTitle }}</p>
+                            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ user.userName }}</h3></a>
+                            <p class="comment-user-title">{{ user.title }}</p>
                         </div>
                     </div>
                     
                 </div>
                 <p class="comment-content">{{ comment.content }}</p>
                 <p class="comment-date">{{ comment.date }}</p>
+            </div>
+        </div>
+        <div *ngIf="displayItem === 'settings'" class="settings-container">
+            <div class="change-profile-pic-container">
+                <label>
+                    Profile picture
+                    <input type="text" class="profile-pic-input">
+                </label>
+                <button (click)="uploadProfilePic()" class="button">Change</button>
             </div>
         </div>
     </div>

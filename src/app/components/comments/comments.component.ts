@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
+import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-comments',
@@ -10,11 +13,14 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
+  users: User[] = [];
   public isCreatingComment?: boolean = false;
+  private ids: any = [];
 
   constructor(
     private commentService: CommentsService,
-  ) { 
+    private userService: UserService
+  ) {
   }
 
   ngOnInit(): void {
@@ -23,7 +29,28 @@ export class CommentsComponent implements OnInit {
 
   getComments(): void {
     this.commentService.getCommentsFromDb()
-      .subscribe(comments => this.comments = comments);
+      .pipe(
+        finalize(() => {
+          this.getUsers();
+        })
+      )
+      .subscribe(comments => {
+        this.comments = comments
+        for (let i = 0; i < comments.length; i++) {
+          if (this.ids.indexOf(comments[i].userId) === -1) {
+            this.ids.push(comments[i].userId);
+          }
+        }
+      })
+  }
+
+  getUsers(): void {
+    for (let i = 0; i < this.ids.length; i++) {
+      this.userService.getUser(this.comments[i].userId)
+        .subscribe(user => {
+          this.users.push(user);
+        })
+    }
   }
 
   editComment(comment: Comment): void {
@@ -49,4 +76,6 @@ export class CommentsComponent implements OnInit {
       this.isCreatingComment = false;
     }
   }
+
+
 }

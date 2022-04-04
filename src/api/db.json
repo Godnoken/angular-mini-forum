@@ -93,53 +93,13 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "postId": 1,
-      "parent_id": null,
-      "user": "Amelia",
-      "userTitle": "Livstidsmedlem",
-      "date": "2016-02-23",
-      "content": "Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor. Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nifgsfs",
-      "isEditing": false
-    },
-    {
-      "id": 2,
-      "postId": 1,
-      "parent_id": 1,
-      "user": "Jake",
-      "userTitle": "Supporter",
-      "date": "2016-02-23",
-      "content": "Nulla in nulla vel nisi ulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasdd",
-      "isEditing": false
-    },
-    {
-      "id": 3,
-      "postId": 1,
-      "parent_id": 2,
-      "user": "Amelia",
-      "userTitle": "Livstidsmedlem",
-      "date": "2016-02-24",
-      "content": "Nulla in nulla vel n gdfgfdgfdg",
-      "isEditing": false
-    },
-    {
-      "id": 4,
-      "postId": 1,
-      "parent_id": 1,
-      "user": "Natashia",
-      "userTitle": "Fanbärare",
-      "date": "2016-02-23",
-      "content": "Mauris malesuada a tellus at mollis. Nam eu eros ipsum.",
-      "isEditing": false
-    },
-    {
       "threadId": 2,
       "parentId": 2,
       "userId": 1,
       "user": "Godnoken",
       "userTitle": "Supporter",
       "date": "22:18  2022/3/2",
-      "content": "Testing",
+      "content": "Testings",
       "isEditing": false,
       "id": 5
     },
@@ -197,24 +157,59 @@
       "content": "Nulla in nulla vel nisi ulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasddNulla in nulla vel nisi ulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasdd",
       "isEditing": false,
       "id": 10
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "user": "Godnoken",
+      "userTitle": "Supporter",
+      "date": "17:40  2022/3/4",
+      "content": "Test",
+      "isEditing": false,
+      "id": 11
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "user": "Godnoken",
+      "userTitle": "Supporter",
+      "date": "17:40  2022/3/4",
+      "content": "Testsdfsdfdf",
+      "isEditing": false,
+      "id": 12
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 2,
+      "user": "Seb",
+      "userTitle": "Supporter",
+      "date": "17:41  2022/3/4",
+      "content": "Hallåååå",
+      "isEditing": false,
+      "id": 13
     }
   ],
   "users": [
     {
       "email": "sebastian.ojefors@gmail.com",
-      "password": "$2a$10$dMyg/PjBR3KwY1utITRdq.TJLILKlqLeXbJOMGKaJlG1tMV8RrjKy",
       "userName": "Godnoken",
       "isOnline": true,
       "title": "Supporter",
-      "id": 1
+      "id": 1,
+      "profilePic": "https://difhistoria.se/wp-content/uploads/difhistoria_logo_stor.png",
+      "password": "$2a$10$w3.7J.nVEW.SYHJEcXcyGuaFkP5nEn83gvjghsYxI2cNJUnwmb/Su"
     },
     {
       "email": "godnoken@gmail.com",
-      "password": "$2a$10$FCY9QTUM134OuSt1j6ulzeABV5r/oC0lTBGZ5r8K3lkbmWahgGLN2",
       "userName": "Seb",
       "isOnline": true,
       "title": "Supporter",
-      "id": 2
+      "id": 2,
+      "profilePic": "https://pbs.twimg.com/profile_images/915279321/difhockey-logotype-alternativ_400x400.jpg",
+      "password": "$2a$10$xNLKiOr1ktdEnqf3fWMRuuyFIPGFfJ2Bz8dw96dtK2h5ukeLZssRC"
     }
   ]
 }
