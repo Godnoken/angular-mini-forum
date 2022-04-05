@@ -9,8 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ThreadBottomNavigationComponent implements OnInit {
   @Input() isCreatingComment?: boolean;
-  @Output() onShowCreateComment: EventEmitter<Comment> = new EventEmitter();
-  @Output() onDeleteCreateComment: EventEmitter<Comment> = new EventEmitter();
+  @Output() isCreatingCommentChange = new EventEmitter<boolean>();
 
   constructor(
     public userService: UserService
@@ -21,9 +20,11 @@ export class ThreadBottomNavigationComponent implements OnInit {
 
   handleCreateCommentDisplay(): void {
     if (this.isCreatingComment === false) {
-      this.onShowCreateComment.emit();
+      this.isCreatingComment = true;
     } else {
-      this.onDeleteCreateComment.emit();
+      this.isCreatingComment = false;
     }
+    
+    this.isCreatingCommentChange.emit(this.isCreatingComment);
   }
 }

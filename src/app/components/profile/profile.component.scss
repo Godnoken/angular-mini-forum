@@ -92,56 +92,6 @@
     color: white;
 }
 
-.comment-card-container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-    background-color: var(--primary-color);
-    box-shadow: var(--card-shadow);
-    color: white;
-}
-
-.comment-top-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2vw;
-}
-
-.comment-user-container {
-    display: flex;
-    column-gap: 2vw;
-}
-
-.comment-user-profile-img {
-    width: 35px;
-    height: 35px;
-    border-radius: 1000px;
-    background-color: white;
-}
-
-.comment-user-titles-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.comment-user-title {
-    font-size: 10px;
-    color: var(--accent-color);
-}
-
-.comment-content {
-    padding: 2vh 5vw;
-}
-
-.comment-date {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 12px;
-}
-
 .settings-container {
     height: 40vh;
     width: 90%;

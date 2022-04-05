@@ -96,100 +96,19 @@
       "threadId": 2,
       "parentId": 2,
       "userId": 1,
-      "user": "Godnoken",
-      "userTitle": "Supporter",
-      "date": "22:18  2022/3/2",
-      "content": "Testings",
+      "date": "22:12  2022/3/5",
+      "content": "Testingss",
       "isEditing": false,
-      "id": 5
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 2,
-      "user": "Seb",
-      "userTitle": "Supporter",
-      "date": "23:7  2022/3/2",
-      "content": "Hello",
-      "isEditing": false,
-      "id": 6
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 2,
-      "user": "Seb",
-      "userTitle": "Supporter",
-      "date": "23:55  2022/3/3",
-      "content": "sf",
-      "isEditing": false,
-      "id": 7
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 2,
-      "user": "Seb",
-      "userTitle": "Supporter",
-      "date": "23:55  2022/3/3",
-      "content": "sdfsf",
-      "isEditing": false,
-      "id": 8
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 2,
-      "user": "Seb",
-      "userTitle": "Supporter",
-      "date": "23:55  2022/3/3",
-      "content": "sdsf",
-      "isEditing": false,
-      "id": 9
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 2,
-      "user": "Seb",
-      "userTitle": "Supporter",
-      "date": "23:57  2022/3/3",
-      "content": "Nulla in nulla vel nisi ulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasddNulla in nulla vel nisi ulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor.Nulla in nulla vel nisi faucibus scelerisque. dgfgdgasdasdd",
-      "isEditing": false,
-      "id": 10
+      "id": 1
     },
     {
       "threadId": 2,
       "parentId": 2,
       "userId": 1,
-      "user": "Godnoken",
-      "userTitle": "Supporter",
-      "date": "17:40  2022/3/4",
-      "content": "Test",
+      "date": "22:21  2022/3/5",
+      "content": "Ss",
       "isEditing": false,
-      "id": 11
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "user": "Godnoken",
-      "userTitle": "Supporter",
-      "date": "17:40  2022/3/4",
-      "content": "Testsdfsdfdf",
-      "isEditing": false,
-      "id": 12
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 2,
-      "user": "Seb",
-      "userTitle": "Supporter",
-      "date": "17:41  2022/3/4",
-      "content": "Hallåååå",
-      "isEditing": false,
-      "id": 13
+      "id": 2
     }
   ],
   "users": [
@@ -199,8 +118,8 @@
       "isOnline": true,
       "title": "Supporter",
       "id": 1,
-      "profilePic": "https://difhistoria.se/wp-content/uploads/difhistoria_logo_stor.png",
-      "password": "$2a$10$w3.7J.nVEW.SYHJEcXcyGuaFkP5nEn83gvjghsYxI2cNJUnwmb/Su"
+      "profilePic": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABIFBMVEXH5fcHIksTYar76QjbDRjM6vwADkCBma/WumvWvGzbABX96wDbABLbAA/Wvm3Wwm8AHUrcv2zUt2/G5/0AXawAWa7VuWzfv2bXuGLXuGEAW63WuWcAD0nfwW3TtnAAWK7L2tfWsGYAFkoADEnXoV4AGUrs1j7ZZT/Xl1nbwGHXqGLbGh3aPizZWDnGrmjaMSbYjVTZa0KDjo8AAEhFSVHP0Laum2N3b1nu2DnexFvkzFD35BvZeEnjylLaRC/Yg0/Uv32ikWEraKbFsXPN1ca3qXrJ4epdW1WPlIpXeZy8rHfTxI+lpJF6clrRyJyRg15aWFTM18+JfVzaUDVAcKLt1zwoNk6wpX2kn4LQy6lDR1F+i5Bkf5lLc6BxhZUUKUzex4NaAAAJDElEQVR4nO3caVcTSRcHcBMyz1T1Xm2sTugkkI0lqyhEIAEGRAVEYQZGxplx/P7fYm71AlnFF1X99HhunaMnyBt/p5Z7/9VJnmSSHf/7+acnCQ8UohCFKEQhClGIQhSiEIUoRCEKUYhCFKIQhShEIQpRiEIUohCFKEQhClGIQhSiEIUoRCEKUYhCFKIQhShEIQpRiEIUohCFKEQhClGIQhSiEIUo/NGFtfrlT09/YGGt/ooXyOnTZI2J8ZyS88EtE04KZOdJksaEeLX69jFhhLubLhgLH1eTm0jZFGeOrvRy+6pXBl9lb6gP9yqc+EX+GZCJKCUDt7dr9VKt2Ww6jtNs1gDnbH8YEMFz3YOhri/p+nCfw0T6heL7ndW3T5/G0PDV6q/pFpYGZdo7vnr17vp6+/rdqw9Xgx4rMwq8yuYa4JbE0HV9d88NkUXy/uPO6emvME53Pr/nxeIvsidWrrDuEkLY2IAfYfL43tow4i1FyKXdAwLLlRDfL8AoFuEv34efC+kWfi0T4orBxQheeQdCN86LkbAluUVs27bCAa8Ip8W3aRY622W+rw93d9f2Yayt7Q4Fbg4vNK659o3Z7nTXt0aj0dZ697BtjqyC7I0oVdh8xdw1fXzMt4XAfdc+NHI5TTPCoWk5Y90qnEpeplKFtd+Yu/st1TjwwKUdAE4MrWP7H9MsLB0zd/h9Qn3PJf1pYC7Xtv33qRYOaGX4nUDO29oMMKdZvuxyIVVYH/iV75lCXd/kVQBqM5NokpQLe4R/h1Bf2qQtca50Rua0sErdVAtdUnhcqC8x2jIAeGjZW1NEs0WJXKDkfciJ96hQHxKrATDzxqbE7k5uRrNBC2kWNjnZfEyoD7m9IYBdAFoNKIfhEaPFwmKahQ55VCiAzwVw3SbE2jC1tqj6MKFh6TA3rP+4UB+69hEAjREAqQByq6/BAWPb68aPINR3XTs4P7U+hRxh3bQJJbRv3IC3av4HhM1HhPpuJT49gQg2yBKEVvta36bh6bNukVQLa98+afS1ir0elwejAyeNmMFqTnTc1UYbgFswl6kWQj38RrUQwO5D/TMOgUNowxSnqGaKGRzZrEf8VAvh/7dQqO9X7MPxAm+K3Ucf2lPzyPZuL/xUV/z6a7qwL4U4aE2lpaBiUJ6LSuFz279dcf1Ud20iWywCHsxJS8G+s6rtsBLa5Daf99LdeS/OhyItQd2bzkuw8+CwgV9AM2Pzk3w266U7H9auFmT8OC31+1NG2Hs8iFEtVsnCuPXSnfHFPc3vc67VIC1VRVrqEz49jeaRAGpV9loAs+eev5NmoXPN+P6MUF8qBGlJO4RWu3ovNPttsS/FXVS7yi7yAph/wdJ9E+V8KvO9aaE+9K1GYDkSR2crOm7g6AxbUQDy8pvlYArzl6y4Khco+Ua4RmdKvoiDG2aMImE2FF1b3IrC2vXungXA7PIdS/eNMJR86k4Dw7SUiytCTGxDKyqERsfy/ljJRkJOSLpv9WfKhUhLzx8aGbNhERIE4JyxRaodyE2HtncWA7Mn8ouF7FX6QVx6jwHjtDRJDMyGCR0pJH3v7FkMFEfp53QLnT/L/EAfA1am75qMFiSKIARHfZv31wMwf8akP7aQ/Qy4xAi7F+q/j6WlaEDpE7MYTix0bd4/D8Dssze+9INGtrA+IG586z2VlmJijotZDDq1ke39vZwdG8zn0p98SxaKZzPRRhRp6WYGKMofoXbXCNPS+QTwXH7PJv+dCtvxRhRpKXh4ZpqmOdGqaX0q5FAd2Zf8OFBsw1PZQOnvNinx8GJfpCURB82b563WRjcyBlEe9qIW1Eb/dgKYffZawTaULzwO4gWkJREHtVzDpjDsapANjfXWRjsuG2FaGh+38sOhAmHznVim0cMzaKktcdsEf+yOCE82Dcu9ZrYs92TSFyxS2cFCgTBTI7BMN4MbNGipKdiqVFw5Efi5C3lXdGoPaWl8rChZpPKFsEyJHzw80zrisrDVN80tmElrZOSM8GpbpKVZoKJFKl/oXJcJbUAcjG7uG+FTmGjyuh0jSEsXyzPA5Uv52VCJUFwp2uENoXkURwnxWJCGLc1EWprYhj6R/WBNkRCKvnVkTAZCc8MiVniKBmlpHvAfFeVeiTDzlVEaB/mNMC3BHFIe/JsBaelyZRYYFMNVBUAVQjhrrK2YGKSlo3XYh0FkMm/G4+D4OFdzzigRQoQK7ycCYkuco1bca0McfDFniYaxQnpwUiXMvByQ6JIpDoQAFDlxOi2NjS+eglihTAjtN+HxJEaBcMucl5YmplBFqVAkDCYx3olBIAyC8GxaSmIK1QhhJ1J6Hw0hEHbDtOR9yc8HioZN0RQqeq9+fQA18YEo3t0VPDxbABS1UM1BqkzofGLUnngKMy8tPQg5UVML1QkzpSsW3fyGs2g0IC0tAi6fMfnXpKqFIus/VAxNa7HeAl5WhAqiIjYpFjav4bC5P00hLS2aQJhCOGYUJF/VQqgYjEYPYdrV8sU3gGcKjxmVwkwmWqdan5TvFpRBccp8UbpGVQphnYpm1OjTuXHwXgjnqMI1qnQO68cMgv34w7M5Y+WOKV2jaj+dV+pB/LUWpKVoE77wpL8JKkGh84kSyuanpWiJnsMmXFX7IT2VwkwNtiI7X3yMZk+Y4k2oWpip/1Ym3qJuFIbrF9Q1M4kIMy+PGWEnizbha9WnTAJCkTJ8vgB4Ab9S7Uvgk87NHvPducA3zPdVlvqkhE6mR8L3rM0ASeFtAp91Vi7MOF858WeyISxR5XUiKSEQXepP53s4ZJIBJvKNA7BQGRm/ZcufuIz4SSzRhIQZxxHE++Zm+RzOGJIQMKlvjSgNoPTfhQt1RfSivyTDS0wIpR+6G1a5Xc7ms2+gF1XeySQvzNTfUeJ7L1b+Jgn0ov8XYab2CTYjq8AK9ZM5RBMXZpz6VZkSWKGJfj1Nst+iVP+z5/mqbu9TIcw4Ly+TncDEhT/+d32hEIUoRCEKUYhCFKIQhShEIQpRiEIUohCFKEQhClGIQhSiEIUoRCEKUYhCFKIQhShEIQpRiEIUohCFKEQhClGIQhSiEIUoRCEKUYhCFKIQhShEIYx/ATCrcUDxWFtYAAAAAElFTkSuQmCC",
+      "password": "$2a$10$vsIfDH4m9I5J/NMpB0l1uOoDjB3GE8nlf2TFkT9LwAbczNgP2mDh6"
     },
     {
       "email": "godnoken@gmail.com",

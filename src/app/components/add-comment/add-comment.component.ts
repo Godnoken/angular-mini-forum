@@ -1,6 +1,7 @@
-import { Component, OnInit, Renderer2, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Renderer2, Input, Output, EventEmitter } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
+import { CommentsService } from 'src/app/services/comments.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,11 +10,14 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
-  @Output() onAddComment: EventEmitter<Comment> = new EventEmitter();
+  @Input() comments!: Comment[];
+  @Input() isCreatingComment!: boolean;
+  @Output() isCreatingCommentChange = new EventEmitter<boolean>();
 
   constructor(
     private renderer: Renderer2,
-    private userService: UserService
+    private userService: UserService,
+    private commentService: CommentsService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +35,12 @@ export class AddCommentComponent implements OnInit {
       isEditing: false
     }
 
-    this.onAddComment.emit(comment);
+    if (comment) {
+      this.commentService.addComment(comment)
+        .subscribe(comment => this.comments.push(comment));
+      this.isCreatingComment = false;
+      this.isCreatingCommentChange.emit(this.isCreatingComment);
+    }
   }
 
   getCurrentDate(): string {

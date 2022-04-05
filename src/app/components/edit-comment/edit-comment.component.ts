@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Renderer2, HostListener } from '@angular/core
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-edit-comment',
@@ -11,14 +12,17 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class EditCommentComponent implements OnInit {
   @Input() comment!: Comment;
-  @Input() users!: User[];
+  public user!: User;
 
   constructor(
     private renderer: Renderer2,
-    private commentService: CommentsService
+    private commentService: CommentsService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
+    this.userService.getUser(this.comment.userId)
+      .subscribe(user => this.user = user)
     const content = this.renderer.selectRootElement(".edit-comment-content", true);
     this.setEndOfContenteditable(content);
   }

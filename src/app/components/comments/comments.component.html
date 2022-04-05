@@ -1,8 +1,6 @@
 <div class="comments-container">
-    <div *ngFor="let comment of comments" class="comment-card">
-        <app-comment-card *ngIf="comment.isEditing === false" [comment]="comment" [users]="users" (onEdit)="editComment(comment)"></app-comment-card>
-        <app-edit-comment *ngIf="comment.isEditing === true" [comment]="comment" [users]="users"></app-edit-comment>
-    </div>
-    <app-thread-bottom-navigation (onShowCreateComment)="displayCreateComment()" (onDeleteCreateComment)="deleteCreateComment()" [isCreatingComment]="isCreatingComment"></app-thread-bottom-navigation>
-    <app-add-comment (onAddComment)="addComment($event)" *ngIf="isCreatingComment === true"></app-add-comment>
+    <app-comment-card *ngFor="let comment of comments" [comment]="comment"></app-comment-card>
+    <app-thread-bottom-navigation [(isCreatingComment)]="isCreatingComment"></app-thread-bottom-navigation>
+    <app-add-comment *ngIf="isCreatingComment === true" [comments]="comments" [(isCreatingComment)]="isCreatingComment">
+    </app-add-comment>
 </div>

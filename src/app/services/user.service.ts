@@ -43,6 +43,10 @@ export class UserService {
     this.password = user.password;
     return this.http.post<any>(`${this.authUrl}/login`, user, httpOptions)
   }
+
+  updateUser(): Observable<User> {
+    return this.http.patch<User>(`${this.usersUrl}/${this.loggedUserId}`, httpOptions);
+  }
   
   uploadProfilePic(image: string): Observable<User> {
     this.user.profilePic = image;

@@ -11,9 +11,9 @@
     </div>
     <div class="profile-bottom-container">
         <div class="profile-navigation-container">
-            <button (click)="showInfo()" class="button">Info</button>
-            <button (click)="showComments()" class="button">Comments</button>
-            <button (click)="showSettings()" class="button">Settings</button>
+            <button (click)="showInfo()">Info</button>
+            <button (click)="showComments()">Comments</button>
+            <button (click)="showSettings()">Settings</button>
         </div>
         <div *ngIf="displayItem === 'info'" class="profile-information-container">
             <div class="info-item-container">
@@ -32,20 +32,7 @@
             </div>
         </div>
         <div *ngIf="displayItem === 'comments'" class="comments-container">
-            <div *ngFor="let comment of comments" class="comment-card-container">
-                <div class="comment-top-container">
-                    <div class="comment-user-container">
-                        <a routerLink="/profile/{{ comment.userId }}"><div class="comment-user-profile-img"></div></a>
-                        <div class="comment-user-titles-container">
-                            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ user.userName }}</h3></a>
-                            <p class="comment-user-title">{{ user.title }}</p>
-                        </div>
-                    </div>
-                    
-                </div>
-                <p class="comment-content">{{ comment.content }}</p>
-                <p class="comment-date">{{ comment.date }}</p>
-            </div>
+            <app-comment-card *ngFor="let comment of comments" [comment]="comment"></app-comment-card>
         </div>
         <div *ngIf="displayItem === 'settings'" class="settings-container">
             <div class="change-profile-pic-container">
@@ -53,7 +40,7 @@
                     Profile picture
                     <input type="text" class="profile-pic-input">
                 </label>
-                <button (click)="uploadProfilePic()" class="button">Change</button>
+                <button (click)="uploadProfilePic()">Change</button>
             </div>
         </div>
     </div>

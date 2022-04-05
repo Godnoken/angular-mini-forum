@@ -1,17 +1,3 @@
-<div *ngIf="users[comment.userId -1]" class="comment-top-container">
-    <div class="comment-user-container">
-        <a routerLink="/profile/{{ comment.userId }}"><img src="{{ users[comment.userId -1].profilePic }}" alt="profile pic" class="comment-user-profile-img"></a>
-        <div class="comment-user-titles-container">
-            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ users[comment.userId - 1].userName }}</h3></a>
-            <p class="comment-user-title">{{ users[comment.userId - 1].title }}</p>
-        </div>
-    </div>
-    <div class="edit-comment-buttons">
-        <button (click)="onExit()">Cancel</button>
-        <button (click)="onSave()">Save</button>
-    </div>
-</div>
 <div class="edit-comment-content" role="textarea" contenteditable="true">
     {{ comment.content }}
 </div>
-<p class="comment-date">{{ comment.date }}</p>
