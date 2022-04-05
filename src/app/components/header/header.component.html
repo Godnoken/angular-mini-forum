@@ -2,7 +2,7 @@
 <a routerLink="/"><h1 class="home-title">Djurgårdens IF</h1></a>
 <div *ngIf="userService.loggedUserId !== 0" class="header-sides">
     <a routerLink="/profile/{{ userService.loggedUserId }}"><p class="header-profile-name">{{ userService.user.userName }}</p></a>
-    <a routerLink="/profile/{{ userService.loggedUserId }}"><img src="{{ userService.user.profilePic }}" alt="profile picture" class="header-profile-img"></a>
+    <a routerLink="/profile/{{ userService.loggedUserId }}"><img [src]="userService.user.profilePic || '../../../assets/standardprofilepic.jpg'" alt="profile picture" class="header-profile-img"></a>
 </div>
 <nav *ngIf="userService.loggedUserId === 0" class="header-sides">
     <a routerLink="/login" class="nav-item">Login</a>

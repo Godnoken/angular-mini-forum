@@ -60,4 +60,10 @@ export class UserService {
     this.user.password = this.password;
     return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
   }
+
+  changeUserName(name: string): Observable<User> {
+    this.user.userName = name;
+    this.user.password = this.password;
+    return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
+  }
 }

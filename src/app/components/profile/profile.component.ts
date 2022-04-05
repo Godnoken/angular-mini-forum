@@ -1,10 +1,12 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 import { UserService } from 'src/app/services/user.service';
 import { Comment } from 'src/app/interfaces/comment-interface';
+import { UserNameService } from 'src/app/services/validators/user-name.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,8 +22,19 @@ export class ProfileComponent implements OnInit {
     public userService: UserService,
     private commentsService: CommentsService,
     private route: ActivatedRoute,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private userNameValidator: UserNameService
   ) { }
+
+  userName = new FormControl('', {
+    validators: [
+    Validators.required,
+    Validators.minLength(3)],
+    
+    asyncValidators:
+    [this.userNameValidator.validate.bind(this.userNameValidator)],
+    updateOn: "blur"
+  })
 
   ngOnInit(): void {
     this.getUser();
@@ -63,5 +76,14 @@ export class ProfileComponent implements OnInit {
     
     this.userService.uploadProfileBanner(image)
       .subscribe(user => this.user.profileBanner = user.profileBanner)
+  }
+
+  changeUserName(): void {
+    if (this.userName.valid) {
+      this.userService.changeUserName(this.userName.value)
+        .subscribe(user => this.user.userName = user.userName)
+
+      this.userName.reset();
+    }
   }
 }
