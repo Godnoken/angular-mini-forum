@@ -57,4 +57,11 @@ export class ProfileComponent implements OnInit {
     this.userService.uploadProfilePic(image)
       .subscribe(user => this.user.profilePic = user.profilePic)
   }
+
+  uploadProfileBanner(): void {
+    const image = this.renderer.selectRootElement(".profile-banner-input", true).value;
+    
+    this.userService.uploadProfileBanner(image)
+      .subscribe(user => this.user.profileBanner = user.profileBanner)
+  }
 }

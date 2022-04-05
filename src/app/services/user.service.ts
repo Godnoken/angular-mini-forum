@@ -30,6 +30,7 @@ export class UserService {
     user.isOnline = true;
     user.title = "Supporter";
     user.profilePic = "";
+    user.profileBanner = "";
     this.password = user.password;
     return this.http.post<any>(`${this.authUrl}/register`, user, httpOptions);
   }
@@ -54,4 +55,9 @@ export class UserService {
     return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
   }
 
+  uploadProfileBanner(image: string): Observable<User> {
+    this.user.profileBanner = image;
+    this.user.password = this.password;
+    return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
+  }
 }

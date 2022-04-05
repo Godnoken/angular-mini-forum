@@ -1,8 +1,8 @@
-<img src="../../../assets/Djurgården.jpg" alt="Djurgårdare" class="background-image">
+<img *ngIf="user" [src]="user.profileBanner || '../../../assets/standardprofilebanner.jpg'" alt="Djurgårdarn" class="background-image">
 <div *ngIf="user" class="profile-container">
     <div class="profile-top-container">
         <div class="profile-top-user-container">
-            <img src="{{ user.profilePic }}" alt="profile picture" class="profile-picture">
+            <img [src]="user.profilePic || '../../../assets/standardprofilepic.jpg'" alt="profile picture" class="profile-picture">
             <div>
                 <h2 class="profile-username">{{ user.userName }}</h2>
                 <p class="profile-title">{{ user.title }}</p>
@@ -13,7 +13,7 @@
         <div class="profile-navigation-container">
             <button (click)="showInfo()">Info</button>
             <button (click)="showComments()">Comments</button>
-            <button (click)="showSettings()">Settings</button>
+            <button (click)="showSettings()" *ngIf="this.userService.loggedUserId !== 0">Settings</button>
         </div>
         <div *ngIf="displayItem === 'info'" class="profile-information-container">
             <div class="info-item-container">
@@ -35,12 +35,19 @@
             <app-comment-card *ngFor="let comment of comments" [comment]="comment"></app-comment-card>
         </div>
         <div *ngIf="displayItem === 'settings'" class="settings-container">
-            <div class="change-profile-pic-container">
+            <div class="change-setting-container">
                 <label>
                     Profile picture
                     <input type="text" class="profile-pic-input">
                 </label>
                 <button (click)="uploadProfilePic()">Change</button>
+            </div>
+            <div class="change-setting-container">
+                <label>
+                    Profile banner
+                    <input type="text" class="profile-banner-input">
+                </label>
+                <button (click)="uploadProfileBanner()">Change</button>
             </div>
         </div>
     </div>

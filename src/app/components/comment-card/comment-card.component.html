@@ -1,6 +1,6 @@
 <div *ngIf="user" class="comment-top-container">
     <div class="comment-user-container">
-        <a routerLink="/profile/{{ comment.userId }}"><img src="{{ user.profilePic }}" alt="profile pic" class="comment-user-profile-img"></a>
+        <a routerLink="/profile/{{ comment.userId }}"><img [src]="user.profilePic || '../../../assets/standardprofilepic.jpg'" alt="profile pic" class="comment-user-profile-img"></a>
         <div class="comment-user-titles-container">
             <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ user.userName }}</h3></a>
             <p class="comment-user-title">{{ user.title }}</p>
