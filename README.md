@@ -30,3 +30,6 @@ I have an enormous amount of styling that is duplicated in one way or another. S
 
 Pretty much all styling in place is just thrown together without responsiveness in mind. Will redo it all when I have decided the above.
 
+---
+
+Right now all put/patch requests update the entire user/comment data. I want to fix this and will try to, but at this point I am not sure if it is possible with json-server-auth due to my lack of knowledge using backends or in this case a fake backend

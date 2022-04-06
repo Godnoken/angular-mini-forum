@@ -92,7 +92,24 @@
     }
   ],
   "comments": [
-
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 2,
+      "date": "2022-04-06, 17:04",
+      "content": "Tseting",
+      "isEditing": false,
+      "id": 1
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-06, 17:04",
+      "content": "test",
+      "isEditing": false,
+      "id": 2
+    }
   ],
   "users": [
     {
@@ -104,6 +121,16 @@
       "profileBanner": "https://i.pinimg.com/originals/db/b9/c9/dbb9c9bc80e9ac65d894eb6c9951dcea.jpg",
       "id": 1,
       "password": "$2a$10$nacOY1oV3R8KiBmscZelqOlV3u9nUKJoLCxHd0h9UQ50Nw9y5Qdve"
+    },
+    {
+      "email": "sebastian.ojefors@gmail.com",
+      "password": "$2a$10$a4Y9mujBB46oYm6RT/Ya.uVaJPUKBNgY4JI1wj1f9FDH05j3Mga4i",
+      "userName": "Seb",
+      "isOnline": true,
+      "title": "Supporter",
+      "profilePic": "",
+      "profileBanner": "",
+      "id": 2
     }
   ]
 }
