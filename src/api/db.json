@@ -92,33 +92,7 @@
     }
   ],
   "comments": [
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "22:55  2022/3/5",
-      "content": "testsss",
-      "isEditing": false,
-      "id": 1
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "0:39  2022/3/6",
-      "content": "Testing",
-      "isEditing": false,
-      "id": 2
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "0:41  2022/3/6",
-      "content": "Tjalllå",
-      "isEditing": false,
-      "id": 3
-    }
+
   ],
   "users": [
     {

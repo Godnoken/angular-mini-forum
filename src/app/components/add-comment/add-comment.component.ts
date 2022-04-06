@@ -46,12 +46,14 @@ export class AddCommentComponent implements OnInit {
   getCurrentDate(): string {
     const currentDate = new Date();
 
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const day = currentDate.getDate();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
+    const date = currentDate.toLocaleDateString("en-SE", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    })
 
-    return `${hours}:${minutes}  ${year}/${month}/${day}`;
+    return date;
   }
 }
