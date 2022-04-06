@@ -10,10 +10,9 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class CommentsComponent implements OnInit {
   public comments: Comment[] = [];
-  public isCreatingComment: boolean = false;
 
   constructor(
-    private commentService: CommentsService
+    public commentService: CommentsService
   ) {
   }
 

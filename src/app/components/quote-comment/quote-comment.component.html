@@ -1,1 +1,11 @@
-<p>quote-comment works!</p>
+<div *ngIf="quotedUser && quotedComment" class="user-container">
+    <div class="user-titles">
+        <p>{{ quotedUser.userName }}</p>
+        <div class="column-breaker"></div>
+        <p class="user-title">{{ quotedUser.title }}</p>
+    </div>
+    <p>{{ quotedComment.date }}</p>
+</div>
+<p *ngIf="quotedUser && quotedComment" class="user-comment">
+    {{ quotedComment.content }}
+</p>

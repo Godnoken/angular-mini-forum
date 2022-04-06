@@ -3,6 +3,6 @@
 </ul>
 <div class="thread-button-navigation">
     <button type="button">Previous</button>
-    <button *ngIf="userService.loggedUserId !== 0" type="button" (click)="handleCreateCommentDisplay()" textContent="{{isCreatingComment === true ? 'Cancel' : 'Comment'}}"></button>
+    <button *ngIf="userService.loggedUserId !== 0" type="button" (click)="handleCreateCommentDisplay()" textContent="{{this.commentService.isCreatingComment === true ? 'Cancel' : 'Comment'}}"></button>
     <button type="button">Next</button>
 </div>

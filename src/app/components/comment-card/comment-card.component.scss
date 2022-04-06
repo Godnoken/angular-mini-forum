@@ -1,8 +1,11 @@
 :host {
     position: relative;
+    display: grid;
+    row-gap: 1.5vh;
     padding: 20px;
     background-color: var(--primary-color);
     box-shadow: var(--card-shadow);
+    border-radius: 8px;
 }
 
 .comment-top-container {

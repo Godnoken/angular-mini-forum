@@ -1,4 +1,4 @@
-<app-quote-comment *ngIf=""></app-quote-comment>
+<app-quote-comment *ngIf="this.commentService.isQuoting === true" [comment]="this.commentService.comment"></app-quote-comment>
 <div class="add-comment-content" role="textarea" contenteditable="true">
 </div>
 <button (click)="addComment()">Send</button>

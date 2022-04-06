@@ -11,13 +11,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AddCommentComponent implements OnInit {
   @Input() comments!: Comment[];
-  @Input() isCreatingComment!: boolean;
-  @Output() isCreatingCommentChange = new EventEmitter<boolean>();
 
   constructor(
     private renderer: Renderer2,
     private userService: UserService,
-    private commentService: CommentsService
+    public commentService: CommentsService
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +26,7 @@ export class AddCommentComponent implements OnInit {
 
     const comment = {
       threadId: 2,
-      parentId: 2,
+      ...(this.commentService.isQuoting === true ? {parentId: this.commentService.comment!.id!} : {parentId: null}),
       userId: this.userService.loggedUserId,
       date: this.getCurrentDate(),
       content: content,
@@ -38,8 +36,7 @@ export class AddCommentComponent implements OnInit {
     if (comment) {
       this.commentService.addComment(comment)
         .subscribe(comment => this.comments.push(comment));
-      this.isCreatingComment = false;
-      this.isCreatingCommentChange.emit(this.isCreatingComment);
+      this.commentService.isCreatingComment = false;
     }
   }
 

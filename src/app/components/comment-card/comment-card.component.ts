@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Renderer2 } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
@@ -19,12 +19,13 @@ export class CommentCardComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private commentService: CommentsService
+    private commentService: CommentsService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
     this.userService.getUser(this.comment.userId)
-      .subscribe(user => this.user = user)
+      .subscribe(user => this.user = user);
   }
 
   editComment(comment: Comment): void {
@@ -35,7 +36,12 @@ export class CommentCardComponent implements OnInit {
     }
   }
 
-  replyComment(comment: Comment): void {
-
+  replyComment(): void {
+    this.commentService.isQuoting = false;
+    this.commentService.passQuoteData(this.comment);
+    this.commentService.isCreatingComment = true;
+    setTimeout(() => {
+      window.scrollTo({ top: this.renderer.selectRootElement("app-root", true).scrollHeight, behavior: 'smooth' });
+    }, 250)
   }
 }

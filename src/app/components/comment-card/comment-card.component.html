@@ -11,8 +11,9 @@
         <button (click)="edit.onSave()">Save</button>
     </div>
     <button *ngIf="userService.loggedUserId === comment.userId && comment.isEditing === false" (click)="editComment(comment)">Edit</button>
-    <button *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId" (click)="replyComment(comment)">Reply</button>
+    <button *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId" (click)="replyComment()">Reply</button>
 </div>
+<app-quote-comment *ngIf="this.comment.parentId !== null" [comment]="comment"></app-quote-comment>
 <p *ngIf="comment.isEditing === false" class="comment-content">{{ comment.content }}</p>
 <app-edit-comment *ngIf="comment.isEditing === true" [comment]="comment"></app-edit-comment>
 <p class="comment-date">{{ comment.date }}</p>

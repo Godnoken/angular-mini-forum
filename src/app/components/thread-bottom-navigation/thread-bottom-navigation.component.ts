@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { CommentsService } from 'src/app/services/comments.service';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,17 +13,19 @@ export class ThreadBottomNavigationComponent implements OnInit {
   @Output() isCreatingCommentChange = new EventEmitter<boolean>();
 
   constructor(
-    public userService: UserService
+    public userService: UserService,
+    public commentService: CommentsService
   ) { }
 
   ngOnInit(): void {
   }
 
   handleCreateCommentDisplay(): void {
-    if (this.isCreatingComment === false) {
-      this.isCreatingComment = true;
+    if (this.commentService.isCreatingComment === false) {
+      this.commentService.isCreatingComment = true;
     } else {
-      this.isCreatingComment = false;
+      this.commentService.isCreatingComment = false;
+      this.commentService.isQuoting = false; 
     }
     
     this.isCreatingCommentChange.emit(this.isCreatingComment);

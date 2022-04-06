@@ -1,6 +1,6 @@
 <div class="comments-container">
     <app-comment-card *ngFor="let comment of comments" [comment]="comment"></app-comment-card>
-    <app-thread-bottom-navigation [(isCreatingComment)]="isCreatingComment"></app-thread-bottom-navigation>
-    <app-add-comment *ngIf="isCreatingComment === true" [comments]="comments" [(isCreatingComment)]="isCreatingComment">
+    <app-thread-bottom-navigation></app-thread-bottom-navigation>
+    <app-add-comment *ngIf="this.commentService.isCreatingComment === true" [comments]="comments">
     </app-add-comment>
 </div>

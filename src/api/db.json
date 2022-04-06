@@ -94,28 +94,28 @@
   "comments": [
     {
       "threadId": 2,
-      "parentId": 2,
+      "parentId": null,
       "userId": 2,
-      "date": "2022-04-06, 17:04",
-      "content": "Tseting",
+      "date": "2022-04-06, 19:56",
+      "content": "Testing",
       "isEditing": false,
       "id": 1
     },
     {
       "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "2022-04-06, 17:04",
-      "content": "test",
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-06, 19:56",
+      "content": "Testing some mor",
       "isEditing": false,
       "id": 2
     },
     {
       "threadId": 2,
-      "parentId": 2,
+      "parentId": null,
       "userId": 1,
-      "date": "2022-04-06, 17:29",
-      "content": "test",
+      "date": "2022-04-06, 19:57",
+      "content": "Testing",
       "isEditing": false,
       "id": 3
     },
@@ -123,28 +123,100 @@
       "threadId": 2,
       "parentId": 2,
       "userId": 1,
-      "date": "2022-04-06, 17:29",
-      "content": "test",
+      "date": "2022-04-06, 19:57",
+      "content": "Testing",
       "isEditing": false,
       "id": 4
     },
     {
       "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "2022-04-06, 17:29",
-      "content": "test",
+      "parentId": 3,
+      "userId": 2,
+      "date": "2022-04-06, 19:58",
+      "content": "Hallå",
       "isEditing": false,
       "id": 5
     },
     {
       "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "2022-04-06, 17:29",
+      "parentId": 4,
+      "userId": 2,
+      "date": "2022-04-06, 19:58",
       "content": "test",
       "isEditing": false,
       "id": 6
+    },
+    {
+      "threadId": 2,
+      "parentId": 5,
+      "userId": 1,
+      "date": "2022-04-06, 20:39",
+      "content": "Testing",
+      "isEditing": false,
+      "id": 7
+    },
+    {
+      "threadId": 2,
+      "parentId": 6,
+      "userId": 1,
+      "date": "2022-04-06, 20:41",
+      "content": "Hallå där",
+      "isEditing": false,
+      "id": 8
+    },
+    {
+      "threadId": 2,
+      "parentId": 5,
+      "userId": 1,
+      "date": "2022-04-06, 20:43",
+      "content": "Hihi",
+      "isEditing": false,
+      "id": 9
+    },
+    {
+      "threadId": 2,
+      "parentId": 9,
+      "userId": 2,
+      "date": "2022-04-06, 20:45",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque quis ex sit amet faucibus. Proin orci turpis, consectetur id blandit sed, congue nec nunc. Donec turpis tortor, maximus a iaculis vitae, viverra sit amet tortor. Morbi gravida risus nec venenatis porttitor. Vestibulum elementum nec quam et eleifend. Aenean dignissim eros consequat urna blandit, in euismod dui lacinia. Fusce ac pharetra nibh. Integer a nisi mauris. Duis fermentum viverra sem.Nullam eu odio magna. Curabitur accumsan cursus orci ac ullamcorper. Cras in quam non sem aliquet vulputate. Duis nec efficitur enim, non consectetur mauris. Morbi facilisis hendrerit enim, et malesuada augue scelerisque eu. Aenean dapibus a mi vel vestibulum. Nullam ullamcorper lectus et nulla fringilla blandit. Aliquam consectetur lacus non gravida scelerisque. Aenean posuere auctor cursus. Proin dui risus, rutrum convallis fringilla id, ultrices quis est. Phasellus sodales elit nec odio sagittis, varius imperdiet sapien molestie. Nunc nec pellentesque sem, at efficitur velit. Morbi convallis neque vitae risus tempus euismod. Ut suscipit felis mi, eget tempor lorem gravida id.Nulla tempor tempor dolor at semper. Aliquam tristique lectus ipsum, et varius risus fringilla at. Vestibulum facilisis sodales metus, eget fermentum arcu dapibus eu. Aenean vitae erat sed dolor laoreet dapibus. Maecenas fermentum nulla eu finibus fermentum. Mauris nec metus egestas, mattis erat sit amet, condimentum massa. Fusce mattis porta purus, dignissim maximus diam semper sed. Vivamus maximus nulla vitae erat sagittis, commodo efficitur tellus vehicula. Vivamus consectetur ligula sit amet gravida iaculis. Proin sit amet vulputate tortor. Pellentesque hendrerit libero at dolor ultricies, in viverra nisl pulvinar. Quisque nec pellentesque lectus. Sed sit amet tellus dapibus, rhoncus arcu varius, lacinia sapien. Nunc vestibulum aliquet felis et cursus. Integer elementum lorem eu pellentesque bibendum. Nunc in ornare nibh, et euismod leo.",
+      "isEditing": false,
+      "id": 10
+    },
+    {
+      "threadId": 2,
+      "parentId": 10,
+      "userId": 1,
+      "date": "2022-04-06, 20:45",
+      "content": "It works! Hallelujah!",
+      "isEditing": false,
+      "id": 11
+    },
+    {
+      "threadId": 2,
+      "parentId": 11,
+      "userId": 2,
+      "date": "2022-04-06, 21:04",
+      "content": "Yuupppppi!",
+      "isEditing": false,
+      "id": 12
+    },
+    {
+      "threadId": 2,
+      "parentId": 11,
+      "userId": 2,
+      "date": "2022-04-06, 22:31",
+      "content": "sdfsdfsdf",
+      "isEditing": false,
+      "id": 13
+    },
+    {
+      "threadId": 2,
+      "parentId": 7,
+      "userId": 2,
+      "date": "2022-04-06, 22:32",
+      "content": "Does it work",
+      "isEditing": false,
+      "id": 14
     }
   ],
   "users": [

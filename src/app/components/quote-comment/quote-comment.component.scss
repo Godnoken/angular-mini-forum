@@ -1,0 +1,34 @@
+:host {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    padding: 18px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.user-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.user-titles {
+    display: flex;
+    column-gap: 6px;
+}
+
+.column-breaker {
+    width: 1px;
+    background-color: gainsboro;
+}
+
+.user-title {
+    color: var(--accent-color);
+}
+
+.user-comment {
+    font-size: 16px;
+}
