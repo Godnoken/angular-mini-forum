@@ -1,5 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 
 import { User } from 'src/app/interfaces/user-interface';
@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     public userService: UserService,
     private commentsService: CommentsService,
+    private router: Router,
     private route: ActivatedRoute,
     private renderer: Renderer2,
     private userNameValidator: UserNameService
@@ -38,6 +39,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+
+    this.router.events
+      .subscribe((val) => {
+        if (val instanceof NavigationEnd) {
+          this.getUser();
+          this.showInfo();
+        }
+      })
   }
 
   getUser(): void {

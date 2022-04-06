@@ -9,7 +9,12 @@ Login validation only checks if email is valid *first* when the password provide
 
 ---
 
-If a user browses another users profile, reads in all their comments and then proceeds to click their own profile from the header - the information doesn't update even though url is changed.
+**Fixed** If a user browses another users profile, reads in all their comments and then proceeds to click their own profile from the header - the information doesn't update even though url is changed.
+
+**Solution**
+Profile component now listens after the end of the navigation URL changing and updates the user accordingly.
+
+---
 
 ## Wishbox
 
@@ -17,9 +22,9 @@ Since Angular has no way of dynamically changing "updateOn" prop on formControl,
 
 ---
 
-Time on forum comments doesn't display pleasingly when it's between 00:00 and 01:00. It drops to 0:0, 0:5 and so on.
+**Fixed** Time on forum comments doesn't display pleasingly when it's between 00:00 and 01:00. It drops to 0:0, 0:5 and so on.
 
-**Fixed**
+**Solution**
 Changed getDate() etc to 'toLocaleDateString'.
 
 ---
