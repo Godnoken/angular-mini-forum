@@ -11,6 +11,11 @@ html, body {
     height: 100%;
 }
 
+html {
+    overflow-y: scroll;
+    overflow-y: overlay;
+}
+
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -24,4 +29,13 @@ button {
     color: white;
     box-shadow: var(--button-shadow);
     cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 2px var(--accent-color) solid;
 }

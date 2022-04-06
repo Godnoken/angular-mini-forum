@@ -109,6 +109,42 @@
       "content": "test",
       "isEditing": false,
       "id": 2
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-06, 17:29",
+      "content": "test",
+      "isEditing": false,
+      "id": 3
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-06, 17:29",
+      "content": "test",
+      "isEditing": false,
+      "id": 4
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-06, 17:29",
+      "content": "test",
+      "isEditing": false,
+      "id": 5
+    },
+    {
+      "threadId": 2,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-06, 17:29",
+      "content": "test",
+      "isEditing": false,
+      "id": 6
     }
   ],
   "users": [
@@ -124,13 +160,13 @@
     },
     {
       "email": "sebastian.ojefors@gmail.com",
-      "password": "$2a$10$a4Y9mujBB46oYm6RT/Ya.uVaJPUKBNgY4JI1wj1f9FDH05j3Mga4i",
       "userName": "Seb",
       "isOnline": true,
       "title": "Supporter",
       "profilePic": "",
       "profileBanner": "",
-      "id": 2
+      "id": 2,
+      "password": "$2a$10$Sf4eLO00svDeIcuWcllJaOCLM.8DhDH8OpFmKdirzFHpiSmPKp9S6"
     }
   ]
 }
