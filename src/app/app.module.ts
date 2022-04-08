@@ -20,6 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ThreadsComponent } from './components/threads/threads.component';
 import { ThreadCardComponent } from './components/thread-card/thread-card.component';
 import { ThreadComponent } from './components/thread/thread.component';
+import { CreateThreadComponent } from './components/create-thread/create-thread.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ThreadComponent } from './components/thread/thread.component';
     ProfileComponent,
     ThreadsComponent,
     ThreadCardComponent,
-    ThreadComponent
+    ThreadComponent,
+    CreateThreadComponent
   ],
   imports: [
     BrowserModule,

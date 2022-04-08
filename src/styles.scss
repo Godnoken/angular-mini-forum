@@ -31,6 +31,25 @@ button {
     cursor: pointer;
 }
 
+input {
+    width: 100%;
+    display: block;
+    border-width: 0 0 2px;
+    border-color: var(--accent-color);
+    background-color: transparent;
+    outline: none;
+    color: white;
+    padding: 14px 6px 2px 6px;
+    font-size: 16px;
+    text-align: center;
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .3s;
+    box-shadow: var(--primary-color) 0px 0px 0px 30px inset;
+    -webkit-text-fill-color: white;
+    caret-color: var(--accent-color);
+}
+
 ::-webkit-scrollbar {
     width: 16px;
 }

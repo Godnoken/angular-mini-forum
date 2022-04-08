@@ -1,4 +1,9 @@
-<app-quote-comment *ngIf="this.commentService.isQuoting === true" [comment]="this.commentService.comment"></app-quote-comment>
-<div class="add-comment-content" role="textarea" contenteditable="true">
-</div>
-<button (click)="addComment()">Send</button>
+<app-quote-comment *ngIf="this.commentService.isQuoting === true" [comment]="this.commentService.comment">
+</app-quote-comment>
+<label class="comment-label">
+    Comment
+    <div class="add-comment-content" role="textarea" contenteditable="true">
+    </div>
+</label>
+<button *ngIf="this.commentService.isCreatingComment === true" (click)="addComment()">Send</button>
+<button *ngIf="this.commentService.isCreatingComment === false" (click)="addThreadCreatorComment()" type="button">Send</button>

@@ -1,1 +1,3 @@
 <app-thread-card *ngFor="let thread of threads" [thread]="thread"></app-thread-card>
+<button *ngIf="userService.loggedUserId !== 0" (click)="handleCreateThreadDisplay()" textContent="{{this.threadService.isCreatingThread === true ? 'Cancel' : 'Create Thread'}}">Create Thread</button>
+<app-create-thread *ngIf="this.threadService.isCreatingThread === true"></app-create-thread>

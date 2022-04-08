@@ -1,7 +1,9 @@
 import { Component, OnInit, Renderer2, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { CommentsService } from 'src/app/services/comments.service';
+import { ThreadService } from 'src/app/services/thread.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,11 +14,14 @@ import { UserService } from 'src/app/services/user.service';
 export class AddCommentComponent implements OnInit {
   @Input() comments!: Comment[];
   @Input() threadId!: number;
+  @Output() emitCreateThread = new EventEmitter<any>();
 
   constructor(
     private renderer: Renderer2,
     private userService: UserService,
-    public commentService: CommentsService
+    public commentService: CommentsService,
+    private threadService: ThreadService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,11 +39,21 @@ export class AddCommentComponent implements OnInit {
       isEditing: false
     }
 
-    if (comment) {
+    if (comment && this.commentService.isCreatingComment === true) {
       this.commentService.addComment(comment)
         .subscribe(comment => this.comments.push(comment));
       this.commentService.isCreatingComment = false;
+    } else {
+      this.commentService.addComment(comment)
+        .subscribe(() => {
+          this.router.navigateByUrl(`/thread/${this.threadId}`)
+          this.threadService.isCreatingThread = false;
+        });
     }
+  }
+
+  addThreadCreatorComment(): void {
+    this.emitCreateThread.emit();
   }
 
   getCurrentDate(): string {

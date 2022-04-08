@@ -1,108 +1,22 @@
 {
   "threads": [
     {
-      "id": 1,
+      "title": "Gaming",
+      "date": "2022-04-08, 21:12",
       "userId": 2,
-      "title": "Blog post #1",
-      "author": "Melissa Manges",
-      "date": "2016-02-23",
-      "slug": "blog-post-1",
-      "description": "Utroque denique invenire et has.",
-      "content": "<p>Utroque denique invenire et has. Cum case definitiones no, est dicit placerat verterem ne.</p> <p>In ius nonumy perfecto adipiscing, ad est cibo iisque aliquid, dicit civibus eum ei. Cum animal suscipit at, utamur utroque appareat sed ex.</p>"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "title": "Blog post #2",
-      "author": "Olene Ogan",
-      "date": "2016-03-16",
-      "slug": "blog-post-2",
-      "description": "Ex legere perpetua electram vim, per nisl inermis quaestio ea.",
-      "content": "<p>Ex legere perpetua electram vim, per nisl inermis quaestio ea. Everti adolescens ut nec. Quod labitur assueverit vis at, sea an erat modus delicata.</p> <p>Dico omnesque epicurei te vix. Tota verterem temporibus eu quo, eu iudicabit repudiandae sea. Elitr nihil gloriatur vis in.</p>"
-    },
-    {
-      "id": 3,
-      "userId": 2,
-      "title": "Blog post #3",
-      "author": "Annemarie Axelrod",
-      "date": "2016-03-28",
-      "slug": "blog-post-3",
-      "description": "Sea ne harum reformidans conclusionemque.",
-      "content": "<p>Sea ne harum reformidans conclusionemque. Eu eirmod adversarium definitiones pri, id brute option convenire sed.</p> <p>Id per porro tritani, mei ut assum persius prompta. Nominavi eligendi cu mea. Utinam consul theophrastus te sit, denique platonem assentior te pri. Nam id enim case iracundia.</p>"
+      "parentId": null,
+      "id": 4
     }
   ],
   "comments": [
     {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-06, 19:56",
-      "content": "Testing",
-      "isEditing": false,
-      "id": 1
-    },
-    {
-      "threadId": 2,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-06, 19:56",
-      "content": "Testing some mor",
-      "isEditing": false,
-      "id": 2
-    },
-    {
       "threadId": 4,
       "parentId": null,
-      "userId": 1,
-      "date": "2022-04-06, 19:57",
-      "content": "Testing",
-      "isEditing": false,
-      "id": 3
-    },
-    {
-      "threadId": 2,
-      "parentId": 2,
-      "userId": 1,
-      "date": "2022-04-06, 19:57",
-      "content": "Testing",
-      "isEditing": false,
-      "id": 4
-    },
-    {
-      "threadId": 2,
-      "parentId": 3,
       "userId": 2,
-      "date": "2022-04-06, 19:58",
-      "content": "Hallå",
+      "date": "2022-04-08, 21:12",
+      "content": "skkrr",
       "isEditing": false,
-      "id": 5
-    },
-    {
-      "threadId": 2,
-      "parentId": 4,
-      "userId": 2,
-      "date": "2022-04-06, 19:58",
-      "content": "test",
-      "isEditing": false,
-      "id": 6
-    },
-    {
-      "threadId": 2,
-      "parentId": 5,
-      "userId": 1,
-      "date": "2022-04-06, 20:39",
-      "content": "Testing",
-      "isEditing": false,
-      "id": 7
-    },
-    {
-      "threadId": 2,
-      "parentId": 6,
-      "userId": 1,
-      "date": "2022-04-06, 20:41",
-      "content": "Hallå där",
-      "isEditing": false,
-      "id": 8
+      "id": 1
     }
   ],
   "users": [
