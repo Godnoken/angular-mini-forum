@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AddCommentComponent implements OnInit {
   @Input() comments!: Comment[];
+  @Input() threadId!: number;
 
   constructor(
     private renderer: Renderer2,
@@ -25,7 +26,7 @@ export class AddCommentComponent implements OnInit {
     const content = this.renderer.selectRootElement(".add-comment-content", true).textContent;
 
     const comment = {
-      threadId: 2,
+      threadId: this.threadId,
       ...(this.commentService.isQuoting === true ? {parentId: this.commentService.comment!.id!} : {parentId: null}),
       userId: this.userService.loggedUserId,
       date: this.getCurrentDate(),

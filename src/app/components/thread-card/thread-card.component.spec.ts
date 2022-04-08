@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommentsComponent } from './comments.component';
+import { ThreadCardComponent } from './thread-card.component';
 
-describe('CommentsComponent', () => {
-  let component: CommentsComponent;
-  let fixture: ComponentFixture<CommentsComponent>;
+describe('ThreadCardComponent', () => {
+  let component: ThreadCardComponent;
+  let fixture: ComponentFixture<ThreadCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommentsComponent ]
+      declarations: [ ThreadCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommentsComponent);
+    fixture = TestBed.createComponent(ThreadCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ForumComponent } from './components/forum/forum.component';
-import { CommentsComponent } from './components/comments/comments.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
@@ -18,6 +17,9 @@ import { ThreadBottomNavigationComponent } from './components/thread-bottom-navi
 import { QuoteCommentComponent } from './components/quote-comment/quote-comment.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ThreadsComponent } from './components/threads/threads.component';
+import { ThreadCardComponent } from './components/thread-card/thread-card.component';
+import { ThreadComponent } from './components/thread/thread.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     HeaderComponent,
     FooterComponent,
     ForumComponent,
-    CommentsComponent,
     LoginComponent,
     RegisterComponent,
     EditCommentComponent,
@@ -33,7 +34,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     AddCommentComponent,
     ThreadBottomNavigationComponent,
     QuoteCommentComponent,
-    ProfileComponent
+    ProfileComponent,
+    ThreadsComponent,
+    ThreadCardComponent,
+    ThreadComponent
   ],
   imports: [
     BrowserModule,

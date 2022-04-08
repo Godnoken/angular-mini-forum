@@ -1,0 +1,11 @@
+<a routerLink="/thread/{{ thread.id }}">
+    <div *ngIf="user" class="thread-container">
+        <div>
+            <h3 class="title">{{ thread.title }}</h3>
+            <p class="username">{{ user.userName }}</p>
+        </div>
+        <div>
+            <p class="date">{{ thread.date }}</p>
+        </div>
+    </div>
+</a>

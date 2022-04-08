@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 

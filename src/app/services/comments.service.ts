@@ -29,6 +29,13 @@ export class CommentsService {
     return this.http.get<Comment[]>(`${this.apiUrl}/664/comments`);
   }
 
+  getComments(id: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.apiUrl}/664/comments`)
+      .pipe(
+        map(comments => comments.filter((comment) => comment.threadId === id))
+      )
+  }
+
   getCommentsFromUser(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/664/comments`)
       .pipe(
