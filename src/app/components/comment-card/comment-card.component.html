@@ -6,14 +6,14 @@
             <p class="comment-user-title">{{ user.title }}</p>
         </div>
     </div>
-    <div *ngIf="comment.isEditing === true" class="edit-comment-buttons">
-        <button (click)="edit.onExit()">Cancel</button>
+    <div *ngIf="isEditingComment === true" class="edit-comment-buttons">
+        <button (click)="edit.onCancel()">Cancel</button>
         <button (click)="edit.onSave()">Save</button>
     </div>
-    <button *ngIf="userService.loggedUserId === comment.userId && comment.isEditing === false" (click)="editComment(comment)">Edit</button>
+    <button *ngIf="userService.loggedUserId === comment.userId && isEditingComment === false" (click)="editComment()">Edit</button>
     <button *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId" (click)="replyComment()">Reply</button>
 </div>
-<app-quote-comment *ngIf="this.comment.parentId !== null" [comment]="comment"></app-quote-comment>
-<p *ngIf="comment.isEditing === false" class="comment-content">{{ comment.content }}</p>
-<app-edit-comment *ngIf="comment.isEditing === true" [comment]="comment"></app-edit-comment>
+<app-quote-comment *ngIf="this.comment.parentId !== null" [(comment)]="comment" [isEditingComment]="isEditingComment"></app-quote-comment>
+<p *ngIf="isEditingComment === false" class="comment-content">{{ comment.content }}</p>
+<app-edit-comment *ngIf="isEditingComment === true && userService.loggedUserId !== 0" [(comment)]="comment" [(isEditingComment)]="isEditingComment" [user]="user"></app-edit-comment>
 <p class="comment-date">{{ comment.date }}</p>

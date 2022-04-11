@@ -5,6 +5,7 @@
         <p class="user-title">{{ quotedUser.title }}</p>
     </div>
     <p>{{ quotedComment.date }}</p>
+    <div *ngIf="this.commentService.isCreatingComment === true || isEditingComment === true" (click)="removeQuote()" class="remove-quote">x</div>
 </div>
 <p *ngIf="quotedUser && quotedComment" class="user-comment">
     {{ quotedComment.content }}

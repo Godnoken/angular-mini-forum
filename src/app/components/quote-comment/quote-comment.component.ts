@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { finalize } from 'rxjs';
 
 import { CommentsService } from 'src/app/services/comments.service';
@@ -13,11 +13,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class QuoteCommentComponent implements OnInit {
   @Input() comment!: Comment | null;
+  @Output() commentChange = new EventEmitter();
+  @Input() isEditingComment!: boolean;
   public quotedComment!: Comment;
   public quotedUser!: User;
 
   constructor(
-    private commentService: CommentsService,
+    public commentService: CommentsService,
     private userService: UserService
   ) { }
 
@@ -29,16 +31,24 @@ export class QuoteCommentComponent implements OnInit {
     } else {
       idToPass = this.comment!.parentId!;
     }
-    
-      this.commentService.getComment(idToPass)
-        .pipe(
-          finalize(() => {
-            this.userService.getUser(this.quotedComment.userId)
-              .subscribe(user => this.quotedUser = user);
-          })
-        )
-        .subscribe(comment => this.quotedComment = comment);
-    
+
+    this.commentService.getComment(idToPass)
+      .pipe(
+        finalize(() => {
+          this.userService.getUser(this.quotedComment.userId)
+            .subscribe(user => this.quotedUser = user);
+        })
+      )
+      .subscribe(comment => this.quotedComment = comment);
   }
 
+  removeQuote(): void {
+    if (this.commentService.isQuoting === true) {
+      this.commentService.isQuoting = false;
+    }
+    else {
+      this.comment!.parentId = null;
+      this.commentChange.emit(this.comment);
+    }
+  }
 }

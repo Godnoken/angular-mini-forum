@@ -5,5 +5,4 @@ export interface Comment {
     userId: number;
     date: string;
     content: string;
-    isEditing: boolean;
 }

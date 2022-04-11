@@ -25,19 +25,15 @@ export class CommentsService {
     private http: HttpClient,
     ) { }
 
-  getCommentsFromDb(): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.apiUrl}/664/comments`);
-  }
-
   getComments(id: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.apiUrl}/664/comments`)
+    return this.http.get<Comment[]>(`${this.apiUrl}/644/comments`)
       .pipe(
         map(comments => comments.filter((comment) => comment.threadId === id))
       )
   }
 
   getCommentsFromUser(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/664/comments`)
+    return this.http.get(`${this.apiUrl}/644/comments`)
       .pipe(
         map((comments: any) => comments.filter((comments: any) => id === comments.userId)),
         map((comments: any) => comments)
@@ -48,13 +44,13 @@ export class CommentsService {
     return this.http.get<Comment>(`${this.apiUrl}/comments/${id}`);
   }
 
-  updateComment(comment: Comment): Observable<Comment> {
-    return this.http.put<Comment>(`${this.apiUrl}/640/comments/${comment.id}`, comment, httpOptions);
+  updateComment(id: number, updateThis: Object): Observable<Comment> {
+    return this.http.patch<Comment>(`${this.apiUrl}/644/comments/${id}`, updateThis, httpOptions);
   }
 
   addComment(comment: Comment): Observable<Comment> {
     this.isQuoting = false;
-    return this.http.post<Comment>(`${this.apiUrl}/664/comments`, comment, httpOptions);
+    return this.http.post<Comment>(`${this.apiUrl}/644/comments`, comment, httpOptions);
   }
 
   passQuoteData(comment: Comment): void {

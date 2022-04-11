@@ -35,8 +35,7 @@ export class AddCommentComponent implements OnInit {
       ...(this.commentService.isQuoting === true ? {parentId: this.commentService.comment!.id!} : {parentId: null}),
       userId: this.userService.loggedUserId,
       date: this.getCurrentDate(),
-      content: content,
-      isEditing: false
+      content: content
     }
 
     if (comment && this.commentService.isCreatingComment === true) {

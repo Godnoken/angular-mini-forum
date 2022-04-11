@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, Renderer2, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Renderer2, Output, EventEmitter } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-edit-comment',
@@ -12,39 +11,56 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class EditCommentComponent implements OnInit {
   @Input() comment!: Comment;
-  public user!: User;
+  @Output() commentChange = new EventEmitter();
+  @Input() isEditingComment!: boolean;
+  @Output() isEditingCommentChange = new EventEmitter();
+  @Input() user!: User;
+  private content!: HTMLElement;
+  private quoteId!: number | null;
 
   constructor(
     private renderer: Renderer2,
-    private commentService: CommentsService,
-    private userService: UserService
+    private commentService: CommentsService
   ) { }
 
   ngOnInit(): void {
-    this.userService.getUser(this.comment.userId)
-      .subscribe(user => this.user = user)
-    const content = this.renderer.selectRootElement(".edit-comment-content", true);
-    this.setEndOfContenteditable(content);
-  }
-
-  @HostListener('window:beforeunload', ['$event'])
-  unloadHandler(event: Event) {
-    this.onExit();
+    this.quoteId = this.comment.parentId;
+    this.content = this.renderer.selectRootElement(".edit-comment-content", true);
+    this.setEndOfContenteditable(this.content);
   }
 
   onSave(): void {
-    const content = this.renderer.selectRootElement(".edit-comment-content", true);
-    this.comment.content = content.outerText;
+    let keysToUpdate: any = {};
+    
+    if (this.comment.content !== this.content.outerText) {
+      keysToUpdate.content = this.content.outerText;
+    }
 
+    if (this.comment.parentId === null) {
+      keysToUpdate.parentId = null;
+    }
+
+    if (Object.keys(keysToUpdate).length !== 0) {
+      this.commentService.updateComment(this.comment.id!, keysToUpdate)
+        .subscribe(comment => {
+          this.comment = comment;
+          this.commentChange.emit(this.comment);
+          this.onExit();
+        });
+    }
+    else {
+      this.onExit();
+    }
+  }
+
+  onCancel(): void {
+    if (this.comment.parentId === null) this.comment.parentId = this.quoteId;
     this.onExit();
   }
 
   onExit(): void {
-    this.comment.isEditing = false;
-    if (this.comment) {
-      this.commentService.updateComment(this.comment)
-        .subscribe();
-    }
+    this.isEditingComment = false;
+    this.isEditingCommentChange.emit(this.isEditingComment);
   }
 
   setEndOfContenteditable(contentEditableElement: Element) {

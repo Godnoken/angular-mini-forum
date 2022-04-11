@@ -16,10 +16,11 @@ export class CommentCardComponent implements OnInit {
   public edit!: EditCommentComponent;
   @Input() comment!: Comment;
   public user!: User;
+  public isEditingComment: boolean = false;
 
   constructor(
     public userService: UserService,
-    private commentService: CommentsService,
+    public commentService: CommentsService,
     private renderer: Renderer2
   ) { }
 
@@ -28,12 +29,8 @@ export class CommentCardComponent implements OnInit {
       .subscribe(user => this.user = user);
   }
 
-  editComment(comment: Comment): void {
-    comment.isEditing = true;
-    if (comment) {
-      this.commentService.updateComment(comment)
-        .subscribe();
-    }
+  editComment(): void {
+    this.isEditingComment = true;
   }
 
   replyComment(): void {
