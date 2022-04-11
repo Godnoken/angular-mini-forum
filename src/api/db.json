@@ -9,7 +9,38 @@
     }
   ],
   "comments": [
-
+    {
+      "threadId": 4,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-11, 19:58",
+      "content": "sdfsf",
+      "id": 1
+    },
+    {
+      "threadId": 4,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-11, 20:34",
+      "content": "sdfdsf",
+      "id": 2
+    },
+    {
+      "threadId": 4,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-11, 20:38",
+      "content": "test",
+      "id": 3
+    },
+    {
+      "threadId": 4,
+      "parentId": null,
+      "userId": 1,
+      "date": "2022-04-11, 20:38",
+      "content": "testsss",
+      "id": 4
+    }
   ],
   "users": [
     {
@@ -17,7 +48,7 @@
       "userName": "Godnoken",
       "isOnline": true,
       "title": "Supporter",
-      "profilePic": "https://www.svtstatic.se/image/custom/650/33961110/1642868862?format=auto&ratio=1.91",
+      "profilePic": "s",
       "profileBanner": "https://i.pinimg.com/originals/db/b9/c9/dbb9c9bc80e9ac65d894eb6c9951dcea.jpg",
       "id": 1,
       "password": "$2a$10$MPGSDPwEGF48T1mztrLPwOaoofEEjWgEilTH7DYhjm3hDfA1ogFtO"
@@ -27,10 +58,16 @@
       "userName": "Seb",
       "isOnline": true,
       "title": "Supporter",
-      "profilePic": "",
-      "profileBanner": "",
+      "profilePic": "https://pbs.twimg.com/profile_images/861947799180648448/M4iyVMik_400x400.jpg",
+      "profileBanner": "sdf",
       "id": 2,
-      "password": "$2a$10$Sf4eLO00svDeIcuWcllJaOCLM.8DhDH8OpFmKdirzFHpiSmPKp9S6"
+      "headers": {
+        "normalizedNames": {},
+        "lazyUpdate": null,
+        "lazyInit": null,
+        "headers": {}
+      },
+      "password": "$2a$10$cv6Y393Z2o5G20v3StKr3uJJibiam/GBQYiLp2E6XUgDwWv2GeBDO"
     }
   ]
 }

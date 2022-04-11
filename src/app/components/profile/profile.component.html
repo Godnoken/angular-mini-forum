@@ -1,8 +1,8 @@
-<img *ngIf="user" [src]="user.profileBanner || '../../../assets/standardprofilebanner.jpg'" alt="profile banner" class="profile-banner">
+<img *ngIf="user" [src]="user.profileBanner || '../../../assets/standardprofilebanner.jpg'" onError="this.src='../../../assets/standardprofilebanner.jpg'" alt="profile banner" class="profile-banner">
 <div *ngIf="user" class="profile-container">
     <div class="profile-top-container">
         <div class="profile-top-user-container">
-            <img [src]="user.profilePic || '../../../assets/standardprofilepic.jpg'" alt="profile picture" class="profile-picture">
+            <img [src]="user.profilePic || '../../../assets/standardprofilepic.jpg'" onError="this.src='../../../assets/standardprofilepic.jpg'" alt="profile picture" class="profile-picture">
             <div>
                 <h2 class="profile-username">{{ user.userName }}</h2>
                 <p class="profile-title">{{ user.title }}</p>
@@ -13,7 +13,7 @@
         <div class="profile-navigation-container">
             <button (click)="showInfo()">Info</button>
             <button (click)="showComments()">Comments</button>
-            <button (click)="showSettings()" *ngIf="this.userService.loggedUserId !== 0">Settings</button>
+            <button (click)="showSettings()" *ngIf="this.userService.loggedUserId === user.id">Settings</button>
         </div>
         <div *ngIf="displayItem === 'info'" class="profile-information-container">
             <div class="info-item-container">
@@ -40,22 +40,20 @@
                     Profile banner
                     <input type="text" class="profile-banner-input">
                 </label>
-                <button (click)="uploadProfileBanner()">Change</button>
             </div>
             <div class="change-setting-container">
                 <label>
                     Profile picture
                     <input type="text" class="profile-pic-input">
                 </label>
-                <button (click)="uploadProfilePic()">Change</button>
             </div>
             <div class="change-setting-container">
                 <label>
                     Name
                     <input [formControl]="userName" type="text" class="profile-name-input">
                 </label>
-                <button (click)="changeUserName()">Change</button>
             </div>
+            <button (click)="updateUser()">Update</button>
         </div>
     </div>
 </div>

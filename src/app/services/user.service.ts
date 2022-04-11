@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
 
 import { User } from '../interfaces/user-interface';
 
@@ -15,12 +14,10 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  private usersUrl = "http://localhost:9000/users";
-  private authUrl = "http://localhost:9000";
+  private apiUrl = "http://localhost:9000";
   public jwtToken: string = "none";
   public loggedUserId: number = 0;
   public user!: User;
-  private password: string = "";
 
   constructor(
     private http: HttpClient,
@@ -31,39 +28,19 @@ export class UserService {
     user.title = "Supporter";
     user.profilePic = "";
     user.profileBanner = "";
-    this.password = user.password;
-    return this.http.post<any>(`${this.authUrl}/register`, user, httpOptions);
+    return this.http.post<any>(`${this.apiUrl}/register`, user, httpOptions);
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(`${this.usersUrl}/${id}`);
+    return this.http.get<User>(`${this.apiUrl}/users/${id}`);
   }
 
   loginUser(user: User): Observable<any> {
     user.isOnline = true;
-    this.password = user.password;
-    return this.http.post<any>(`${this.authUrl}/login`, user, httpOptions)
+    return this.http.post<any>(`${this.apiUrl}/login`, user, httpOptions);
   }
 
-  updateUser(): Observable<User> {
-    return this.http.patch<User>(`${this.usersUrl}/${this.loggedUserId}`, httpOptions);
-  }
-  
-  uploadProfilePic(image: string): Observable<User> {
-    this.user.profilePic = image;
-    this.user.password = this.password;
-    return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
-  }
-
-  uploadProfileBanner(image: string): Observable<User> {
-    this.user.profileBanner = image;
-    this.user.password = this.password;
-    return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
-  }
-
-  changeUserName(name: string): Observable<User> {
-    this.user.userName = name;
-    this.user.password = this.password;
-    return this.http.put<User>(`${this.usersUrl}/${this.loggedUserId}`, this.user, httpOptions);
+  updateUser(updateThis: Object): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/644/users/${this.loggedUserId}`, updateThis, httpOptions);
   }
 }

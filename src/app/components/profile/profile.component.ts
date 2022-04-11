@@ -73,26 +73,25 @@ export class ProfileComponent implements OnInit {
       .subscribe(comments => this.comments = comments);
   }
 
-  uploadProfilePic(): void {
-    const image = this.renderer.selectRootElement(".profile-pic-input", true).value;
-    
-    this.userService.uploadProfilePic(image)
-      .subscribe(user => this.user.profilePic = user.profilePic)
-  }
+  updateUser(): void {
+    const keysToUpdate: any = {};
+    let profilePic = this.renderer.selectRootElement(".profile-pic-input", true);
+    let profileBanner = this.renderer.selectRootElement(".profile-banner-input", true);
 
-  uploadProfileBanner(): void {
-    const image = this.renderer.selectRootElement(".profile-banner-input", true).value;
-    
-    this.userService.uploadProfileBanner(image)
-      .subscribe(user => this.user.profileBanner = user.profileBanner)
-  }
+    if (profilePic.value !== this.user.profilePic && profilePic.value.length !== 0) keysToUpdate.profilePic = profilePic.value;
+    if (profileBanner.value !== this.user.profileBanner && profileBanner.value.length !== 0) keysToUpdate.profileBanner = profileBanner.value;
+    if (this.userName.valid && this.userName.value.length !== 0) keysToUpdate.userName = this.userName.value;
 
-  changeUserName(): void {
-    if (this.userName.valid) {
-      this.userService.changeUserName(this.userName.value)
-        .subscribe(user => this.user.userName = user.userName)
-
-      this.userName.reset();
+    if (Object.keys(keysToUpdate).length !== 0) {
+      this.userService.updateUser(keysToUpdate)
+        .subscribe(user => {
+          this.user = user
+          this.userService.user = user;
+        });
     }
+
+    profilePic.value = "";
+    profileBanner.value = "";
+    this.userName.reset();
   }
 }
