@@ -33,4 +33,8 @@ export class ThreadsComponent implements OnInit {
       this.threadService.isCreatingThread = false;
     }
   }
+
+  deleteThread(threadToDelete: Thread): void {
+    this.threads = this.threads.filter(thread => thread !== threadToDelete);
+  }
 }

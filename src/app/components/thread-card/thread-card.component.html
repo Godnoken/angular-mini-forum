@@ -1,11 +1,13 @@
-<a routerLink="/thread/{{ thread.id }}">
+<a [routerLink]="clickedButton ? '/' : url">
     <div *ngIf="user" class="thread-container">
         <div>
             <h3 class="title">{{ thread.title }}</h3>
             <p class="username">{{ user.userName }}</p>
         </div>
-        <div>
+        <div class="thread-right-side">
             <p class="date">{{ thread.date }}</p>
+            <button (click)="editThread()" *ngIf="this.userService.loggedUserId === thread.userId" type="button">Edit</button>
+            <button (click)="deleteThread()" *ngIf="this.userService.loggedUserId === thread.userId" type="button">Delete</button>
         </div>
     </div>
 </a>

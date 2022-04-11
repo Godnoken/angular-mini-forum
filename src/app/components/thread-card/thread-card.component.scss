@@ -24,3 +24,9 @@
 .date {
     font-size: 12px;
 }
+
+.thread-right-side {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+}

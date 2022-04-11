@@ -28,4 +28,8 @@ export class ThreadService {
   createThread(thread: Thread): Observable<Thread> {
     return this.http.post<Thread>(`${this.apiUrl}/threads`, thread, httpOptions);
   }
+
+  deleteThread(id: number): Observable<Thread> {
+    return this.http.delete<Thread>(`${this.apiUrl}/660/threads/${id}`, httpOptions);
+  }
 }

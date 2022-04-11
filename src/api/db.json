@@ -1,45 +1,12 @@
 {
-  "threads": [
-    {
-      "title": "Gaming",
-      "date": "2022-04-08, 21:12",
-      "userId": 2,
-      "parentId": null,
-      "id": 4
-    }
-  ],
+  "threads": [],
   "comments": [
     {
-      "threadId": 4,
       "parentId": null,
       "userId": 2,
-      "date": "2022-04-11, 19:58",
-      "content": "sdfsf",
-      "id": 1
-    },
-    {
-      "threadId": 4,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-11, 20:34",
-      "content": "sdfdsf",
+      "date": "2022-04-11, 22:28",
+      "content": "etsts",
       "id": 2
-    },
-    {
-      "threadId": 4,
-      "parentId": 2,
-      "userId": 1,
-      "date": "2022-04-11, 20:38",
-      "content": "test",
-      "id": 3
-    },
-    {
-      "threadId": 4,
-      "parentId": null,
-      "userId": 1,
-      "date": "2022-04-11, 20:38",
-      "content": "testsss",
-      "id": 4
     }
   ],
   "users": [
@@ -61,12 +28,6 @@
       "profilePic": "https://pbs.twimg.com/profile_images/861947799180648448/M4iyVMik_400x400.jpg",
       "profileBanner": "sdf",
       "id": 2,
-      "headers": {
-        "normalizedNames": {},
-        "lazyUpdate": null,
-        "lazyInit": null,
-        "headers": {}
-      },
       "password": "$2a$10$cv6Y393Z2o5G20v3StKr3uJJibiam/GBQYiLp2E6XUgDwWv2GeBDO"
     }
   ]
