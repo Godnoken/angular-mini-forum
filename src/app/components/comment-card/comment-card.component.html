@@ -1,19 +1,30 @@
 <div *ngIf="user" class="comment-top-container">
     <div class="comment-user-container">
-        <a routerLink="/profile/{{ comment.userId }}"><img [src]="user.profilePic || '../../../assets/standardprofilepic.jpg'" onError="this.src='../../../assets/standardprofilepic.jpg'" alt="profile pic" class="comment-user-profile-img"></a>
+        <a routerLink="/profile/{{ comment.userId }}"><img
+                [src]="user.profilePic || '../../../assets/standardprofilepic.jpg'"
+                onError="this.src='../../../assets/standardprofilepic.jpg'" alt="profile pic"
+                class="comment-user-profile-img"></a>
         <div class="comment-user-titles-container">
-            <a routerLink="/profile/{{ comment.userId }}"><h3 class="comment-user-name">{{ user.userName }}</h3></a>
+            <a routerLink="/profile/{{ comment.userId }}">
+                <h3 class="comment-user-name">{{ user.userName }}</h3>
+            </a>
             <p class="comment-user-title">{{ user.title }}</p>
         </div>
     </div>
-    <div *ngIf="isEditingComment === true" class="edit-comment-buttons">
+    <div *ngIf="isEditingComment === true" class="comment-card-right-side">
         <button (click)="edit.onCancel()">Cancel</button>
         <button (click)="edit.onSave()">Save</button>
     </div>
-    <button *ngIf="userService.loggedUserId === comment.userId && isEditingComment === false" (click)="editComment()">Edit</button>
-    <button *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId" (click)="replyComment()">Reply</button>
+    <div *ngIf="userService.loggedUserId === comment.userId && isEditingComment === false" class="comment-card-right-side">
+        <button (click)="deleteComment()">Delete</button>
+        <button (click)="editComment()">Edit</button>
+    </div>
+    <button *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId"
+        (click)="replyComment()">Reply</button>
 </div>
-<app-quote-comment *ngIf="this.comment.parentId !== null" [(comment)]="comment" [isEditingComment]="isEditingComment"></app-quote-comment>
+<app-quote-comment *ngIf="this.comment.parentId !== null" [(comment)]="comment" [isEditingComment]="isEditingComment">
+</app-quote-comment>
 <p *ngIf="isEditingComment === false" class="comment-content">{{ comment.content }}</p>
-<app-edit-comment *ngIf="isEditingComment === true && userService.loggedUserId !== 0" [(comment)]="comment" [(isEditingComment)]="isEditingComment" [user]="user"></app-edit-comment>
+<app-edit-comment *ngIf="isEditingComment === true && userService.loggedUserId !== 0" [(comment)]="comment"
+    [(isEditingComment)]="isEditingComment" [user]="user"></app-edit-comment>
 <p class="comment-date">{{ comment.date }}</p>

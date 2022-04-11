@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Renderer2, Output, EventEmitter } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
@@ -15,6 +15,7 @@ export class CommentCardComponent implements OnInit {
   @ViewChild(EditCommentComponent)
   public edit!: EditCommentComponent;
   @Input() comment!: Comment;
+  @Output() emitDeleteComment = new EventEmitter();
   public user!: User;
   public isEditingComment: boolean = false;
 
@@ -40,5 +41,10 @@ export class CommentCardComponent implements OnInit {
     setTimeout(() => {
       window.scrollTo({ top: this.renderer.selectRootElement("app-root", true).scrollHeight, behavior: 'smooth' });
     }, 250)
+  }
+
+  deleteComment(): void {
+    this.commentService.deleteComment(this.comment.id!)
+      .subscribe(() => this.emitDeleteComment.emit(this.comment));
   }
 }

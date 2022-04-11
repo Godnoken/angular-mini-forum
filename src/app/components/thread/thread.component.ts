@@ -29,4 +29,8 @@ export class ThreadComponent implements OnInit {
         this.comments = comments
       })
   }
+
+  deleteComment(commentToDelete: Comment): void {
+    this.comments = this.comments.filter(comment => comment !== commentToDelete);
+  }
 }

@@ -53,6 +53,10 @@ export class CommentsService {
     return this.http.post<Comment>(`${this.apiUrl}/644/comments`, comment, httpOptions);
   }
 
+  deleteComment(id: number): Observable<Comment> {
+    return this.http.delete<Comment>(`${this.apiUrl}/660/comments/${id}`, httpOptions);
+  }
+
   passQuoteData(comment: Comment): void {
     // Timeout so quote comment can change if user decides to reply
     // to a different comment
