@@ -30,7 +30,7 @@
 label {
     width: 100%;
     color: white;
-    font-size: 18px;
+    font-size: var(--medium-text);
     user-select: none;
 }
 
@@ -47,7 +47,7 @@ input.ng-valid {
 .error-message {
     height: 0;
     color: var(--warning-color);
-    font-size: 12px;
+    font-size: var(--mini-text);
     transform: translateY(6px);
 }
 
@@ -71,4 +71,11 @@ p.ng-invalid {
 
 .login-successful-header span {
     color: var(--accent-color);
+}
+
+@media only screen and (max-width: 600px) {
+    :host {
+        margin-top: 10vh;
+        min-height: 75vh;
+    }
 }

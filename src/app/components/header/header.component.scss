@@ -12,7 +12,7 @@
 
 .home-title {
     color: white;
-    font-size: 20px;
+    font-size: var(--large-text);
 }
 
 .header-sides {
@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 16px;
+    column-gap: 2vw;
 }
 
 .header-profile-name {
@@ -37,4 +37,16 @@
 
 .nav-item {
     color: var(--accent-color);
+}
+
+@media only screen and (max-width: 600px) {
+    :host {
+        height: 10vh;
+    }
+
+    .header-sides {
+        flex-direction: column-reverse;
+        align-items: start;
+        row-gap: 1vh;
+    }
 }

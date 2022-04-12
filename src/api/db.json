@@ -1,6 +1,53 @@
 {
-  "threads": [],
-  "comments": [],
+  "threads": [
+    {
+      "title": "testtest",
+      "date": "2022-04-12, 17:04",
+      "userId": 2,
+      "parentId": null,
+      "id": 1
+    },
+    {
+      "title": "est",
+      "date": "2022-04-12, 20:23",
+      "userId": 2,
+      "parentId": null,
+      "id": 2
+    },
+    {
+      "title": "test",
+      "date": "2022-04-12, 20:55",
+      "userId": 2,
+      "parentId": null,
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "threadId": 1,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-12, 18:04",
+      "content": "test",
+      "id": 2
+    },
+    {
+      "threadId": 1,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-12, 18:06",
+      "content": "test",
+      "id": 3
+    },
+    {
+      "threadId": 2,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-12, 20:23",
+      "content": "test",
+      "id": 4
+    }
+  ],
   "users": [
     {
       "email": "godnoken@gmail.com",

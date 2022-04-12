@@ -18,7 +18,7 @@
 }
 
 .profile-top-container {
-    transform: translateY(-5vw);
+    transform: translateY(calc(var(--profile-pic-big) - var(--profile-pic-big) * 1.5));
     display: flex;
     align-items: flex-start;
     padding-left: 3vw;
@@ -26,8 +26,7 @@
 }
 
 .profile-picture {
-    width: 10vw;
-    height: 10vw;
+    width: var(--profile-pic-big);
     border-radius: 1000px;
     background-color: white;
 }
@@ -39,12 +38,12 @@
 }
 
 .profile-username {
-    font-size: 2.4vw;
+    font-size: var(--large-text);
 }
 
 .profile-title {
     color: var(--accent-color);
-    font-size: 1vw;
+    font-size: var(--medium-text);
 }
 
 .profile-bottom-container {
@@ -83,7 +82,7 @@
 
 .comments-container {
     height: max-content;
-    width: 50vw;
+    width: 50%;
     display: grid;
     justify-self: center;
     grid-template-columns: minmax(0, 1fr);
@@ -113,4 +112,10 @@
     justify-content: center;
     text-align: center;
     row-gap: 1vh;
+}
+
+@media only screen and (max-width: 800px) {
+    .comments-container {
+        width: 80%;
+    }
 }

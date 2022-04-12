@@ -18,3 +18,16 @@
     row-gap: 2.5vh;
     color: white;
 }
+
+@media only screen and (max-width: 1024px) {
+    :host {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    :host {
+        margin-top: 15vh;
+        min-height: 75vh;
+    }
+}

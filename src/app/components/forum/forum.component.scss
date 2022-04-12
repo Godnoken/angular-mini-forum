@@ -7,3 +7,16 @@
     justify-self: center;
     align-self: center;
 }
+
+@media only screen and (max-width: 1024px) {
+    :host {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    :host {
+        margin-top: 10vh;
+        min-height: 75vh;
+    }
+}

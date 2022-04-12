@@ -3,8 +3,19 @@
     --secondary-color: #155086;
     --accent-color: #30DAFF;
     --warning-color: #ffdb89;
+
     --button-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
     --card-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+    
+    --mini-text: clamp(10px, 1.3 * (1vw + 1vh) / 2, 16px);
+    --small-text: clamp(12px, 1.5 * (1vw + 1vh) / 2, 18px);
+    --medium-text: clamp(12px, 1.75 * (1vw + 1vh) / 2, 22px);
+    --large-text: clamp(20px, 2 * (1vw + 1vh) / 2, 26px);
+
+    --profile-pic-big: clamp(40px, 8 * (1vw + 1vh) / 2, 120px);
+
+    --button-width-big: clamp(75px, 8 * (1vw + 1vh) / 2, 120px);
+    --button-width-small: clamp(50px, 8 * (1vw + 1vh) / 2, 120px);
 }
 
 html, body { 
@@ -19,16 +30,22 @@ html {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: var(--small-text);
 }
 
 button {
-    width: 100px;
-    height: 25px;
+    width: var(--button-width-big);
+    height: max-content;
+    padding: 0.4vh 0;
     border: 1px var(--accent-color) solid;
     background-color: transparent;
     color: white;
     box-shadow: var(--button-shadow);
     cursor: pointer;
+}
+
+button:active {
+    transform: translateY(2px);
 }
 
 input {
@@ -40,7 +57,6 @@ input {
     outline: none;
     color: white;
     padding: 14px 6px 2px 6px;
-    font-size: 16px;
     text-align: center;
     transition-property: box-shadow;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
@@ -49,10 +65,11 @@ input {
     -webkit-text-fill-color: white;
     caret-color: var(--accent-color);
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: var(--small-text);
 }
 
 ::-webkit-scrollbar {
-    width: 16px;
+    width: clamp(8px, 1.5 * (1vw + 1vh) / 2, 18px);
 }
 
 ::-webkit-scrollbar-thumb {

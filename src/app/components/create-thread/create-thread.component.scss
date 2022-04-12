@@ -22,3 +22,9 @@
 .create-title {
     width: 40%;
 }
+
+@media only screen and (max-width: 500px) {
+    :host {
+        width: 100%;
+    }
+}
