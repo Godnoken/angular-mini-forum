@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Renderer2 } from '@angular/core';
 
 import { Thread } from 'src/app/interfaces/thread-interface';
 import { User } from 'src/app/interfaces/user-interface';
@@ -14,6 +14,8 @@ export class ThreadCardComponent implements OnInit {
   @Input() thread!: Thread;
   @Output() emitDeleteThread = new EventEmitter();
   public user!: User;
+  public isEditingThread: boolean = false;
+  private titleInput!: HTMLInputElement;
 
   // Workaround so the entire card can stay as a link apart from
   // the buttons
@@ -26,7 +28,8 @@ export class ThreadCardComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private threadService: ThreadService
+    private threadService: ThreadService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +43,36 @@ export class ThreadCardComponent implements OnInit {
   }
 
   editThread(): void {
+    this.clickedButton = true;
+    this.isEditingThread = true;
 
+    setTimeout(() => {
+      this.titleInput = this.renderer.selectRootElement(".title-input", true);
+      this.titleInput.focus();
+    }, 25);
+  }
+
+  onSave(): void {
+    this.clickedButton = true;
+    let keysToUpdate: any = {};
+
+    if (this.thread.title !== this.titleInput.value) keysToUpdate.title = this.titleInput.value;
+
+    if (Object.keys(keysToUpdate).length !== 0) {
+      this.threadService.updateThread(this.thread.id!, keysToUpdate)
+        .subscribe(thread => {
+          this.thread = thread;
+          this.onExit();
+        });
+    }
+    else {
+      this.onExit();
+    }
+  }
+
+  onExit(): void {
+    this.clickedButton = true;
+    this.isEditingThread = false;
   }
 
   deleteThread(): void {

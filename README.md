@@ -37,4 +37,6 @@ Pretty much all styling in place is just thrown together without responsiveness 
 
 ---
 
-Right now all put/patch requests update the entire user/comment data. I want to fix this and will try to, but at this point I am not sure if it is possible with json-server-auth due to my lack of knowledge using backends or in this case a fake backend
+**Fixed** Right now all put/patch requests update the entire user/comment data. I want to fix this and will try to, but at this point I am not sure if it is possible with json-server-auth due to my lack of knowledge using backends or in this case a fake backend
+
+**Solution** Changed all update requests to patch so it now only sends the data that have been changed by the user.

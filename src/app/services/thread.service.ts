@@ -32,4 +32,8 @@ export class ThreadService {
   deleteThread(id: number): Observable<Thread> {
     return this.http.delete<Thread>(`${this.apiUrl}/660/threads/${id}`, httpOptions);
   }
+
+  updateThread(id: number, updateThis: Object): Observable<Thread> {
+    return this.http.patch<Thread>(`${this.apiUrl}/644/threads/${id}`, updateThis, httpOptions);
+  }
 }

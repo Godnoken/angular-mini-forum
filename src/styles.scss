@@ -34,8 +34,8 @@ button {
 input {
     width: 100%;
     display: block;
-    border-width: 0 0 2px;
-    border-color: var(--accent-color);
+    border: none;
+    border-bottom: 2px solid var(--accent-color);
     background-color: transparent;
     outline: none;
     color: white;
@@ -48,6 +48,7 @@ input {
     box-shadow: var(--primary-color) 0px 0px 0px 30px inset;
     -webkit-text-fill-color: white;
     caret-color: var(--accent-color);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 ::-webkit-scrollbar {

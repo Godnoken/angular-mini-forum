@@ -1,13 +1,16 @@
-<a [routerLink]="clickedButton ? '/' : url">
+<a (click)="this.clickedButton = false" [routerLink]="clickedButton ? '/' : url">
     <div *ngIf="user" class="thread-container">
         <div>
-            <h3 class="title">{{ thread.title }}</h3>
+            <h3 *ngIf="isEditingThread === false" class="title">{{ thread.title }}</h3>
+            <input (click)="this.clickedButton = true" *ngIf="isEditingThread === true" class="title-input" value="{{ thread.title }}">
             <p class="username">{{ user.userName }}</p>
         </div>
         <div class="thread-right-side">
             <p class="date">{{ thread.date }}</p>
-            <button (click)="editThread()" *ngIf="this.userService.loggedUserId === thread.userId" type="button">Edit</button>
-            <button (click)="deleteThread()" *ngIf="this.userService.loggedUserId === thread.userId" type="button">Delete</button>
+            <button *ngIf="isEditingThread === true" (click)="onExit()">Cancel</button>
+            <button *ngIf="isEditingThread === true" (click)="onSave()">Save</button>
+            <button (click)="editThread()" *ngIf="this.userService.loggedUserId === thread.userId && isEditingThread === false" type="button">Edit</button>
+            <button (click)="deleteThread()" *ngIf="this.userService.loggedUserId === thread.userId && isEditingThread === false" type="button">Delete</button>
         </div>
     </div>
 </a>
