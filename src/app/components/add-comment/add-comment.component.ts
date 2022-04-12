@@ -30,12 +30,13 @@ export class AddCommentComponent implements OnInit {
   addComment(): void {
     const content = this.renderer.selectRootElement(".add-comment-content", true).textContent;
 
-    const comment = {
+    const comment: any = {
       threadId: this.threadId,
       ...(this.commentService.isQuoting === true ? {parentId: this.commentService.comment!.id!} : {parentId: null}),
       userId: this.userService.loggedUserId,
       date: this.getCurrentDate(),
-      content: content
+      content: content,
+      isFirstComment: false
     }
 
     if (comment && this.commentService.isCreatingComment === true) {
@@ -43,6 +44,7 @@ export class AddCommentComponent implements OnInit {
         .subscribe(comment => this.comments.push(comment));
       this.commentService.isCreatingComment = false;
     } else {
+      comment.isFirstComment = true;
       this.commentService.addComment(comment)
         .subscribe(() => {
           this.router.navigateByUrl(`/thread/${this.threadId}`)

@@ -5,4 +5,5 @@ export interface Comment {
     userId: number;
     date: string;
     content: string;
+    isFirstComment: boolean;
 }

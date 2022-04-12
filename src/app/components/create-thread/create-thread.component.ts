@@ -34,7 +34,7 @@ export class CreateThreadComponent implements OnInit {
       title: title,
       date: this.add.getCurrentDate(),
       userId: this.userService.loggedUserId,
-      parentId: null,
+      parentId: null
     }
 
     if (thread) {
