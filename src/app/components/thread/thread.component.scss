@@ -4,7 +4,7 @@
     margin: 10vh 0 4vh;
     display: grid;
     grid-template-columns: 4fr 2fr;
-    grid-template-rows: max-content max-content max-content;
+    grid-template-rows: max-content max-content max-content max-content;
     justify-self: center;
     align-self: center;
     row-gap: 2vh;
@@ -17,6 +17,12 @@
     grid-template-columns: minmax(0, 1fr);
     row-gap: 2.5vh;
     color: white;
+}
+
+.thread-title {
+    text-align: center;
+    color: white;
+    font-size: var(--large-text);
 }
 
 @media only screen and (max-width: 1024px) {

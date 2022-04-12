@@ -1,6 +1,6 @@
 <a (click)="this.clickedButton = false" [routerLink]="clickedButton ? '/' : url">
     <div *ngIf="user" class="thread-container">
-        <div>
+        <div class="thread-left-side">
             <h3 *ngIf="isEditingThread === false" class="title">{{ thread.title }}</h3>
             <input (click)="this.clickedButton = true" *ngIf="isEditingThread === true" class="title-input" value="{{ thread.title }}">
             <p class="username">{{ user.userName }}</p>

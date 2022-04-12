@@ -12,13 +12,17 @@
     border-radius: 8px;
 }
 
+.thread-left-side {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+}
+
 .title {
     font-size: var(--medium-text);
-    height: 18px;
 }
 
 .title-input {
-    height: 18px;
     width: 50%;
     font-size: var(--medium-text);
     text-align: start;

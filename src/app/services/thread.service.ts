@@ -25,6 +25,10 @@ export class ThreadService {
     return this.http.get<Thread[]>(`${this.apiUrl}/664/threads`);
   }
 
+  getThread(id: number): Observable<Thread> {
+    return this.http.get<Thread>(`${this.apiUrl}/threads/${id}`);
+  }
+
   createThread(thread: Thread): Observable<Thread> {
     return this.http.post<Thread>(`${this.apiUrl}/threads`, thread, httpOptions);
   }

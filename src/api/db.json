@@ -2,30 +2,53 @@
   "threads": [
     {
       "title": "",
-      "date": "2022-04-12, 22:24",
+      "date": "2022-04-12, 22:45",
       "userId": 2,
       "parentId": null,
       "id": 1
+    },
+    {
+      "title": "sfdf",
+      "date": "2022-04-12, 22:46",
+      "userId": 2,
+      "parentId": null,
+      "id": 2
     }
   ],
   "comments": [
     {
-      "threadId": 1,
       "parentId": null,
       "userId": 2,
-      "date": "2022-04-12, 22:24",
-      "content": "sdfsf",
-      "isFirstComment": true,
-      "id": 1
+      "date": "2022-04-12, 22:42",
+      "content": "test",
+      "isFirstComment": false,
+      "id": 3
     },
     {
       "threadId": 1,
       "parentId": null,
       "userId": 2,
-      "date": "2022-04-12, 22:24",
-      "content": "sdfsdfsf",
+      "date": "2022-04-12, 22:45",
+      "content": "",
+      "isFirstComment": true,
+      "id": 4
+    },
+    {
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-12, 22:46",
+      "content": "",
       "isFirstComment": false,
-      "id": 2
+      "id": 5
+    },
+    {
+      "threadId": 2,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-12, 22:46",
+      "content": "",
+      "isFirstComment": true,
+      "id": 6
     }
   ],
   "users": [

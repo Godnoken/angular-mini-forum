@@ -1,3 +1,4 @@
+<h2 *ngIf="thread" class="thread-title">{{ thread.title }}</h2>
 <div class="comments-container">
     <app-comment-card *ngFor="let comment of comments" [comment]="comment" (emitDeleteComment)="deleteComment($event)"></app-comment-card>
 </div>
