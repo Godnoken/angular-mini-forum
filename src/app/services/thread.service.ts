@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 import { Thread } from '../interfaces/thread-interface';
+import { SharedService } from './shared.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,11 +15,12 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ThreadService {
-  private apiUrl = "http://localhost:9000";
+  private apiUrl = this.sharedService.apiURL;
   public isCreatingThread: boolean = false;
 
   constructor(
     private http: HttpClient,
+    private sharedService: SharedService
   ) { }
 
   getThreads(): Observable<Thread[]> {

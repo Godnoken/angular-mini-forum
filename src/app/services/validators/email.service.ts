@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { AsyncValidator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { SharedService } from '../shared.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService implements AsyncValidator {
-  private usersUrl = "http://localhost:9000/users";
+  private apiUrl = this.sharedService.apiURL;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sharedService: SharedService
   ) { }
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
@@ -23,7 +25,7 @@ export class EmailService implements AsyncValidator {
   }
 
   checkEmailAvailability(email: string): Observable<boolean> {
-    return this.http.get(this.usersUrl)
+    return this.http.get(`${this.apiUrl}/users`)
       .pipe(
         map((users: any) => 
           users.filter((user: any) => user.email.toLowerCase() === email.toLowerCase())

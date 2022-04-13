@@ -1,10 +1,19 @@
 const jsonServer = require('json-server');
-const auth = reuqire('json-server-auth');
+const auth = require('json-server-auth');
 const server = jsonServer.create();
 const router = jsonServer.router('./src/api/db.json');
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8080;
+const middlewares = jsonServer.defaults({ static: './dist/mini-forum' });
 
-server.use(auth);
-server.use(router);
+server.db = router.db;
 
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
+    res.header('Access-Control-Allow-Headers', '*')
+    next()
+})
+
+server.use('/api', auth);
+server.use('/api', router);
+server.use(middlewares);
 server.listen(port);

@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "serve": "ng serve --open --port 4200",
     "test": "ng test",
-    "api": "json-server --watch src/api/db.json -m ./node_modules/json-server-auth -r src/api/routes.json --port 9000"
+    "api": "json-server --watch src/api/db.json -m ./node_modules/json-server-auth -r src/api/routes.json --port 8080",
+    "heroku-postbuild": "ng build"
   },
   "private": true,
   "dependencies": {

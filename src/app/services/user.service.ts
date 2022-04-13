@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User } from '../interfaces/user-interface';
+import { SharedService } from './shared.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,13 +15,14 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = "http://localhost:9000";
+  private apiUrl = this.sharedService.apiURL;
   public jwtToken: string = "none";
   public loggedUserId: number = 0;
   public user!: User;
 
   constructor(
     private http: HttpClient,
+    private sharedService: SharedService
   ) { }
 
   registerUser(user: User): Observable<any> {

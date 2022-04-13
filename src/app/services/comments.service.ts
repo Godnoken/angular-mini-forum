@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 
 import { Comment } from '../interfaces/comment-interface';
 import { User } from '../interfaces/user-interface';
+import { SharedService } from './shared.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,10 +20,11 @@ export class CommentsService {
   public isQuoting: boolean = false;
   public comment!: Comment | null;
   public user!: User;
-  private apiUrl = "http://localhost:9000";
+  private apiUrl = this.sharedService.apiURL;
   
   constructor(
     private http: HttpClient,
+    private sharedService: SharedService
     ) { }
 
   getComments(id: number): Observable<Comment[]> {

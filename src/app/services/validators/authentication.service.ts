@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, catchError, of } from 'rxjs';
+import { SharedService } from '../shared.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,11 +14,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private usersUrl = "http://localhost:9000/users";
-  private authUrl = "http://localhost:9000";
+  private apiUrl = this.sharedService.apiURL;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private sharedService: SharedService
   ) { }
 
   validateLogin: AsyncValidatorFn = (control: AbstractControl): Observable<ValidationErrors | null> => {
@@ -25,7 +26,7 @@ export class AuthenticationService {
     const password = control.get("password")!.value;
     const user = { "email": email, "password": password };
 
-    return this.http.post<any>(`${this.authUrl}/login`, user, httpOptions)
+    return this.http.post<any>(`${this.apiUrl}/login`, user, httpOptions)
     .pipe(
       map((res: any) => {
           return res.accessToken !== undefined ? null : { loginInvalid: true }
