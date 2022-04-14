@@ -1,3 +1,34 @@
+Live: https://dif-mini-forum.herokuapp.com/
+
+## Run locally
+
+npm install
+
+--
+
+To run api with server logging and live development changes;
+
+npm run api
++
+npm run serve
+
+and you should automatically have the website running
+otherwise access at localhost:4200
+
+--
+
+OR
+
+--
+
+To run production build;
+
+npm run build
++
+npm run start
+
+and access at localhost:8080
+
 ## Bugs
 
 Confirm password's input styling only reacts to errors when it first has successfully matched to password and then unmatched again.
