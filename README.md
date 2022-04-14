@@ -1,5 +1,7 @@
 Live: https://dif-mini-forum.herokuapp.com/
 
+**Note:** database resets once a day & whenever I choose to restart it or push an update
+
 ## Run locally
 
 npm install
@@ -11,6 +13,11 @@ To run api with server logging and live development changes;
 npm run api
 +
 npm run serve
++
+change
+public apiURL = "http://localhost:8080/api";
+to
+public apiURL = "http://localhost:8080";
 
 and you should automatically have the website running
 otherwise access at localhost:4200
@@ -26,6 +33,11 @@ To run production build;
 npm run build
 +
 npm run start
++
+change
+public apiURL = "http://localhost:8080";
+to
+public apiURL = "http://localhost:8080/api";
 
 and access at localhost:8080
 
