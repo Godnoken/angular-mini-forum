@@ -24,7 +24,7 @@ export class ThreadService {
   ) { }
 
   getThreads(): Observable<Thread[]> {
-    return this.http.get<Thread[]>(`${this.apiUrl}/664/threads`);
+    return this.http.get<Thread[]>(`${this.apiUrl}/threads`);
   }
 
   getThread(id: number): Observable<Thread> {
@@ -36,10 +36,10 @@ export class ThreadService {
   }
 
   deleteThread(id: number): Observable<Thread> {
-    return this.http.delete<Thread>(`${this.apiUrl}/660/threads/${id}`, httpOptions);
+    return this.http.delete<Thread>(`${this.apiUrl}/threads/${id}`, httpOptions);
   }
 
   updateThread(id: number, updateThis: Object): Observable<Thread> {
-    return this.http.patch<Thread>(`${this.apiUrl}/644/threads/${id}`, updateThis, httpOptions);
+    return this.http.patch<Thread>(`${this.apiUrl}/threads/${id}`, updateThis, httpOptions);
   }
 }

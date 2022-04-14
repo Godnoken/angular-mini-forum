@@ -7,12 +7,19 @@ const middlewares = jsonServer.defaults({ static: './dist/mini-forum' });
 
 server.db = router.db;
 
+const rules = auth.rewriter({
+    "/users*": "/644/users$1",
+    "/threads*": "/644/threads$1",
+    "/comments*": "/644/comments$1"
+})
+
 server.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
     res.header('Access-Control-Allow-Headers', '*')
     next()
 })
 
+server.use(rules);
 server.use('/api', auth);
 server.use('/api', router);
 server.use(middlewares);

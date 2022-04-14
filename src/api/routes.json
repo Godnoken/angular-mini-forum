@@ -1,3 +1,5 @@
 {
-  
+  "/users*": "/644/users$1",
+  "/threads*": "/644/threads$1",
+  "/comments*": "/644/comments$1"
 }

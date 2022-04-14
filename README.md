@@ -1,5 +1,9 @@
 Live: https://dif-mini-forum.herokuapp.com/
 
+If you don't want to register you can login with:
+**admin@gmail.com**
+**Admintest8!**
+
 **Note:** database resets once a day & whenever I choose to restart it or push an update
 
 ## Run locally

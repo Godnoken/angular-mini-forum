@@ -1,18 +1,18 @@
 {
   "threads": [
     {
-      "title": "asdad",
-      "date": "2022-04-12, 22:45",
-      "userId": 2,
-      "parentId": null,
-      "id": 1
-    },
-    {
-      "title": "sdfsdfsf",
-      "date": "2022-04-13, 22:24",
-      "userId": 2,
+      "title": "Test",
+      "date": "2022-04-14, 16:54",
+      "userId": 3,
       "parentId": null,
       "id": 2
+    },
+    {
+      "title": "",
+      "date": "2022-04-14, 17:03",
+      "userId": 2,
+      "parentId": null,
+      "id": 3
     }
   ],
   "comments": [
@@ -25,22 +25,22 @@
       "id": 3
     },
     {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-12, 22:45",
-      "content": "asdad",
-      "isFirstComment": true,
-      "id": 4
-    },
-    {
       "threadId": 2,
       "parentId": null,
-      "userId": 2,
-      "date": "2022-04-13, 22:24",
-      "content": "sdf",
+      "userId": 3,
+      "date": "2022-04-14, 16:54",
+      "content": "ss",
       "isFirstComment": true,
-      "id": 6
+      "id": 8
+    },
+    {
+      "threadId": 3,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-14, 17:03",
+      "content": "",
+      "isFirstComment": true,
+      "id": 9
     }
   ],
   "users": [
@@ -56,13 +56,23 @@
     },
     {
       "email": "sebastian.ojefors@gmail.com",
-      "userName": "Seb",
+      "userName": "test",
       "isOnline": true,
       "title": "Supporter",
       "profilePic": "https://pbs.twimg.com/profile_images/861947799180648448/M4iyVMik_400x400.jpg",
       "profileBanner": "sdf",
       "id": 2,
       "password": "$2a$10$cv6Y393Z2o5G20v3StKr3uJJibiam/GBQYiLp2E6XUgDwWv2GeBDO"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$ANOoyrY5c0LIIQVZNWVg/.EiedQOPX5neekZnb0C22kpLKgREC2U2",
+      "userName": "Admin",
+      "isOnline": true,
+      "title": "Supporter",
+      "profilePic": "",
+      "profileBanner": "",
+      "id": 3
     }
   ]
 }

@@ -43,6 +43,6 @@ export class UserService {
   }
 
   updateUser(updateThis: Object): Observable<User> {
-    return this.http.patch<User>(`${this.apiUrl}/644/users/${this.loggedUserId}`, updateThis, httpOptions);
+    return this.http.patch<User>(`${this.apiUrl}/users/${this.loggedUserId}`, updateThis, httpOptions);
   }
 }
