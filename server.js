@@ -8,9 +8,9 @@ const middlewares = jsonServer.defaults({ static: './dist/mini-forum' });
 server.db = router.db;
 
 const rules = auth.rewriter({
-    "/users*": "/644/users$1",
-    "/threads*": "/644/threads$1",
-    "/comments*": "/644/comments$1"
+    users: 644,
+    threads: 644,
+    comments: 644
 })
 
 server.use((req, res, next) => {
@@ -19,7 +19,7 @@ server.use((req, res, next) => {
     next()
 })
 
-server.use(rules);
+server.use('/api', rules);
 server.use('/api', auth);
 server.use('/api', router);
 server.use(middlewares);
