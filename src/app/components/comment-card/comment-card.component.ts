@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, Renderer2, Output, EventEmitter } 
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
+import { Thread } from 'src/app/interfaces/thread-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 import { UserService } from 'src/app/services/user.service';
 import { EditCommentComponent } from '../edit-comment/edit-comment.component';
@@ -16,6 +17,8 @@ export class CommentCardComponent implements OnInit {
   public edit!: EditCommentComponent;
   @Input() comment!: Comment;
   @Output() emitDeleteComment = new EventEmitter();
+  @Input() isBrowsingProfile = false;
+  @Input() thread!: Thread;
   public user!: User;
   public isEditingComment: boolean = false;
 
@@ -29,6 +32,8 @@ export class CommentCardComponent implements OnInit {
     this.userService.getUser(this.comment.userId)
       .subscribe(user => this.user = user);
   }
+
+  
 
   editComment(): void {
     this.isEditingComment = true;

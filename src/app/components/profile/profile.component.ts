@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   public user!: User;
   public displayItem: string = "info";
   public comments: Comment[] = [];
+  public isBrowsingProfile: boolean = true;
 
   constructor(
     public userService: UserService,

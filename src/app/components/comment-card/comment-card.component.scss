@@ -60,6 +60,13 @@ button {
     width: var(--button-width-small);
 }
 
+.thread-creator {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--accent-color);
+}
+
 @media only screen and (max-width: 500px) {
     .comment-card-right-side {
         flex-direction: column-reverse;

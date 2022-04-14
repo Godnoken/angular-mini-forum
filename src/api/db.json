@@ -1,46 +1,108 @@
 {
   "threads": [
     {
-      "title": "Test",
-      "date": "2022-04-14, 16:54",
-      "userId": 3,
+      "title": "Threads",
+      "date": "2022-04-14, 19:51",
+      "userId": 2,
+      "parentId": null,
+      "id": 1
+    },
+    {
+      "title": "test",
+      "date": "2022-04-14, 19:56",
+      "userId": 1,
       "parentId": null,
       "id": 2
     },
     {
       "title": "",
-      "date": "2022-04-14, 17:03",
-      "userId": 2,
+      "date": "2022-04-14, 20:26",
+      "userId": 3,
       "parentId": null,
       "id": 3
     }
   ],
   "comments": [
     {
+      "threadId": 1,
       "parentId": null,
       "userId": 2,
-      "date": "2022-04-12, 22:42",
-      "content": "testsdfdsf",
+      "date": "2022-04-14, 20:22",
+      "content": "test",
       "isFirstComment": false,
-      "id": 3
+      "id": 2
     },
     {
       "threadId": 2,
       "parentId": null,
       "userId": 3,
-      "date": "2022-04-14, 16:54",
-      "content": "ss",
-      "isFirstComment": true,
-      "id": 8
+      "date": "2022-04-14, 20:26",
+      "content": "test",
+      "isFirstComment": false,
+      "id": 3
     },
     {
       "threadId": 3,
       "parentId": null,
-      "userId": 2,
-      "date": "2022-04-14, 17:03",
+      "userId": 3,
+      "date": "2022-04-14, 20:26",
       "content": "",
       "isFirstComment": true,
+      "id": 4
+    },
+    {
+      "threadId": 1,
+      "parentId": null,
+      "userId": 3,
+      "date": "2022-04-14, 20:26",
+      "content": "test",
+      "isFirstComment": false,
+      "id": 5
+    },
+    {
+      "threadId": 1,
+      "parentId": 2,
+      "userId": 3,
+      "date": "2022-04-14, 20:26",
+      "content": "testetest",
+      "isFirstComment": false,
+      "id": 7
+    },
+    {
+      "threadId": 1,
+      "parentId": 1,
+      "userId": 3,
+      "date": "2022-04-14, 20:27",
+      "content": "sdfsf",
+      "isFirstComment": false,
+      "id": 8
+    },
+    {
+      "threadId": 1,
+      "parentId": 2,
+      "userId": 3,
+      "date": "2022-04-14, 20:27",
+      "content": "tssssssss",
+      "isFirstComment": false,
       "id": 9
+    },
+    {
+      "threadId": 1,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-14, 20:28",
+      "content": "ssss",
+      "isFirstComment": false,
+      "id": 10
+    },
+    {
+      "threadId": 1,
+      "parentId": 2,
+      "userId": 1,
+      "date": "2022-04-14, 20:28",
+      "content": "ss",
+      "isFirstComment": false,
+      "id": 11
     }
   ],
   "users": [

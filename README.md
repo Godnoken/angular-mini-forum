@@ -63,6 +63,10 @@ Profile component now listens after the end of the navigation URL changing and u
 
 ---
 
+If an user quotes a comment and later that quoted comment gets deleted - the quote breaks. I will likely rewrite how quoting works to either enable the quoted comment to still exist after original comment is deleted
+OR
+Make sure that any comment that contains a quote also checks if the comment exists in the database
+
 ## Wishbox
 
 Since Angular has no way of dynamically changing "updateOn" prop on formControl, I can not implement passive/aggressive rules to user validation messages/styling without making some ugly fix.
