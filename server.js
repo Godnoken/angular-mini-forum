@@ -16,4 +16,9 @@ server.use((req, res, next) => {
 server.use('/api', auth);
 server.use('/api', router);
 server.use(middlewares);
+
+server.all('*', (req, res) => {
+    res.status(200).sendFile(__dirname + '/dist/mini-forum/index.html');
+});
+
 server.listen(port);
