@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Thread } from 'src/app/interfaces/thread-interface';
+import { CommentsService } from 'src/app/services/comments.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { ThreadService } from 'src/app/services/thread.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +16,9 @@ export class ThreadsComponent implements OnInit {
 
   constructor(
     public threadService: ThreadService,
-    public userService: UserService
+    public userService: UserService,
+    public commentService: CommentsService,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -29,8 +33,10 @@ export class ThreadsComponent implements OnInit {
   handleCreateThreadDisplay(): void {
     if (this.threadService.isCreatingThread === false) {
       this.threadService.isCreatingThread = true;
+      this.sharedService.isDoingAction = true;
     } else {
       this.threadService.isCreatingThread = false;
+      this.sharedService.isDoingAction = false;
     }
   }
 

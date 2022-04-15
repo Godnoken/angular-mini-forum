@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Renderer2, Output, EventEmitter } from '@angu
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-edit-comment',
@@ -20,7 +21,8 @@ export class EditCommentComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private commentService: CommentsService
+    private commentService: CommentsService,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -61,6 +63,7 @@ export class EditCommentComponent implements OnInit {
   onExit(): void {
     this.isEditingComment = false;
     this.isEditingCommentChange.emit(this.isEditingComment);
+    this.sharedService.isDoingAction = false;
   }
 
   setEndOfContenteditable(contentEditableElement: Element) {

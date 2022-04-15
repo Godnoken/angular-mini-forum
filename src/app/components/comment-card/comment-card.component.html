@@ -16,12 +16,13 @@
         <button (click)="edit.onSave()">Save</button>
     </div>
     <div *ngIf="userService.loggedUserId === comment.userId && isEditingComment === false && isBrowsingProfile === false"
-        class="comment-card-right-side">
-        <button (click)="editComment()">Edit</button>
+        class="comment-card-right-side"
+        >
+        <button (click)="editComment()" [ngClass]="{'disabled-button': sharedService.isDoingAction}">Edit</button>
         <button (click)="deleteComment()" *ngIf="comment.isFirstComment === false">Delete</button>
     </div>
     <div *ngIf="userService.loggedUserId !== 0 && userService.loggedUserId !== comment.userId" class="comment-card-right-side">
-        <button (click)="replyComment()">Reply</button>
+        <button (click)="replyComment()" [ngClass]="{'disabled-button': sharedService.isDoingAction}">Reply</button>
     </div>
     <p *ngIf="thread && user.id === thread.userId" class="thread-creator">OP</p>
 </div>

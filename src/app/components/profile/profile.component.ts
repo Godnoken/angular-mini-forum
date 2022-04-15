@@ -18,6 +18,13 @@ export class ProfileComponent implements OnInit {
   public displayItem: string = "info";
   public comments: Comment[] = [];
   public isBrowsingProfile: boolean = true;
+  private routerEvents = this.router.events
+    .subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.getUser();
+        this.showInfo();
+      }
+    })
 
   constructor(
     public userService: UserService,
@@ -30,24 +37,20 @@ export class ProfileComponent implements OnInit {
 
   userName = new FormControl('', {
     validators: [
-    Validators.required,
-    Validators.minLength(3)],
-    
+      Validators.required,
+      Validators.minLength(3)],
+
     asyncValidators:
-    [this.userNameValidator.validate.bind(this.userNameValidator)],
+      [this.userNameValidator.validate.bind(this.userNameValidator)],
     updateOn: "blur"
   })
 
   ngOnInit(): void {
     this.getUser();
+  }
 
-    this.router.events
-      .subscribe((val) => {
-        if (val instanceof NavigationEnd) {
-          this.getUser();
-          this.showInfo();
-        }
-      })
+  ngOnDestroy(): void {
+    this.routerEvents.unsubscribe();
   }
 
   getUser(): void {

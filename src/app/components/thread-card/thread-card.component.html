@@ -10,7 +10,7 @@
             <div class="thread-buttons">
                 <button *ngIf="isEditingThread === true" (click)="onExit()">Cancel</button>
                 <button *ngIf="isEditingThread === true" (click)="onSave()">Save</button>
-                <button (click)="editThread()" *ngIf="this.userService.loggedUserId === thread.userId && isEditingThread === false" type="button">Edit</button>
+                <button (click)="editThread()" *ngIf="this.userService.loggedUserId === thread.userId && isEditingThread === false" [ngClass]="{'disabled-button': sharedService.isDoingAction}" type="button">Edit</button>
                 <button (click)="deleteThread()" *ngIf="this.userService.loggedUserId === thread.userId && isEditingThread === false" type="button">Delete</button>
             </div>
         </div>

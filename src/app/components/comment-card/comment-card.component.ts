@@ -6,6 +6,7 @@ import { Thread } from 'src/app/interfaces/thread-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 import { UserService } from 'src/app/services/user.service';
 import { EditCommentComponent } from '../edit-comment/edit-comment.component';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-comment-card',
@@ -25,6 +26,7 @@ export class CommentCardComponent implements OnInit {
   constructor(
     public userService: UserService,
     public commentService: CommentsService,
+    public sharedService: SharedService,
     private renderer: Renderer2
   ) { }
 
@@ -33,19 +35,19 @@ export class CommentCardComponent implements OnInit {
       .subscribe(user => this.user = user);
   }
 
-  
-
   editComment(): void {
     this.isEditingComment = true;
+    this.sharedService.isDoingAction = true;
   }
 
   replyComment(): void {
     this.commentService.isQuoting = false;
+    this.sharedService.isDoingAction = true;
     this.commentService.passQuoteData(this.comment);
     this.commentService.isCreatingComment = true;
     setTimeout(() => {
       window.scrollTo({ top: this.renderer.selectRootElement("app-root", true).scrollHeight, behavior: 'smooth' });
-    }, 250)
+    }, 100)
   }
 
   deleteComment(): void {

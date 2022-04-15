@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, Renderer2 } from '@angu
 
 import { Thread } from 'src/app/interfaces/thread-interface';
 import { User } from 'src/app/interfaces/user-interface';
+import { CommentsService } from 'src/app/services/comments.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { ThreadService } from 'src/app/services/thread.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -29,6 +31,8 @@ export class ThreadCardComponent implements OnInit {
   constructor(
     public userService: UserService,
     private threadService: ThreadService,
+    public commentService: CommentsService,
+    public sharedService: SharedService,
     private renderer: Renderer2
   ) { }
 
@@ -45,6 +49,7 @@ export class ThreadCardComponent implements OnInit {
   editThread(): void {
     this.clickedButton = true;
     this.isEditingThread = true;
+    this.sharedService.isDoingAction = true;
 
     setTimeout(() => {
       this.titleInput = this.renderer.selectRootElement(".title-input", true);
@@ -73,6 +78,7 @@ export class ThreadCardComponent implements OnInit {
   onExit(): void {
     this.clickedButton = true;
     this.isEditingThread = false;
+    this.sharedService.isDoingAction = false;
   }
 
   deleteThread(): void {

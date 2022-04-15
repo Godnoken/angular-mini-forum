@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { CommentsService } from 'src/app/services/comments.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,8 @@ export class ThreadBottomNavigationComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    public commentService: CommentsService
+    public commentService: CommentsService,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -23,9 +25,11 @@ export class ThreadBottomNavigationComponent implements OnInit {
   handleCreateCommentDisplay(): void {
     if (this.commentService.isCreatingComment === false) {
       this.commentService.isCreatingComment = true;
+      this.sharedService.isDoingAction = true;
     } else {
       this.commentService.isCreatingComment = false;
-      this.commentService.isQuoting = false; 
+      this.commentService.isQuoting = false;
+      this.sharedService.isDoingAction = false;
     }
     
     this.isCreatingCommentChange.emit(this.isCreatingComment);

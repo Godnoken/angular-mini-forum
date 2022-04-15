@@ -48,6 +48,11 @@ button:active {
     transform: translateY(2px);
 }
 
+.disabled-button {
+    border-color: gainsboro;
+    pointer-events: none;
+}
+
 input {
     width: 100%;
     display: block;

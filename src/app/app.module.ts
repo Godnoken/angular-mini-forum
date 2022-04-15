@@ -52,7 +52,7 @@ import { CreateThreadComponent } from './components/create-thread/create-thread.
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })
