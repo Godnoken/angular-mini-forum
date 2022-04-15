@@ -1,8 +1,8 @@
 Live: https://dif-mini-forum.herokuapp.com/
 
-If you don't want to register you can login with:
-**admin@gmail.com**
-**Admintest8!**
+If you don't want to register you can login with:<br>
+Email; **admin@gmail.com**<br>
+Password; **Admintest8!**
 
 **Note:** database resets once a day & whenever I choose to restart it or push an update
 
@@ -10,40 +10,42 @@ If you don't want to register you can login with:
 
 npm install
 
---
+---
 
-To run api with server logging and live development changes;
+**To run api with server logging and live development changes;**
 
-npm run api
-+
-npm run serve
-+
-change
-public apiURL = "http://localhost:8080/api";
-to
-public apiURL = "http://localhost:8080";
+npm run api<br>
++<br>
+npm run serve<br>
++<br>
+change<br>
+public apiURL = "http://localhost:8080/api";<br>
+to<br>
+public apiURL = "http://localhost:8080";<br>
 
 and you should automatically have the website running
 otherwise access at localhost:4200
 
---
+---
 
 OR
 
---
+---
 
-To run production build;
+**To run production build;**
 
-npm run build
-+
-npm run start
-+
-change
-public apiURL = "http://localhost:8080";
-to
-public apiURL = "http://localhost:8080/api";
+npm run build<br>
++<br>
+npm run start<br>
++<br>
+change<br>
+public apiURL = "http://localhost:8080";<br>
+to<br>
+public apiURL = "http://localhost:8080/api";<br>
 
 and access at localhost:8080
+
+---
 
 ## Bugs
 
@@ -56,9 +58,10 @@ Login validation only checks if email is valid *first* when the password provide
 
 ---
 
-**Fixed** If a user browses another users profile, reads in all their comments and then proceeds to click their own profile from the header - the information doesn't update even though url is changed.
+**Fixed**<br>
+If a user browses another users profile, reads in all their comments and then proceeds to click their own profile from the header - the information doesn't update even though url is changed.
 
-**Solution**
+**Solution**<br>
 Profile component now listens after the end of the navigation URL changing and updates the user accordingly.
 
 ---
@@ -67,15 +70,18 @@ If an user quotes a comment and later that quoted comment gets deleted - the quo
 OR
 Make sure that any comment that contains a quote also checks if the comment exists in the database
 
+---
+
 ## Wishbox
 
 Since Angular has no way of dynamically changing "updateOn" prop on formControl, I can not implement passive/aggressive rules to user validation messages/styling without making some ugly fix.
 
 ---
 
-**Fixed** Time on forum comments doesn't display pleasingly when it's between 00:00 and 01:00. It drops to 0:0, 0:5 and so on.
+**Fixed**<br>
+Time on forum comments doesn't display pleasingly when it's between 00:00 and 01:00. It drops to 0:0, 0:5 and so on.
 
-**Solution**
+**Solution**<br>
 Changed getDate() etc to 'toLocaleDateString'.
 
 ---
@@ -84,7 +90,11 @@ I have an enormous amount of styling that is duplicated in one way or another. S
 
 ---
 
+**Partly fixed**<br>
 Pretty much all styling in place is just thrown together without responsiveness in mind. Will redo it all when I have decided the above.
+
+**Solution**<br>
+Website is now more or less responsive from 1920x1080 down to the smallest mobile phones.
 
 ---
 
