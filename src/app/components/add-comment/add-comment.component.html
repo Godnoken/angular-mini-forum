@@ -6,4 +6,3 @@
     </div>
 </label>
 <button *ngIf="this.commentService.isCreatingComment === true" (click)="addComment()">Send</button>
-<button *ngIf="this.commentService.isCreatingComment === false" (click)="addThreadCreatorComment()" type="button">Send</button>

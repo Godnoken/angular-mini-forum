@@ -1,4 +1,9 @@
-<form class="create-thread-content">
-    <input class="create-title" type="text" placeholder="Title">
-    <app-add-comment style="padding: 0" (emitCreateThread)="createThread()" [threadId]="threadId"></app-add-comment>
+<form [formGroup]="threadForm" (ngSubmit)="createThread()" class="create-thread-content">
+    <input formControlName="title" class="create-title" type="text" placeholder="Title">
+    <input style="display: none" formControlName="content" type="text">
+    <label class="comment-label">
+        Comment
+        <div class="add-comment-content" role="textarea" contenteditable="true" (input)="addToHiddenInput()"></div>
+    </label>
+    <button type="submit">Send</button>
 </form>

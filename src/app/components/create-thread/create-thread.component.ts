@@ -1,12 +1,12 @@
-import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2} from '@angular/core';
+import { finalize } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { UserService } from 'src/app/services/user.service';
 import { CommentsService } from 'src/app/services/comments.service';
-import { AddCommentComponent } from '../add-comment/add-comment.component';
 import { ThreadService } from 'src/app/services/thread.service';
 import { Thread } from 'src/app/interfaces/thread-interface';
-import { finalize } from 'rxjs';
-import { SharedService } from 'src/app/services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-thread',
@@ -14,8 +14,6 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./create-thread.component.scss']
 })
 export class CreateThreadComponent implements OnInit {
-  @ViewChild(AddCommentComponent)
-  private add!: AddCommentComponent;
   public threadId!: number;
 
   constructor(
@@ -23,36 +21,84 @@ export class CreateThreadComponent implements OnInit {
     private userService: UserService,
     public commentService: CommentsService,
     private threadService: ThreadService,
-    private sharedService: SharedService
+    private router: Router
   ) { }
+
+  threadForm = new FormGroup({
+    title: new FormControl("", {
+      validators: [
+        Validators.required,
+        Validators.minLength(5)
+      ]
+    }),
+    content: new FormControl("", {
+      validators: [
+        Validators.required,
+        Validators.minLength(20)
+      ]
+    })
+  })
 
   ngOnInit(): void {
   }
 
   createThread(): void {
-    const title = this.renderer.selectRootElement(".create-title", true).value;
+    if (this.threadForm.valid) {
+      const thread: Thread = {
+        title: this.threadForm.get("title")!.value,
+        date: this.getCurrentDate(),
+        userId: this.userService.loggedUserId,
+        parentId: null
+      }
 
-    const thread: Thread = {
-      title: title,
-      date: this.add.getCurrentDate(),
+      if (thread) {
+        this.threadService.createThread(thread)
+          .pipe(
+            finalize(() => {
+              this.createComment();
+            })
+          )
+          .subscribe(thread => {
+            this.threadId = thread.id!;
+          });
+      }
+    }
+  }
+
+  createComment(): void {
+
+    const comment: any = {
+      threadId: this.threadId,
+      parentId: null,
       userId: this.userService.loggedUserId,
-      parentId: null
+      date: this.getCurrentDate(),
+      content: this.threadForm.get("content")!.value,
+      isFirstComment: true
     }
 
-    if (thread) {
-      this.threadService.createThread(thread)
-        .pipe(
-          finalize(() => {
-            setTimeout(() => {
-              this.add.addComment();
-            }, 10)
-          })
-        )
-        .subscribe(thread => {
-          this.threadId = thread.id!;
-        });
+    this.commentService.addComment(comment)
+      .subscribe(() => {
+        this.router.navigateByUrl(`/thread/${this.threadId}`)
+      });
+  }
 
-        this.sharedService.isDoingAction = false;
-    }
+  getCurrentDate(): string {
+    const currentDate = new Date();
+
+    const date = currentDate.toLocaleDateString("en-SE", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    })
+
+    return date;
+  }
+
+  addToHiddenInput(): void {
+    const content = this.renderer.selectRootElement(".add-comment-content", true);
+
+    this.threadForm.get("content")!.setValue(content.textContent);
   }
 }

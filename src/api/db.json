@@ -1,22 +1,23 @@
 {
   "threads": [
     {
-      "title": "Threadst",
-      "date": "2022-04-14, 19:51",
+      "title": "The very first thread",
+      "date": "2022-04-15, 22:32",
       "userId": 2,
       "parentId": null,
       "id": 1
-    },
-    {
-      "title": "test",
-      "date": "2022-04-14, 19:56",
-      "userId": 1,
-      "parentId": null,
-      "id": 2
     }
   ],
   "comments": [
-    
+    {
+      "threadId": 1,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-15, 22:32",
+      "content": "This is pretty cool is it not",
+      "isFirstComment": true,
+      "id": 1
+    }
   ],
   "users": [
     {
@@ -31,7 +32,7 @@
     },
     {
       "email": "sebastian.ojefors@gmail.com",
-      "userName": "test",
+      "userName": "Seb",
       "isOnline": true,
       "title": "Supporter",
       "profilePic": "https://pbs.twimg.com/profile_images/861947799180648448/M4iyVMik_400x400.jpg",

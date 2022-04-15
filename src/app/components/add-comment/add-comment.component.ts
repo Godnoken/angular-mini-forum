@@ -15,15 +15,12 @@ import { UserService } from 'src/app/services/user.service';
 export class AddCommentComponent implements OnInit {
   @Input() comments!: Comment[];
   @Input() threadId!: number;
-  @Output() emitCreateThread = new EventEmitter<any>();
 
   constructor(
     private renderer: Renderer2,
     private userService: UserService,
     public commentService: CommentsService,
-    private threadService: ThreadService,
     public sharedService: SharedService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -47,22 +44,11 @@ export class AddCommentComponent implements OnInit {
     if (comment && this.commentService.isCreatingComment === true) {
       this.commentService.addComment(comment)
         .subscribe(comment => this.comments.push(comment));
-    } else {
-      comment.isFirstComment = true;
-      this.commentService.addComment(comment)
-        .subscribe(() => {
-          this.router.navigateByUrl(`/thread/${this.threadId}`)
-        });
     }
 
-    this.threadService.isCreatingThread = false;
     this.commentService.isCreatingComment = false;
     this.commentService.isQuoting = false;
     this.sharedService.isDoingAction = false;
-  }
-
-  addThreadCreatorComment(): void {
-    this.emitCreateThread.emit();
   }
 
   getCurrentDate(): string {

@@ -23,6 +23,20 @@
     width: 40%;
 }
 
+.comment-label {
+    width: 100%;
+    text-align: center;
+}
+
+.add-comment-content {
+    width: 100%;
+    min-height: 64px;
+    margin: 1vh 0;
+    padding: 1vh 2.5vw;
+    outline: 1px var(--accent-color) solid;
+    caret-color: var(--accent-color);
+}
+
 @media only screen and (max-width: 500px) {
     :host {
         width: 100%;
