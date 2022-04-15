@@ -15,8 +15,13 @@ export class QuoteCommentComponent implements OnInit {
   @Input() comment!: Comment | null;
   @Output() commentChange = new EventEmitter();
   @Input() isEditingComment!: boolean;
-  public quotedComment!: Comment;
+  public isQuoting: boolean = false;
   public quotedUser!: User;
+  public quotedComment = {
+    userId: 0,
+    content: "",
+    date: ""
+  }
 
   constructor(
     public commentService: CommentsService,
@@ -24,22 +29,19 @@ export class QuoteCommentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let idToPass: Number;
-
     if (this.commentService.isQuoting === true) {
-      idToPass = this.comment!.id!;
+      this.isQuoting = true;
+      this.quotedComment.userId = this.comment!.userId;
+      this.quotedComment.content = this.comment!.content;
+      this.quotedComment.date = this.comment!.date;
     } else {
-      idToPass = this.comment!.parentId!;
+      this.quotedComment.userId = this.comment!.quotedUserId!;
+      this.quotedComment.content = this.comment!.quotedCommentContent!;
+      this.quotedComment.date = this.comment!.quotedCommentDate!;
     }
 
-    this.commentService.getComment(idToPass)
-      .pipe(
-        finalize(() => {
-          this.userService.getUser(this.quotedComment.userId)
-            .subscribe(user => this.quotedUser = user);
-        })
-      )
-      .subscribe(comment => this.quotedComment = comment);
+    this.userService.getUser(this.quotedComment.userId)
+      .subscribe(user => this.quotedUser = user);
   }
 
   removeQuote(): void {

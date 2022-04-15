@@ -6,4 +6,7 @@ export interface Comment {
     date: string;
     content: string;
     isFirstComment: boolean;
+    quotedUserId?: number;
+    quotedCommentContent?: string;
+    quotedCommentDate?: string;
 }

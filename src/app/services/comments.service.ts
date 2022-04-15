@@ -60,7 +60,7 @@ export class CommentsService {
   }
 
   passQuoteData(comment: Comment): void {
-    // Timeout so quote comment can change if user decides to reply
+    // Timeout so quoted comment can change if user decides to reply
     // to a different comment
     setTimeout(() => {
       this.isQuoting = true;
