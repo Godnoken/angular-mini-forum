@@ -6,6 +6,13 @@
       "userId": 2,
       "parentId": null,
       "id": 1
+    },
+    {
+      "title": "tsssss",
+      "date": "2022-04-16, 22:33",
+      "userId": 2,
+      "parentId": null,
+      "id": 2
     }
   ],
   "comments": [
@@ -17,6 +24,15 @@
       "content": "This is pretty cool is it not",
       "isFirstComment": true,
       "id": 1
+    },
+    {
+      "threadId": 2,
+      "parentId": null,
+      "userId": 2,
+      "date": "2022-04-16, 22:33",
+      "content": "ssssssssssssssssssssssssssssssssssssssssssss",
+      "isFirstComment": true,
+      "id": 2
     }
   ],
   "users": [

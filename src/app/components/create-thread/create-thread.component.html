@@ -1,9 +1,17 @@
 <form [formGroup]="threadForm" (ngSubmit)="createThread()" class="create-thread-content">
-    <input formControlName="title" class="create-title" type="text" placeholder="Title">
-    <input style="display: none" formControlName="content" type="text">
-    <label class="comment-label">
+    <label>
+        Title
+        <input formControlName="title" class="title-input" type="text">
+        <p *ngIf="(title.errors?.['minlength'] || title.errors?.['required']) && (title.touched || title.dirty)" class="error-message">
+            Title has to contain at least 5 characters
+        </p>
+    </label>
+    <label>
         Comment
-        <div class="add-comment-content" role="textarea" contenteditable="true" (input)="addToHiddenInput()"></div>
+        <textarea formControlName="comment" class="comment-textarea" (input)="autoGrowSize()"></textarea>
+        <p *ngIf="(comment.errors?.['minlength'] || comment.errors?.['required']) && (comment.touched || comment.dirty)" class="error-message">
+            Comment has to contain at least 20 characters
+        </p>
     </label>
     <button type="submit">Send</button>
 </form>

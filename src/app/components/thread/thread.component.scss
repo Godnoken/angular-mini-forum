@@ -7,12 +7,14 @@
     grid-template-rows: max-content max-content max-content max-content;
     justify-self: center;
     align-self: center;
+    justify-content: center;
     row-gap: 2vh;
 }
 
 .comments-container {
     grid-column: 1/2;
     height: max-content;
+    width: 100%;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     row-gap: 2.5vh;
@@ -35,5 +37,6 @@
     :host {
         margin-top: 15vh;
         min-height: 75vh;
+        width: 90%;
     }
 }

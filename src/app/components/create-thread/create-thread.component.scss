@@ -2,9 +2,6 @@
     position: relative;
     width: 70%;
     justify-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px 35px;
     background-color: var(--primary-color);
     border-radius: 8px;
@@ -16,25 +13,37 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 3vh;
+    row-gap: 30px;
 }
 
-.create-title {
+.title-input {
     width: 40%;
+    margin: 0 auto;
 }
 
-.comment-label {
+label {
     width: 100%;
     text-align: center;
 }
 
-.add-comment-content {
+.comment-textarea {
     width: 100%;
     min-height: 64px;
-    margin: 1vh 0;
-    padding: 1vh 2.5vw;
+    background-color: transparent;
+    margin-top: 1vh;
+    padding: 1vh 1vw;
     outline: 1px var(--accent-color) solid;
     caret-color: var(--accent-color);
+    color: white;
+    overflow: hidden;
+    resize: vertical;
+}
+
+.error-message {
+    height: 0;
+    color: var(--warning-color);
+    font-size: var(--mini-text);
+    transform: translateY(6px);
 }
 
 @media only screen and (max-width: 500px) {

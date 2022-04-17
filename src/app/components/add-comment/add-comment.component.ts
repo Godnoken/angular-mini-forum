@@ -1,10 +1,9 @@
-import { Component, OnInit, Renderer2, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Renderer2, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 import { SharedService } from 'src/app/services/shared.service';
-import { ThreadService } from 'src/app/services/thread.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 export class AddCommentComponent implements OnInit {
   @Input() comments!: Comment[];
   @Input() threadId!: number;
+  private textarea!: HTMLInputElement;
 
   constructor(
     private renderer: Renderer2,
@@ -23,32 +23,47 @@ export class AddCommentComponent implements OnInit {
     public sharedService: SharedService,
   ) { }
 
+  commentForm = new FormGroup({
+    comment: new FormControl("", {
+      validators: [
+        Validators.required,
+        Validators.minLength(3)
+      ],
+    })
+  }, { updateOn: "submit" });
+
+  get comment() { return this.commentForm.get("comment")! };
+
   ngOnInit(): void {
+    setTimeout(() => {
+      this.textarea = this.renderer.selectRootElement(".comment-textarea", true);
+      this.textarea.focus();
+    }, 25);
   }
 
   addComment(): void {
-    const content = this.renderer.selectRootElement(".add-comment-content", true).textContent;
+    if (this.commentForm.valid) {
+      const comment: any = {
+        threadId: this.threadId,
+        ...(this.commentService.isQuoting === true ? { parentId: this.commentService.comment!.id! } : { parentId: null }),
+        userId: this.userService.loggedUserId,
+        date: this.getCurrentDate(),
+        content: this.comment.value,
+        isFirstComment: false,
+        ...(this.commentService.isQuoting === true ? { quotedUserId: this.commentService.comment!.userId } : null),
+        ...(this.commentService.isQuoting === true ? { quotedCommentContent: this.commentService.comment!.content } : null),
+        ...(this.commentService.isQuoting === true ? { quotedCommentDate: this.commentService.comment!.date } : null)
+      }
 
-    const comment: any = {
-      threadId: this.threadId,
-      ...(this.commentService.isQuoting === true ? { parentId: this.commentService.comment!.id! } : { parentId: null }),
-      userId: this.userService.loggedUserId,
-      date: this.getCurrentDate(),
-      content: content,
-      isFirstComment: false,
-      ...(this.commentService.isQuoting === true ? { quotedUserId: this.commentService.comment!.userId } : null),
-      ...(this.commentService.isQuoting === true ? { quotedCommentContent: this.commentService.comment!.content } : null),
-      ...(this.commentService.isQuoting === true ? { quotedCommentDate: this.commentService.comment!.date } : null)
+      if (comment && this.commentService.isCreatingComment === true) {
+        this.commentService.addComment(comment)
+          .subscribe(comment => this.comments.push(comment));
+      }
+
+      this.commentService.isCreatingComment = false;
+      this.commentService.isQuoting = false;
+      this.sharedService.isDoingAction = false;
     }
-
-    if (comment && this.commentService.isCreatingComment === true) {
-      this.commentService.addComment(comment)
-        .subscribe(comment => this.comments.push(comment));
-    }
-
-    this.commentService.isCreatingComment = false;
-    this.commentService.isQuoting = false;
-    this.sharedService.isDoingAction = false;
   }
 
   getCurrentDate(): string {
@@ -63,5 +78,10 @@ export class AddCommentComponent implements OnInit {
     })
 
     return date;
+  }
+
+  autoGrowSize(): void {
+    this.textarea.style.height = "auto";
+    this.textarea.style.height = `${this.textarea.scrollHeight}px`;
   }
 }

@@ -38,7 +38,7 @@
             <h3 class="password-requirements-header">Password must contain</h3>
             <div class="password-requirements">
                 <p [ngClass]="{'ng-invalid' : password!.hasError('notEnoughCharacters') && (password!.touched || password!.dirty)}">8 characters</p>
-                <p [ngClass]="{'ng-invalid' : password!.hasError('noUpperOrLower') && (password!.touched || password!.dirty)}">A uppercase and lowercase letter</p>
+                <p [ngClass]="{'ng-invalid' : password!.hasError('noUpperOrLower') && (password!.touched || password!.dirty)}">An uppercase and lowercase letter</p>
                 <p [ngClass]="{'ng-invalid' : password!.hasError('noNumber') && (password!.touched || password!.dirty)}">A number</p>
                 <p [ngClass]="{'ng-invalid' : password!.hasError('noSpecialCharacter') && (password!.touched || password!.dirty)}">A special character (!?@#%&$^*)</p>
             </div>

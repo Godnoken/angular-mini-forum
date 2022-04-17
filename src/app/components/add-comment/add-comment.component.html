@@ -1,8 +1,12 @@
 <app-quote-comment *ngIf="this.commentService.isQuoting === true" [comment]="this.commentService.comment">
 </app-quote-comment>
-<label class="comment-label">
-    Comment
-    <div class="add-comment-content" role="textarea" contenteditable="true">
-    </div>
-</label>
-<button *ngIf="this.commentService.isCreatingComment === true" (click)="addComment()">Send</button>
+<form class="comment-form" [formGroup]="commentForm" (ngSubmit)="addComment()">
+    <label>
+        Comment
+        <textarea formControlName="comment" class="comment-textarea" (input)="autoGrowSize()"></textarea>
+        <p *ngIf="(comment.errors?.['minlength'] || comment.errors?.['required']) && (comment.touched || comment.dirty)" class="error-message">
+            Comment has to contain at least 3 characters
+        </p>
+    </label>
+    <button type="submit">Send</button>
+</form>

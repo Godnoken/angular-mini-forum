@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2} from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { finalize } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class CreateThreadComponent implements OnInit {
   public threadId!: number;
+  private textarea!: HTMLInputElement;
 
   constructor(
     private renderer: Renderer2,
@@ -31,21 +32,26 @@ export class CreateThreadComponent implements OnInit {
         Validators.minLength(5)
       ]
     }),
-    content: new FormControl("", {
+    comment: new FormControl("", {
       validators: [
         Validators.required,
         Validators.minLength(20)
       ]
     })
-  })
+  }, { updateOn: "submit" });
+
+  get comment() { return this.threadForm.get("comment")! };
+  get title() { return this.threadForm.get("title")! };
 
   ngOnInit(): void {
+    const titleInput = this.renderer.selectRootElement(".title-input", true);
+    titleInput.focus();
   }
 
   createThread(): void {
     if (this.threadForm.valid) {
       const thread: Thread = {
-        title: this.threadForm.get("title")!.value,
+        title: this.title.value,
         date: this.getCurrentDate(),
         userId: this.userService.loggedUserId,
         parentId: null
@@ -72,7 +78,7 @@ export class CreateThreadComponent implements OnInit {
       parentId: null,
       userId: this.userService.loggedUserId,
       date: this.getCurrentDate(),
-      content: this.threadForm.get("content")!.value,
+      content: this.comment.value,
       isFirstComment: true
     }
 
@@ -96,9 +102,10 @@ export class CreateThreadComponent implements OnInit {
     return date;
   }
 
-  addToHiddenInput(): void {
-    const content = this.renderer.selectRootElement(".add-comment-content", true);
+  autoGrowSize(): void {
+    const textarea = this.renderer.selectRootElement(".comment-textarea", true);
 
-    this.threadForm.get("content")!.setValue(content.textContent);
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
   }
 }
