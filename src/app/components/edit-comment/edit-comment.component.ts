@@ -17,7 +17,7 @@ export class EditCommentComponent implements OnInit {
   @Output() isEditingCommentChange = new EventEmitter();
   @Input() user!: User;
   private content!: HTMLElement;
-  private quoteId!: number | null;
+  private currentParentId!: number | null;
 
   constructor(
     private renderer: Renderer2,
@@ -26,7 +26,7 @@ export class EditCommentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.quoteId = this.comment.parentId;
+    this.currentParentId = this.comment.parentId;
     this.content = this.renderer.selectRootElement(".edit-comment-content", true);
     this.setEndOfContenteditable(this.content);
   }
@@ -34,11 +34,11 @@ export class EditCommentComponent implements OnInit {
   onSave(): void {
     let keysToUpdate: any = {};
     
-    if (this.comment.content !== this.content.outerText) {
-      keysToUpdate.content = this.content.outerText;
+    if (this.comment.content !== this.content.innerText) {
+      keysToUpdate.content = this.content.innerText;
     }
 
-    if (this.comment.parentId === null) {
+    if (this.comment.parentId !== this.currentParentId) {
       keysToUpdate.parentId = null;
     }
 
@@ -56,7 +56,7 @@ export class EditCommentComponent implements OnInit {
   }
 
   onCancel(): void {
-    if (this.comment.parentId === null) this.comment.parentId = this.quoteId;
+    if (this.comment.parentId === null) this.comment.parentId = this.currentParentId;
     this.onExit();
   }
 
