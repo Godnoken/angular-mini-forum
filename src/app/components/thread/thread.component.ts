@@ -73,7 +73,7 @@ export class ThreadComponent implements OnInit {
     }
     // If user is not viewing & deleting comment on the last page
     // Update pageButtons if there are no more comments on the last page
-    else if (this.rows * this.currentPage === this.comments.length) {
+    else if (this.rows * (this.pageCount - 1) === this.comments.length) {
       this.pageCount--;
       this.setupPagination();
     }
