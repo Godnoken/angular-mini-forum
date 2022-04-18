@@ -37,7 +37,7 @@ export class ThreadCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.url = `/thread/${this.thread.id!}`
+    this.url = `/thread/${this.thread.id!}/1`
     this.getUser();
   }
 

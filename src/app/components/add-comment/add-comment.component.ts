@@ -1,5 +1,6 @@
-import { Component, OnInit, Renderer2, Input } from '@angular/core';
+import { Component, OnInit, Renderer2, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { CommentsService } from 'src/app/services/comments.service';
@@ -13,7 +14,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AddCommentComponent implements OnInit {
   @Input() comments!: Comment[];
+  @Input() paginatedComments!: Comment[];
+  @Input() currentPage!: number;
+  @Output() currentPageChange = new EventEmitter();
   @Input() threadId!: number;
+  @Input() pageCount!: number;
+  @Output() pageCountChange = new EventEmitter();
+  @Input() rows!: number;
   private textarea!: HTMLInputElement;
 
   constructor(
@@ -21,6 +28,7 @@ export class AddCommentComponent implements OnInit {
     private userService: UserService,
     public commentService: CommentsService,
     public sharedService: SharedService,
+    private router: Router
   ) { }
 
   commentForm = new FormGroup({
@@ -57,12 +65,36 @@ export class AddCommentComponent implements OnInit {
 
       if (comment && this.commentService.isCreatingComment === true) {
         this.commentService.addComment(comment)
-          .subscribe(comment => this.comments.push(comment));
-      }
+          .subscribe(comment => {
+            this.comments.push(comment);
 
-      this.commentService.isCreatingComment = false;
-      this.commentService.isQuoting = false;
-      this.sharedService.isDoingAction = false;
+            // If no more comments can fit on page
+            if (this.paginatedComments.length >= this.rows) {
+              // Go to the last page on thread
+              if (Math.ceil(this.comments.length / this.rows) <= this.pageCount) {
+                this.currentPage = this.pageCount;
+                this.currentPageChange.emit(this.currentPage);
+                this.router.navigateByUrl(`/thread/${this.threadId}/${this.pageCount}`);
+              }
+              // If last page is full, create new page in thread and go there
+              else {
+                this.pageCount++;
+                this.pageCountChange.emit(this.pageCount);
+                this.currentPage = this.pageCount;
+                this.currentPageChange.emit(this.currentPage);
+                this.router.navigateByUrl(`/thread/${this.threadId}/${this.pageCount}`);
+              }
+            }
+            // If there is space, stay on the same page & push comment to screen
+            else {
+              this.paginatedComments.push(comment);
+            }
+
+            this.commentService.isCreatingComment = false;
+            this.commentService.isQuoting = false;
+            this.sharedService.isDoingAction = false;
+          });
+      }
     }
   }
 
