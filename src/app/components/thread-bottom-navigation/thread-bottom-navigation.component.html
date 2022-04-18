@@ -1,8 +1,8 @@
-<ul class="thread-link-navigation">
-
+<ul class="thread-comments-navigation" (click)="navigateByNumbers($event)">
+  <li *ngFor="let button of pageButtons; let index = index" [class.active]="currentPage - 1 === index" class="thread-page-number">{{ button }}</li>
 </ul>
-<div class="thread-button-navigation">
-    <button type="button">Previous</button>
+<div class="thread-button-navigation" (click)="navigateByButtons($event)">
+    <button [ngClass]="{'disabled-button': currentPage === 1}" type="button">Previous</button>
     <button *ngIf="userService.loggedUserId !== 0" type="button" (click)="handleCreateCommentDisplay()" textContent="{{this.commentService.isCreatingComment === true ? 'Cancel' : 'Comment'}}" [ngClass]="{'disabled-button': sharedService.isDoingAction === true && commentService.isCreatingComment === false}"></button>
-    <button type="button">Next</button>
+    <button [ngClass]="{'disabled-button': currentPage === pageCount}" type="button">Next</button>
 </div>

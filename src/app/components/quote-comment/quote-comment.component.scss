@@ -43,3 +43,9 @@
     color: rgb(255, 103, 103);
     cursor: pointer;
 }
+
+@media only screen and (max-width: 450px) {
+    .user-container {
+        flex-direction: column;
+    }
+}

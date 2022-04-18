@@ -1,6 +1,6 @@
 <h2 *ngIf="thread" class="thread-title">{{ thread.title }}</h2>
-<div class="comments-container">
-    <app-comment-card *ngFor="let comment of comments" [comment]="comment" [thread]="thread" (emitDeleteComment)="deleteComment($event)"></app-comment-card>
+<div *ngIf="paginatedComments" class="comments-container">
+    <app-comment-card *ngFor="let comment of paginatedComments" [comment]="comment" [thread]="thread" (emitDeleteComment)="deleteComment($event)"></app-comment-card>
 </div>
-<app-thread-bottom-navigation></app-thread-bottom-navigation>
+<app-thread-bottom-navigation *ngIf="comments" [comments]="comments" [rows]="rows" [(currentPage)]="currentPage" (currentPageChange)="displayPageComments(this.comments, this.rows, this.currentPage)"></app-thread-bottom-navigation>
 <app-add-comment *ngIf="this.commentService.isCreatingComment === true" [comments]="comments" [threadId]="threadId"></app-add-comment>

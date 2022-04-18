@@ -5,16 +5,25 @@
     row-gap: 1vh;
 }
 
-.thread-link-navigation {
+.thread-comments-navigation {
     grid-row: 1/2;
+    display: flex;
+    column-gap: 6px;
     justify-self: center;
-    height: 20px;
-    width: 40%;
-    background-color: white;
+    color: white;
+    font-size: var(--medium-text);
+}
+
+.thread-page-number {
+    cursor: pointer;
 }
 
 .thread-button-navigation {
     grid-row: 2/3;
     display: flex;
     justify-content: space-evenly;
+}
+
+.active {
+    color: var(--accent-color);
 }
