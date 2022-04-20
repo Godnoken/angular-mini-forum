@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { finalize } from 'rxjs';
 
 import { CommentsService } from 'src/app/services/comments.service';
 import { User } from 'src/app/interfaces/user-interface';
@@ -42,7 +41,7 @@ export class QuoteCommentComponent implements OnInit {
       this.quotedComment.date = this.comment!.quotedCommentDate!;
     }
 
-    if (this.sharedService.users[this.quotedComment.userId] === undefined) {
+    if (!this.sharedService.users[this.quotedComment.userId]) {
       this.getUser();
     }
     else {
@@ -52,7 +51,7 @@ export class QuoteCommentComponent implements OnInit {
 
   getUser(): void {
     this.userService.getUser(this.quotedComment.userId)
-      .subscribe(user => {Object.assign(this.sharedService.users, user), this.quotedUser = user});
+      .subscribe(user => {this.sharedService.users[user.id!] = user, this.quotedUser = user});
   }
 
   removeQuote(): void {

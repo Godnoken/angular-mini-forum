@@ -43,18 +43,6 @@
     },
     {
       "threadId": 1,
-      "parentId": 3,
-      "userId": 1,
-      "date": "2022-04-17, 12:52",
-      "content": "sssss",
-      "isFirstComment": false,
-      "quotedUserId": 2,
-      "quotedCommentContent": "sfsdf",
-      "quotedCommentDate": "2022-04-17, 12:50",
-      "id": 4
-    },
-    {
-      "threadId": 1,
       "parentId": 4,
       "userId": 2,
       "date": "2022-04-18, 13:43",
@@ -178,6 +166,27 @@
       "content": "test",
       "isFirstComment": false,
       "id": 44
+    },
+    {
+      "threadId": 1,
+      "parentId": 14,
+      "userId": 3,
+      "date": "2022-04-20, 15:33",
+      "content": "test",
+      "isFirstComment": false,
+      "quotedUserId": 2,
+      "quotedCommentContent": "hallå",
+      "quotedCommentDate": "2022-04-18, 13:43",
+      "id": 45
+    },
+    {
+      "threadId": 1,
+      "parentId": null,
+      "userId": 3,
+      "date": "2022-04-20, 15:35",
+      "content": "test",
+      "isFirstComment": false,
+      "id": 46
     }
   ],
   "users": [
@@ -186,7 +195,7 @@
       "userName": "Godnoken",
       "isOnline": true,
       "title": "Supporter",
-      "profilePic": "s",
+      "profilePic": "",
       "profileBanner": "https://i.pinimg.com/originals/db/b9/c9/dbb9c9bc80e9ac65d894eb6c9951dcea.jpg",
       "id": 1,
       "password": "$2a$10$MPGSDPwEGF48T1mztrLPwOaoofEEjWgEilTH7DYhjm3hDfA1ogFtO"
@@ -197,7 +206,7 @@
       "isOnline": true,
       "title": "Supporter",
       "profilePic": "https://pbs.twimg.com/profile_images/861947799180648448/M4iyVMik_400x400.jpg",
-      "profileBanner": "sdf",
+      "profileBanner": "",
       "id": 2,
       "password": "$2a$10$cv6Y393Z2o5G20v3StKr3uJJibiam/GBQYiLp2E6XUgDwWv2GeBDO"
     },

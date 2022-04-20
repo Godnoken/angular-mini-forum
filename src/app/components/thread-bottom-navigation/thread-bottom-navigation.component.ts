@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, Renderer2 } from '@angular/core';
 
 import { CommentsService } from 'src/app/services/comments.service';
 import { SharedService } from 'src/app/services/shared.service';
@@ -24,7 +24,8 @@ export class ThreadBottomNavigationComponent implements OnInit {
     public userService: UserService,
     public commentService: CommentsService,
     public sharedService: SharedService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -62,7 +63,6 @@ export class ThreadBottomNavigationComponent implements OnInit {
     else if (event.target.textContent === "Previous") {
       this.currentPage--;
       this.currentPageChange.emit(this.currentPage);
-
       this.router.navigateByUrl(`/thread/${this.threadId}/${this.currentPage}`);
     }
   }

@@ -7,6 +7,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 import { UserService } from 'src/app/services/user.service';
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { UserNameService } from 'src/app/services/validators/user-name.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,10 +19,19 @@ export class ProfileComponent implements OnInit {
   public displayItem: string = "info";
   public comments: Comment[] = [];
   public isBrowsingProfile: boolean = true;
+  private userId = Number(this.route.snapshot.paramMap.get("id"));
   private routerEvents = this.router.events
     .subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        this.getUser();
+        this.userId = Number(this.route.snapshot.paramMap.get("id"));
+
+        if (!this.sharedService.users[this.userId]) {
+          this.getUser();
+        }
+        else {
+          this.user = this.sharedService.users[this.userId];
+        }
+        
         this.showInfo();
       }
     })
@@ -29,6 +39,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     public userService: UserService,
     private commentsService: CommentsService,
+    private sharedService: SharedService,
     private router: Router,
     private route: ActivatedRoute,
     private renderer: Renderer2,
@@ -46,7 +57,6 @@ export class ProfileComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.getUser();
   }
 
   ngOnDestroy(): void {
@@ -54,9 +64,8 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser(): void {
-    const id = Number(this.route.snapshot.paramMap.get("id"));
-    this.userService.getUser(id)
-      .subscribe(user => this.user = user);
+    this.userService.getUser(this.userId)
+      .subscribe(user => { this.sharedService.users[user.id!] = user, this.user = user });
   }
 
   showInfo(): void {

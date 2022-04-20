@@ -66,11 +66,17 @@ Profile component now listens after the end of the navigation URL changing and u
 
 ---
 
+**Fixed**<br>
 If an user quotes a comment and later that quoted comment gets deleted - the quote breaks. I will likely rewrite how quoting works to either enable the quoted comment to still exist after original comment is deleted
 OR
 Make sure that any comment that contains a quote also checks if the comment exists in the database
 
+**Solution**<br>
+I rewrote the quoting system. Now the a comment that quotes another comment will store the quoted comment's content. Although it makes the comment's object size larger - it helps with keeping the state of the quoted comment's text so it doesn't change whenever it's edited, which is something I really wanted to avoid. Also, obviously, the quoted comment will still exist even if the original one is deleted.
+
 ---
+
+When browsing a profile and looking at the user's comments, clicking on one of the comments only navigate to the thread and its first page, not the correct page for that specific comment
 
 ## Wishbox
 

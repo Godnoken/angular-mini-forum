@@ -13,7 +13,6 @@
     display: flex;
     justify-content: space-between;
     padding: 0 2vw;
-    min-height: 60px;
 }
 
 .comment-user-container {
@@ -40,9 +39,11 @@
 }
 
 .comment-content {
-    padding: 2vh 5vw;
+    padding: 1vh 2.5vw;
+    margin: 1vh 2.5vw;
     word-break: break-word;
     white-space: pre-wrap;
+    font-size: var(--medium-text);
 }
 
 .comment-date {

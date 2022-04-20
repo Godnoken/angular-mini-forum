@@ -32,7 +32,7 @@
             </div>
         </div>
         <div *ngIf="displayItem === 'comments'" class="comments-container">
-            <a *ngFor="let comment of comments" routerLink="/thread/{{comment.threadId}}"><app-comment-card [comment]="comment" [isBrowsingProfile]="isBrowsingProfile"></app-comment-card></a>
+            <a *ngFor="let comment of comments" routerLink="/thread/{{comment.threadId}}/1"><app-comment-card [comment]="comment" [user]="user" [isBrowsingProfile]="isBrowsingProfile"></app-comment-card></a>
         </div>
         <div *ngIf="displayItem === 'settings'" class="settings-container">
             <div class="change-setting-container">
