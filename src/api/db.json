@@ -13,6 +13,13 @@
       "userId": 2,
       "parentId": null,
       "id": 2
+    },
+    {
+      "title": "Admin only",
+      "date": "2022-04-20, 11:11",
+      "userId": 3,
+      "parentId": null,
+      "id": 3
     }
   ],
   "comments": [
@@ -141,6 +148,36 @@
       "quotedCommentContent": "This is pretty cool is it nothhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsss\n",
       "quotedCommentDate": "2022-04-15, 22:32",
       "id": 41
+    },
+    {
+      "threadId": 1,
+      "parentId": 40,
+      "userId": 3,
+      "date": "2022-04-20, 10:18",
+      "content": "test",
+      "isFirstComment": false,
+      "quotedUserId": 1,
+      "quotedCommentContent": "sssssssssssssss",
+      "quotedCommentDate": "2022-04-18, 18:20",
+      "id": 42
+    },
+    {
+      "threadId": 3,
+      "parentId": null,
+      "userId": 3,
+      "date": "2022-04-20, 11:11",
+      "content": "Maybe or maybe not admin",
+      "isFirstComment": true,
+      "id": 43
+    },
+    {
+      "threadId": 1,
+      "parentId": null,
+      "userId": 4,
+      "date": "2022-04-20, 11:46",
+      "content": "test",
+      "isFirstComment": false,
+      "id": 44
     }
   ],
   "users": [
@@ -173,6 +210,16 @@
       "profilePic": "",
       "profileBanner": "",
       "id": 3
+    },
+    {
+      "email": "tester@gmail.com",
+      "password": "$2a$10$gkFJkmFmsrm1D/k/ICax.uM/rQbMsJ0JU1AcxTCXiJm8mgTzBSFoq",
+      "userName": "Tester",
+      "isOnline": true,
+      "title": "Supporter",
+      "profilePic": "",
+      "profileBanner": "",
+      "id": 4
     }
   ]
 }

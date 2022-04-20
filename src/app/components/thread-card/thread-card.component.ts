@@ -38,12 +38,17 @@ export class ThreadCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.url = `/thread/${this.thread.id!}/1`
-    this.getUser();
+    if (!this.sharedService.users[this.thread.userId]) {
+      this.getUser();
+    }
+    else {
+      this.user = this.sharedService.users[this.thread.userId];
+    }
   }
 
   getUser(): void {
     this.userService.getUser(this.thread.userId)
-      .subscribe(user => this.user = user);
+      .subscribe(user => {this.sharedService.users[user.id!] = user, this.user = user});
   }
 
   editThread(): void {

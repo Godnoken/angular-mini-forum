@@ -5,6 +5,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 import { User } from 'src/app/interfaces/user-interface';
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { UserService } from 'src/app/services/user.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-quote-comment',
@@ -25,7 +26,8 @@ export class QuoteCommentComponent implements OnInit {
 
   constructor(
     public commentService: CommentsService,
-    private userService: UserService
+    private userService: UserService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -40,8 +42,17 @@ export class QuoteCommentComponent implements OnInit {
       this.quotedComment.date = this.comment!.quotedCommentDate!;
     }
 
+    if (this.sharedService.users[this.quotedComment.userId] === undefined) {
+      this.getUser();
+    }
+    else {
+      this.quotedUser = this.sharedService.users[this.quotedComment.userId];
+    }
+  }
+
+  getUser(): void {
     this.userService.getUser(this.quotedComment.userId)
-      .subscribe(user => this.quotedUser = user);
+      .subscribe(user => {Object.assign(this.sharedService.users, user), this.quotedUser = user});
   }
 
   removeQuote(): void {

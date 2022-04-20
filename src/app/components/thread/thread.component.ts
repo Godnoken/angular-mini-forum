@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { finalize } from 'rxjs';
+import { concatMap, finalize, forkJoin, from } from 'rxjs';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { Thread } from 'src/app/interfaces/thread-interface';
+import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { ThreadService } from 'src/app/services/thread.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-thread',
@@ -28,6 +31,8 @@ export class ThreadComponent implements OnInit {
     private router: Router,
     public commentService: CommentsService,
     private threadService: ThreadService,
+    private userService: UserService,
+    public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +46,7 @@ export class ThreadComponent implements OnInit {
     this.commentService.getComments(this.threadId)
       .pipe(
         finalize(() => {
+          this.getUsers();
           // Display the current page's comments
           this.displayPageComments(this.comments, this.rows, this.currentPage);
           // Read how many pages are needed
@@ -51,6 +57,31 @@ export class ThreadComponent implements OnInit {
       .subscribe(comments => {
         this.comments = comments;
       })
+  }
+
+  getUsers(): void {
+    let usersComment = this.reduceUsersToFetch();
+
+    from([usersComment])
+      .pipe(
+        concatMap(userComment => forkJoin(userComment.map((userComment: any) => this.userService.getUser(userComment.userId)))
+        )
+      )
+      .subscribe((users: any) => users.forEach((user: any) => this.sharedService.users[user.id] = user));
+  }
+
+  reduceUsersToFetch() {
+    const flag: any = {};
+    const usersComment: any = [];
+
+    this.comments.forEach((user: any) => {
+      if (!flag[user.userId] && !this.sharedService.users[user.userId]) {
+        flag[user.userId] = true;
+        usersComment.push(user);
+      }
+    })
+
+    return usersComment;
   }
 
   getThread(): void {

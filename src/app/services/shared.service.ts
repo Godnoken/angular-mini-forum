@@ -8,6 +8,7 @@ export class SharedService {
   //public apiURL = "https://dif-mini-forum.herokuapp.com/api";
 
   public isDoingAction: boolean = false;
+  public users: any = {};
 
   constructor() { }
 }

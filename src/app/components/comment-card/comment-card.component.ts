@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Renderer2, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Renderer2, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { User } from 'src/app/interfaces/user-interface';
@@ -20,7 +20,7 @@ export class CommentCardComponent implements OnInit {
   @Output() emitDeleteComment = new EventEmitter();
   @Input() isBrowsingProfile = false;
   @Input() thread!: Thread;
-  public user!: User;
+  @Input() user!: User;
   public isEditingComment: boolean = false;
 
   constructor(
@@ -31,8 +31,17 @@ export class CommentCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['user'] && changes['user'].currentValue === undefined && changes['user'].firstChange === false) {
+      this.getUser();
+    }
+  }
+
+  getUser(): void {
     this.userService.getUser(this.comment.userId)
-      .subscribe(user => this.user = user);
+      .subscribe(user => {this.sharedService.users[user.id!] = user, this.user = user});
   }
 
   editComment(): void {
