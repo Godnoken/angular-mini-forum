@@ -2,7 +2,8 @@
     grid-column: 1/2;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    row-gap: 1vh;
+    row-gap: 2vh;
+    user-select: none;
 }
 
 .thread-comments-navigation {
@@ -21,6 +22,10 @@
     align-items: center;
     border: 1px var(--accent-color) solid;
     cursor: pointer;
+}
+
+.thread-page-number:active {
+    transform: translateY(2px);
 }
 
 .thread-button-navigation {

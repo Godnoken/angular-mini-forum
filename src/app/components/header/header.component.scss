@@ -2,6 +2,7 @@
     position: fixed;
     height: 5vh;
     width: 100%;
+    padding: 0 clamp(8px, 3.5 * (1vw + 1vh) / 2, 60px);
     z-index: 1;
     display: flex;
     justify-content: space-between;
@@ -13,6 +14,11 @@
 .home-title {
     color: white;
     font-size: var(--large-text);
+    transition: 0.2s;
+}
+
+.home-title:hover {
+    color: var(--accent-color);
 }
 
 .header-sides {
@@ -20,9 +26,16 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     column-gap: 2vw;
 }
+
+.header-user-container {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+}
+
 
 .header-profile-name {
     color: var(--accent-color);
@@ -36,17 +49,71 @@
 }
 
 .nav-item {
+    font-size: var(--medium-text);
+    color: white;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
     color: var(--accent-color);
 }
 
-@media only screen and (max-width: 600px) {
-    :host {
-        height: 10vh;
-    }
+.burger-menu {
+    width: 36px;
+    fill: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
+.burger-menu:hover {
+    fill: var(--accent-color);
+}
+
+.burger-navigation {
+    position: fixed;
+    top: calc(5vh - 1px);
+    left: 0;
+    width: 100%;
+    clip-path: inset(0 0 100% 0);
+    transition-duration: 0.2s;
+    background-color: var(--primary-color);
+    box-shadow: var(--card-shadow);
+}
+
+.active-burger-navigation {
+    clip-path: inset(0);
+}
+
+.burger-ul {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--large-text);
+    color: white;
+}
+
+.burger-li {
+    padding: 24px 36px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.burger-li:hover {
+    color: var(--accent-color);
+}
+
+.burger-divider {
+    width: 95%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    align-self: center;
+}
+
+.burger-divider:first-child {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1024) {
     .header-sides {
-        flex-direction: column-reverse;
-        align-items: start;
-        row-gap: 1vh;
+        width: 0;
     }
 }

@@ -1,10 +1,26 @@
-<div class="header-sides"></div>
+<div *ngIf="!(isMobile$ | async)" class="header-sides"></div>
 <a routerLink="/"><h1 class="home-title">Djurgårdens IF</h1></a>
-<div *ngIf="userService.loggedUserId !== 0" class="header-sides">
-    <a routerLink="/profile/{{ userService.loggedUserId }}"><p class="header-profile-name">{{ userService.user.userName }}</p></a>
-    <a routerLink="/profile/{{ userService.loggedUserId }}"><img [src]="userService.user.profilePic || '../../../assets/standardprofilepic.jpg'" onError="this.src='../../../assets/standardprofilepic.jpg'" alt="profile picture" class="header-profile-img"></a>
+<div class="header-sides">
+    <div class="header-user-container" *ngIf="userService.loggedUserId !== 0">
+        <a routerLink="/profile/{{ userService.loggedUserId }}"><p class="header-profile-name">{{ userService.user.userName }}</p></a>
+        <a routerLink="/profile/{{ userService.loggedUserId }}"><img [src]="userService.user.profilePic || '../../../assets/standardprofilepic.jpg'" onError="this.src='../../../assets/standardprofilepic.jpg'" alt="profile picture" class="header-profile-img"></a>
+    </div>
+    <svg *ngIf="(isMobile$ | async)" (click)="showHideBurgerNavigation()" class="burger-menu" viewBox="0 0 24 24">
+        <path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/>
+    </svg>
+    <nav *ngIf="!(isMobile$ | async) && userService.loggedUserId === 0" class="header-sides">
+        <a routerLink="/login" class="nav-item">Login</a>
+        <a routerLink="/register" class="nav-item">Register</a>
+    </nav>
 </div>
-<nav *ngIf="userService.loggedUserId === 0" class="header-sides">
-    <a routerLink="/login" class="nav-item">Login</a>
-    <a routerLink="/register" class="nav-item">Register</a>
+<nav *ngIf="(isMobile$ | async)" class="burger-navigation">
+    <ul (click)="showHideBurgerNavigation()" class="burger-ul">
+        <div class="burger-divider"></div>
+        <li routerLink="/" class="burger-li">Home</li>
+        <div class="burger-divider"></div>
+        <li *ngIf="userService.loggedUserId === 0" routerLink="/login" class="burger-li">Login</li>
+        <div *ngIf="userService.loggedUserId === 0" class="burger-divider"></div>
+        <li *ngIf="userService.loggedUserId === 0" routerLink="/register" class="burger-li">Register</li>
+        <li *ngIf="userService.loggedUserId !== 0" routerLink="/profile/{{ userService.loggedUserId }}" class="burger-li">Profile</li>
+    </ul>
 </nav>

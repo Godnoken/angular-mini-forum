@@ -14,6 +14,8 @@
 
     --profile-pic-big: clamp(40px, 8 * (1vw + 1vh) / 2, 120px);
 
+    --medium-icon: clamp(28px, 1.5 * (1vw + 1vh) / 2, 34px);
+
     --button-width-big: clamp(75px, 8 * (1vw + 1vh) / 2, 120px);
     --button-width-small: clamp(50px, 8 * (1vw + 1vh) / 2, 120px);
 }
@@ -25,6 +27,7 @@ html, body {
 html {
     overflow-y: scroll;
     overflow-y: overlay;
+    user-select: none;
 }
 
 body {
@@ -41,7 +44,12 @@ button {
     background-color: transparent;
     color: white;
     box-shadow: var(--button-shadow);
+    transition: 0.2s;
     cursor: pointer;
+}
+
+button:hover {
+    color: var(--accent-color);
 }
 
 button:active {
