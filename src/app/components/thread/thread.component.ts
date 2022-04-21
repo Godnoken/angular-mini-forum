@@ -4,7 +4,6 @@ import { concatMap, finalize, forkJoin, from } from 'rxjs';
 
 import { Comment } from 'src/app/interfaces/comment-interface';
 import { Thread } from 'src/app/interfaces/thread-interface';
-import { User } from 'src/app/interfaces/user-interface';
 import { CommentsService } from 'src/app/services/comments.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { ThreadService } from 'src/app/services/thread.service';

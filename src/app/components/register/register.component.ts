@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Socket } from 'ngx-socket-io';
 
 import { UserService } from 'src/app/services/user.service';
 import { EmailService } from 'src/app/services/validators/email.service';
@@ -20,7 +21,8 @@ export class RegisterComponent {
     private userNameValidator: UserNameService,
     private emailValidator: EmailService,
     private passwordValidator: PasswordService,
-    private router: Router
+    private router: Router,
+    private socket: Socket
   ) { }
 
   userForm = new FormGroup({
@@ -74,6 +76,7 @@ export class RegisterComponent {
           this.userService.jwtToken = res.accessToken;
           this.userService.loggedUserId = res.user.id;
           this.userService.user = res.user;
+          this.socket.emit('authUserConnected', res.user.userName);
         }
         );
 

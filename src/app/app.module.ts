@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,9 @@ import { ThreadsComponent } from './components/threads/threads.component';
 import { ThreadCardComponent } from './components/thread-card/thread-card.component';
 import { ThreadComponent } from './components/thread/thread.component';
 import { CreateThreadComponent } from './components/create-thread/create-thread.component';
+import { UsersOnlineComponent } from './components/users-online/users-online.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {}}
 
 @NgModule({
   declarations: [
@@ -39,13 +43,15 @@ import { CreateThreadComponent } from './components/create-thread/create-thread.
     ThreadsComponent,
     ThreadCardComponent,
     ThreadComponent,
-    CreateThreadComponent
+    CreateThreadComponent,
+    UsersOnlineComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     {

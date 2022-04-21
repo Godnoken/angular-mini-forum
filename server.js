@@ -28,4 +28,48 @@ server.all('*', (req, res) => {
     res.status(200).sendFile(__dirname + '/dist/mini-forum/index.html');
 });
 
-server.listen(port);
+const io = require('socket.io')(server.listen(port), {
+    cors: {
+        origin: [
+            "http://localhost:4200",
+            "http://localhost:8080"
+        ]
+    }
+});
+
+let guestsConnected = 0;
+let authUsersOnline = [];
+
+io.on('connection', (socket) => {
+    console.log("a user connected with id: " + socket.id)
+    let userName;
+    guestsConnected++;
+
+    io.emit('userCount', guestsConnected);
+    io.emit('authUsersOnline', authUsersOnline);
+
+    socket.on("disconnect", () => {
+        console.log(socket.id + " disconnected")
+
+        if (guestsConnected >= 0 && !userName) {
+            guestsConnected--;
+        }
+
+        authUsersOnline = authUsersOnline.filter(user => userName !== user);
+
+        io.emit('userCount', guestsConnected);
+        io.emit('authUsersOnline', authUsersOnline);
+    })
+
+    socket.on('authUserConnected', (user) => {
+        authUsersOnline.push(user);
+        userName = user;
+
+        if (guestsConnected >= 0) {
+            guestsConnected--;
+        }
+
+        io.emit('userCount', guestsConnected);
+        io.emit('authUsersOnline', authUsersOnline);
+    })
+})

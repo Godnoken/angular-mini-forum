@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from 'src/app/services/validators/authentication.service';
 import { UserService } from 'src/app/services/user.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthenticationService,
     public userService: UserService,
-    private router: Router
+    private router: Router,
+    private socket: Socket
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
                 this.userService.loggedUserId = res.user.id;
                 this.userService.user = res.user;
                 this.submitted = true;
+                this.socket.emit('authUserConnected', res.user.userName);
               });
 
               setTimeout(() => {

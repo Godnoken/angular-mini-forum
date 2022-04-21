@@ -22,6 +22,11 @@
     align-items: center;
     border: 1px var(--accent-color) solid;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.thread-page-number:hover {
+    color: var(--accent-color);
 }
 
 .thread-page-number:active {

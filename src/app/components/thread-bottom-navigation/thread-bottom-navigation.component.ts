@@ -1,9 +1,9 @@
 import { Component, OnInit, EventEmitter, Output, Input, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CommentsService } from 'src/app/services/comments.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thread-bottom-navigation',
@@ -24,8 +24,7 @@ export class ThreadBottomNavigationComponent implements OnInit {
     public userService: UserService,
     public commentService: CommentsService,
     public sharedService: SharedService,
-    private router: Router,
-    private renderer: Renderer2
+    private router: Router
   ) { }
 
   ngOnInit(): void {
