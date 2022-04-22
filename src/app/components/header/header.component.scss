@@ -1,5 +1,6 @@
 :host {
     position: fixed;
+    top: 0;
     height: 5vh;
     width: 100%;
     padding: 0 clamp(8px, 3.5 * (1vw + 1vh) / 2, 60px);
@@ -72,7 +73,7 @@
 
 .burger-navigation {
     position: fixed;
-    top: calc(5vh - 1px);
+    top: calc(6.5vh - 1px);
     left: 0;
     width: 100%;
     clip-path: inset(0 0 100% 0);
@@ -113,8 +114,12 @@
     width: 100%;
 }
 
-@media only screen and (max-width: 1024) {
+@media only screen and (max-width: 1024px) {
     .header-sides {
         width: 0;
+    }
+
+    :host {
+        height: 6.5vh;
     }
 }

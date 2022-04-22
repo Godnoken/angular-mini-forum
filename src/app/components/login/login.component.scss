@@ -1,14 +1,12 @@
 :host {
     width: 70%;
-    min-height: 80vh;
-    margin-top: 5vh;
+    min-height: 70.5vh;
     display: grid;
-    justify-self: center;
     align-self: center;
 }
 
 .register-container {
-    height: 85%;
+    height: 100%;
     width: 100%;
     display: grid;
     justify-self: center;
@@ -16,6 +14,7 @@
     grid-template-rows: 4fr 1fr;
     padding: 3vh 5vw;
     background-color: var(--primary-color);
+    border-radius: 8px;
 }
 
 .input-container {
@@ -75,8 +74,6 @@ p.ng-invalid {
 
 @media only screen and (max-width: 600px) {
     :host {
-        margin-top: 10vh;
-        min-height: 75vh;
         width: 90%;
     }
 }

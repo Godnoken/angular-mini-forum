@@ -1,13 +1,11 @@
 :host {
-    grid-column: 2/3;
     min-height: 60px;
     min-width: 175px;
     height: max-content;
-    width: max-content;
+    width: 100%;
     justify-self: center;
     display: flex;
     flex-direction: column;
-    margin-top: 4vh;
     background-color: var(--primary-color);
     color: white;
     text-align: center;

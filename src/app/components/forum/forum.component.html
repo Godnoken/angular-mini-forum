@@ -1,2 +1,2 @@
 <app-threads></app-threads>
-<app-users-online></app-users-online>
+<app-side-view *ngIf="this.sharedService.isMobile === false"></app-side-view>

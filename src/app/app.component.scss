@@ -3,4 +3,11 @@
     display: flex;
     flex-direction: column;
     background-color: var(--secondary-color);
+    padding-top: 9vh;
+}
+
+@media only screen and (max-width: 1024px) {
+    :host {
+        padding-top: 10.5vh;
+    }
 }

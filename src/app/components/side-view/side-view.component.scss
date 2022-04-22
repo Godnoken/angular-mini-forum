@@ -1,0 +1,14 @@
+:host {
+    grid-column: 2/3;
+    min-height: 70.5vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    row-gap: 36px;
+}
+
+@media only screen and (max-width: 650px) {
+    :host {
+        width: 90%;
+    }
+}

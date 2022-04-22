@@ -1,9 +1,9 @@
 :host {
-    width: 70%;
-    min-height: 80vh;
-    margin-top: 5vh;
+    width: 85%;
+    min-height: 70.5vh;
+    max-width: 1500px;
     display: grid;
-    grid-template-columns: 4fr 2fr;
+    grid-template-columns: 6fr 2fr;
     justify-self: center;
     align-self: center;
     column-gap: 36px;
@@ -11,14 +11,12 @@
 
 @media only screen and (max-width: 1024px) {
     :host {
-        grid-template-columns: 1fr;
+        width: 90%;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
     :host {
-        margin-top: 10vh;
-        min-height: 75vh;
-        width: 90%;
+        grid-template-columns: 1fr;
     }
 }

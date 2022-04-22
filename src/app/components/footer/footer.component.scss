@@ -1,6 +1,12 @@
 :host {
-    margin-top: auto;
-    height: 15vh;
+    margin-top: 4vh;
+    height: 16.5vh;
     width: 100%;
     background-color: var(--primary-color);
+}
+
+@media only screen and (max-width: 1024px) {
+    :host {
+        height: 15vh;
+    }
 }

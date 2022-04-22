@@ -4,6 +4,7 @@ import { ForumComponent } from './components/forum/forum.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SideViewComponent } from './components/side-view/side-view.component';
 import { ThreadComponent } from './components/thread/thread.component';
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "profile/:id", component: ProfileComponent },
   { path: "thread/:id", component: ThreadComponent },
-  { path: "thread/:id/:page", component: ThreadComponent }
+  { path: "thread/:id/:page", component: ThreadComponent },
+  { path: "side-view", component: SideViewComponent }
 ];
 
 @NgModule({

@@ -23,6 +23,7 @@ import { ThreadCardComponent } from './components/thread-card/thread-card.compon
 import { ThreadComponent } from './components/thread/thread.component';
 import { CreateThreadComponent } from './components/create-thread/create-thread.component';
 import { UsersOnlineComponent } from './components/users-online/users-online.component';
+import { SideViewComponent } from './components/side-view/side-view.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:8080', options: {}}
 
@@ -44,7 +45,8 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {}}
     ThreadCardComponent,
     ThreadComponent,
     CreateThreadComponent,
-    UsersOnlineComponent
+    UsersOnlineComponent,
+    SideViewComponent
   ],
   imports: [
     BrowserModule,
