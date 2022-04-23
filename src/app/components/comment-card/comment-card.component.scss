@@ -18,7 +18,7 @@
 
 .comment-user-container {
     display: flex;
-    column-gap: 2vw;
+    column-gap: 10px;
 }
 
 .comment-user-profile-img {
@@ -31,6 +31,7 @@
 .comment-user-titles-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     row-gap: 2px;
 }
 

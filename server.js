@@ -14,7 +14,8 @@ const rules = auth.rewriter({
 })
 
 server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PATCH, PUT')
     res.header('Access-Control-Allow-Headers', '*')
     next()
 })
@@ -30,10 +31,9 @@ server.all('*', (req, res) => {
 
 const io = require('socket.io')(server.listen(port), {
     cors: {
-        origin: [
-            "http://localhost:4200",
-            "http://localhost:8080"
-        ]
+        origin: "*",
+        methods: ["PUT", "GET", "POST", "DELETE"],
+        credentials: false
     }
 });
 
@@ -71,5 +71,15 @@ io.on('connection', (socket) => {
 
         io.emit('userCount', guestsConnected);
         io.emit('authUsersOnline', authUsersOnline);
+    })
+
+
+    socket.on('sendNewComment', (comment, thread) => {
+
+        socket.to(thread).emit('receiveNewComment', comment);
+    })
+
+    socket.on('enterThread', thread => {
+        socket.join(thread);
     })
 })

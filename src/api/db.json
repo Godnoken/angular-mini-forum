@@ -8,18 +8,11 @@
       "id": 1
     },
     {
-      "title": "tsssss",
-      "date": "2022-04-16, 22:33",
-      "userId": 2,
-      "parentId": null,
-      "id": 2
-    },
-    {
-      "title": "Admin only",
-      "date": "2022-04-20, 11:11",
+      "title": "sdsfsdfs",
+      "date": "2022-04-24, 01:13",
       "userId": 3,
       "parentId": null,
-      "id": 3
+      "id": 2
     }
   ],
   "comments": [
@@ -33,15 +26,6 @@
       "id": 1
     },
     {
-      "threadId": 2,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-16, 22:33",
-      "content": "ssssssssssssssssssssssssssssssssssssssssssss",
-      "isFirstComment": true,
-      "id": 2
-    },
-    {
       "threadId": 1,
       "parentId": 4,
       "userId": 2,
@@ -52,24 +36,6 @@
       "quotedCommentContent": "sssss",
       "quotedCommentDate": "2022-04-17, 12:52",
       "id": 14
-    },
-    {
-      "threadId": 2,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-18, 16:08",
-      "content": "test",
-      "isFirstComment": false,
-      "id": 15
-    },
-    {
-      "threadId": 2,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-18, 16:08",
-      "content": "ssss",
-      "isFirstComment": false,
-      "id": 16
     },
     {
       "threadId": 1,
@@ -110,110 +76,29 @@
     {
       "threadId": 1,
       "parentId": null,
-      "userId": 1,
-      "date": "2022-04-18, 18:20",
-      "content": "sssssssssssssss",
+      "userId": 3,
+      "date": "2022-04-24, 01:13",
+      "content": "testsdf",
       "isFirstComment": false,
       "id": 39
     },
     {
       "threadId": 1,
       "parentId": null,
-      "userId": 1,
-      "date": "2022-04-18, 18:20",
-      "content": "sssssssssssssss",
+      "userId": 3,
+      "date": "2022-04-24, 01:13",
+      "content": "test",
       "isFirstComment": false,
       "id": 40
     },
     {
-      "threadId": 1,
-      "parentId": 1,
-      "userId": 1,
-      "date": "2022-04-18, 18:20",
-      "content": "cool",
-      "isFirstComment": false,
-      "quotedUserId": 2,
-      "quotedCommentContent": "This is pretty cool is it nothhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsss\n",
-      "quotedCommentDate": "2022-04-15, 22:32",
-      "id": 41
-    },
-    {
-      "threadId": 1,
-      "parentId": 40,
-      "userId": 3,
-      "date": "2022-04-20, 10:18",
-      "content": "test",
-      "isFirstComment": false,
-      "quotedUserId": 1,
-      "quotedCommentContent": "sssssssssssssss",
-      "quotedCommentDate": "2022-04-18, 18:20",
-      "id": 42
-    },
-    {
-      "threadId": 3,
+      "threadId": 2,
       "parentId": null,
       "userId": 3,
-      "date": "2022-04-20, 11:11",
-      "content": "Maybe or maybe not admin",
+      "date": "2022-04-24, 01:13",
+      "content": "sdfsdfsdfdsffffffffffffffffffffffffffffffffffffffff",
       "isFirstComment": true,
-      "id": 43
-    },
-    {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 4,
-      "date": "2022-04-20, 11:46",
-      "content": "test",
-      "isFirstComment": false,
-      "id": 44
-    },
-    {
-      "threadId": 1,
-      "parentId": 14,
-      "userId": 3,
-      "date": "2022-04-20, 15:33",
-      "content": "test",
-      "isFirstComment": false,
-      "quotedUserId": 2,
-      "quotedCommentContent": "hallå",
-      "quotedCommentDate": "2022-04-18, 13:43",
-      "id": 45
-    },
-    {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 3,
-      "date": "2022-04-20, 15:35",
-      "content": "test",
-      "isFirstComment": false,
-      "id": 46
-    },
-    {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-21, 17:48",
-      "content": "test",
-      "isFirstComment": false,
-      "id": 47
-    },
-    {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-22, 12:10",
-      "content": "test",
-      "isFirstComment": false,
-      "id": 48
-    },
-    {
-      "threadId": 1,
-      "parentId": null,
-      "userId": 2,
-      "date": "2022-04-22, 12:10",
-      "content": "test",
-      "isFirstComment": false,
-      "id": 49
+      "id": 41
     }
   ],
   "users": [

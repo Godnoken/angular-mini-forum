@@ -19,6 +19,8 @@ export class ThreadBottomNavigationComponent implements OnInit {
   @Output() currentPageChange = new EventEmitter<number>();
   @Input() pageButtons!: number[];
   @Input() pageCount!: number;
+  @Input() newComments!: any;
+  @Output() requestNewComments = new EventEmitter();
 
   constructor(
     public userService: UserService,
@@ -28,6 +30,10 @@ export class ThreadBottomNavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  emitRequestNewComments(): void {
+    this.requestNewComments.emit(false);
   }
 
   handleCreateCommentDisplay(): void {

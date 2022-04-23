@@ -2,11 +2,14 @@
     <h2 *ngIf="thread">{{ thread.title }}</h2>
 </div>
 <app-comment-card *ngFor="let comment of paginatedComments" [user]="sharedService.users[comment.userId]"
-    [comment]="comment" [thread]="thread" (emitDeleteComment)="deleteComment($event)"></app-comment-card>
-<app-thread-bottom-navigation *ngIf="comments" [pageCount]="pageCount" [threadId]="threadId" [rows]="rows"
-    [pageButtons]="pageButtons" [(currentPage)]="currentPage"
-    (currentPageChange)="displayPageComments(this.comments, this.rows, $event)"></app-thread-bottom-navigation>
-<app-add-comment *ngIf="this.commentService.isCreatingComment === true" [comments]="comments"
-    [paginatedComments]="paginatedComments" [(pageCount)]="pageCount" [rows]="rows" [(currentPage)]="currentPage"
-    (currentPageChange)="displayPageComments(this.comments, this.rows, this.currentPage)"
-    (pageCountChange)="setupPagination()" [threadId]="threadId"></app-add-comment>
+    [comment]="comment" [thread]="thread" (emitDeleteComment)="deleteComment($event)">
+</app-comment-card>
+<app-thread-bottom-navigation *ngIf="comments" [newComments]="newComments" [pageCount]="pageCount" [threadId]="threadId"
+    [rows]="rows" [pageButtons]="pageButtons" [(currentPage)]="currentPage"
+    (currentPageChange)="displayPageComments(this.comments, this.rows, $event)"
+    (requestNewComments)="displayNewComments($event)">
+</app-thread-bottom-navigation>
+<app-add-comment *ngIf="this.commentService.isCreatingComment === true"
+    [newComments]="newComments" [paginatedComments]="paginatedComments" [(pageCount)]="pageCount" [rows]="rows"
+    [(currentPage)]="currentPage" (requestNewComments)="displayNewComments($event)" [threadId]="threadId">
+</app-add-comment>

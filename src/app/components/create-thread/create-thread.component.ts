@@ -83,7 +83,7 @@ export class CreateThreadComponent implements OnInit {
     }
 
     this.commentService.addComment(comment)
-      .subscribe(() => this.router.navigateByUrl(`/thread/${this.threadId}/1`));
+      .subscribe(() => this.router.navigateByUrl(`forum/thread/${this.threadId}/1`));
   }
 
   getCurrentDate(): string {

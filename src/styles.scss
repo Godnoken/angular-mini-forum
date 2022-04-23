@@ -39,7 +39,7 @@ body {
 button {
     width: var(--button-width-big);
     height: max-content;
-    padding: 0.5vh;
+    padding: 0.5vh 0.5vw;
     border: 1px var(--accent-color) solid;
     background-color: transparent;
     color: white;

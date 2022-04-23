@@ -1,3 +1,4 @@
+<button *ngIf="currentPage === pageCount" [ngClass]="{'disabled-button': newComments.length === 0}" (click)="emitRequestNewComments()" type="button" class="thread-new-comments-button">New comments</button>
 <ul class="thread-comments-navigation" (click)="navigateByNumbers($event)">
   <li *ngFor="let button of pageButtons; let index = index" [class.active]="currentPage - 1 === index" class="thread-page-number">{{ button }}</li>
 </ul>

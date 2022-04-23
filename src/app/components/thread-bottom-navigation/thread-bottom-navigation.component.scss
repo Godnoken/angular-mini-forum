@@ -1,13 +1,18 @@
 :host {
     grid-column: 1/2;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: max-content;
     row-gap: 2vh;
     user-select: none;
 }
 
-.thread-comments-navigation {
+.thread-new-comments-button {
     grid-row: 1/2;
+    justify-self: center;
+}
+
+.thread-comments-navigation {
+    grid-row: 2/3;
     display: flex;
     column-gap: 6px;
     justify-self: center;
@@ -16,7 +21,7 @@
 }
 
 .thread-page-number {
-    width: calc(var(--small-text) * 1.5);
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +39,7 @@
 }
 
 .thread-button-navigation {
-    grid-row: 2/3;
+    grid-row: 3/4;
     display: flex;
     justify-content: space-evenly;
 }
