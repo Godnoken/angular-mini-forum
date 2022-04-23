@@ -4,7 +4,7 @@
     max-width: 1500px;
     display: grid;
     grid-template-columns: 6fr 2fr;
-    justify-self: center;
+    align-content: flex-start;
     align-self: center;
     column-gap: 36px;
 }

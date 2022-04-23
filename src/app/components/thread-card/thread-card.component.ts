@@ -37,7 +37,7 @@ export class ThreadCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.url = `/thread/${this.thread.id!}/1`
+    this.url = `thread/${this.thread.id!}/1`
     if (!this.sharedService.users[this.thread.userId]) {
       this.getUser();
     }

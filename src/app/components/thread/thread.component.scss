@@ -1,40 +1,14 @@
 :host {
-    width: 70%;
-    min-height: 70.5vh;
-    display: grid;
-    grid-template-columns: 4fr 2fr;
-    grid-template-rows: max-content max-content max-content;
-    justify-self: center;
-    align-self: center;
-    justify-content: center;
-    row-gap: 2vh;
-    user-select: text;
-}
-
-.comments-container {
     grid-column: 1/2;
-    height: max-content;
-    width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(0px, max-content));
     row-gap: 2.5vh;
+    user-select: text;
     color: white;
 }
 
 .thread-title {
+    height: 30px;
     text-align: center;
-    color: white;
     font-size: var(--large-text);
-}
-
-@media only screen and (max-width: 1024px) {
-    :host {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    :host {
-        width: 90%;
-    }
 }

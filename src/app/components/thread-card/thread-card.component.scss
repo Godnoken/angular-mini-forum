@@ -2,6 +2,10 @@
     position: relative;
 }
 
+:host:hover {
+    opacity: 0.85;
+}
+
 .thread-container {
     display: flex;
     justify-content: space-between;

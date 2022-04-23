@@ -1,9 +1,9 @@
 :host {
     width: 100%;
-    min-height: 80vh;
-    margin-top: 5vh;
+    min-height: 78vh;
     display: grid;
     grid-template-rows: max-content 1fr;
+    transform: translateY(-4vh);
 }
 
 .profile-banner {
@@ -49,6 +49,7 @@
 .profile-bottom-container {
     display: grid;
     grid-template-rows: max-content 1fr;
+    row-gap: 2.5vh;
 }
 
 .profile-navigation-container {
@@ -58,10 +59,8 @@
 }
 
 .profile-information-container {
-    height: 40vh;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
-    margin: 4vh 0 8vh;
     padding: 4vh 2vw;
     display: grid;
     justify-self: center;
@@ -70,6 +69,7 @@
     word-wrap: break-word;
     color: white;
     user-select: text;
+    border-radius: 8px;
 }
 
 .info-item-container {
@@ -82,21 +82,21 @@
 }
 
 .comments-container {
-    height: max-content;
     width: 50%;
-    display: grid;
     justify-self: center;
-    grid-template-columns: minmax(0, 1fr);
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(0px, max-content));
     row-gap: 2.5vh;
-    margin: 4vh 0;
     color: white;
 }
 
+.comment-card:hover {
+    opacity: 0.85;
+}
+
 .settings-container {
-    height: 40vh;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
-    margin: 4vh 0 8vh;
     padding: 4vh 2vw;
     display: grid;
     justify-self: center;
@@ -104,6 +104,7 @@
     justify-items: center;
     background-color: var(--primary-color);
     color: white;
+    border-radius: 8px;
 }
 
 .change-setting-container {

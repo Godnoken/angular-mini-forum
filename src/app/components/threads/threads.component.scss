@@ -1,10 +1,16 @@
 :host {
     grid-column: 1/2;
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: repeat(auto-fit, minmax(0px, max-content));
     row-gap: 2.5vh;
     color: white;
+}
+
+.threads-title {
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-size: var(--large-text);
 }
 
 button {

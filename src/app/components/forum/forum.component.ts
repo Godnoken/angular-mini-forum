@@ -7,14 +7,12 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./forum.component.scss']
 })
 export class ForumComponent implements OnInit {
-  public isMobile!: boolean;
 
   constructor(
     public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
-    //this.checkScreenSize();
   }
 
 }

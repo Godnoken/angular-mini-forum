@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input, Renderer2 } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CommentsService } from 'src/app/services/comments.service';
@@ -47,8 +47,7 @@ export class ThreadBottomNavigationComponent implements OnInit {
     if (event.target.nodeName === "LI") {
       this.currentPage = Number(event.target.textContent);
       this.currentPageChange.emit(this.currentPage);
-
-      this.router.navigateByUrl(`/thread/${this.threadId}/${this.currentPage}`);
+      this.navigateToUrl();
     }
   }
 
@@ -56,13 +55,16 @@ export class ThreadBottomNavigationComponent implements OnInit {
     if (event.target.textContent === "Next") {
       this.currentPage++;
       this.currentPageChange.emit(this.currentPage);
-
-      this.router.navigateByUrl(`/thread/${this.threadId}/${this.currentPage}`);
+      this.navigateToUrl();
     } 
     else if (event.target.textContent === "Previous") {
       this.currentPage--;
       this.currentPageChange.emit(this.currentPage);
-      this.router.navigateByUrl(`/thread/${this.threadId}/${this.currentPage}`);
+      this.navigateToUrl();
     }
+  }
+
+  navigateToUrl(): void {
+    this.router.navigateByUrl(`forum/thread/${this.threadId}/${this.currentPage}`);
   }
 }
