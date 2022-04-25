@@ -17,24 +17,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0;
+    padding: 30px 12px;
     text-align: start;
 }
 
 .auth-user {
+    width: 100%;
     align-self: flex-start;
-    width: max-content;
     padding: 16px 0;
-    margin-left: 12px;
+    font-size: var(--large-text);
+    border-bottom: 1px solid var(--accent-color);
+}
+
+.auth-user:last-child {
+    border: none;
+}
+
+.users-online-top {
+    padding: 20px;
     border-bottom: 1px solid var(--secondary-color);
 }
 
-.divider {
-    width: 100%;
-    height: 1px;
-    background-color: var(--secondary-color);
-}
-
-.top-bot {
+.users-online-bot {
     padding: 20px;
+    border-top: 1px solid var(--secondary-color);
 }

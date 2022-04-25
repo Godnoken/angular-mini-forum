@@ -1,6 +1,6 @@
 :host {
     width: 100%;
-    min-height: 78vh;
+    min-height: 70.5vh;
     display: grid;
     grid-template-rows: max-content 1fr;
     transform: translateY(-4vh);
@@ -61,7 +61,7 @@
 .profile-information-container {
     width: 100%;
     max-width: 400px;
-    padding: 4vh 2vw;
+    padding: 14px 18px;
     display: grid;
     justify-self: center;
     align-items: center;
@@ -75,10 +75,12 @@
 .info-item-container {
     display: flex;
     justify-content: space-between;
+    padding: 24px 0;
+    border-bottom: solid 2px var(--accent-color);
 }
 
-.info-breaker {
-    border: solid 1px var(--accent-color);
+.info-item-container:last-child {
+    border: none;
 }
 
 .comments-container {
@@ -113,11 +115,17 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    row-gap: 1vh;
+    padding: 12px 0;
 }
 
 @media only screen and (max-width: 800px) {
     .comments-container {
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .settings-container, .profile-information-container {
+        width: 90%;
     }
 }

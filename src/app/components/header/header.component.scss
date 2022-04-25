@@ -91,27 +91,23 @@
     flex-direction: column;
     font-size: var(--large-text);
     color: white;
+    padding: 0 36px;
+    border-top: 1px solid var(--secondary-color);
 }
 
 .burger-li {
-    padding: 24px 36px;
+    padding: 24px 0;
     cursor: pointer;
     transition: 0.2s;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.burger-li:last-child {
+    border: none;
 }
 
 .burger-li:hover {
     color: var(--accent-color);
-}
-
-.burger-divider {
-    width: 95%;
-    height: 2px;
-    background-color: var(--secondary-color);
-    align-self: center;
-}
-
-.burger-divider:first-child {
-    width: 100%;
 }
 
 @media only screen and (max-width: 1024px) {

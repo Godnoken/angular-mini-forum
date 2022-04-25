@@ -15,13 +15,9 @@
 </div>
 <nav *ngIf="(isTablet$ | async)" class="burger-navigation">
     <ul (click)="showHideBurgerNavigation()" class="burger-ul">
-        <div class="burger-divider"></div>
         <li routerLink="/" class="burger-li">Home</li>
-        <div class="burger-divider"></div>
         <li *ngIf="sharedService.isMobile" routerLink="/side-view" class="burger-li">Who's online?</li>
-        <div *ngIf="sharedService.isMobile" class="burger-divider"></div>
         <li *ngIf="userService.loggedUserId === 0" routerLink="/login" class="burger-li">Login</li>
-        <div *ngIf="userService.loggedUserId === 0" class="burger-divider"></div>
         <li *ngIf="userService.loggedUserId === 0" routerLink="/register" class="burger-li">Register</li>
         <li *ngIf="userService.loggedUserId !== 0" routerLink="/profile/{{ userService.loggedUserId }}" class="burger-li">Profile</li>
     </ul>
