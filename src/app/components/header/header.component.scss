@@ -27,8 +27,19 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    column-gap: 2vw;
+    justify-content: space-evenly;
+    column-gap: 14px;
+}
+
+.dark-light-icon {
+    flex-shrink: 0;
+    fill: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dark-light-icon:hover {
+    fill: var(--accent-color);
 }
 
 .header-user-container {
@@ -111,10 +122,6 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .header-sides {
-        width: 0;
-    }
-
     :host {
         height: 6.5vh;
     }

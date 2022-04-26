@@ -20,6 +20,19 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleColorTheme(): void {
+    const html = document.documentElement;
+
+    if (html.classList.contains("darkMode")) {
+        html.classList.toggle("darkMode");
+        window.localStorage.setItem("theme", "lightMode");
+    }
+    else {
+        html.classList.toggle("darkMode");
+        window.localStorage.setItem("theme", "darkMode");
+    }
+  }
+
   showHideBurgerNavigation(): void {
     const burgerNavigation = this.renderer.selectRootElement(".burger-navigation", true);
 

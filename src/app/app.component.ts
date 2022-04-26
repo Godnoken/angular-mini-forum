@@ -18,6 +18,22 @@ export class AppComponent {
     private commentsService: CommentsService,
     private threadService: ThreadService
   ) {
+    this.subscribeToRouterNavigation();
+    this.readColorThemeOnLoad();
+  }
+
+
+  readColorThemeOnLoad(): void {
+    if (localStorage["theme"] === 'darkMode' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('darkMode')
+
+    } else {
+      document.documentElement.classList.remove('darkMode')
+    }
+  }
+
+
+  subscribeToRouterNavigation(): void {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.sharedService.isDoingAction = false;
