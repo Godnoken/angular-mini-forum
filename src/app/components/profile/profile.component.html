@@ -18,15 +18,15 @@
         <div *ngIf="displayItem === 'info'" class="profile-information-container">
             <div class="info-item-container">
                 <p>Member since:</p>
-                <p>02/06/22</p>
+                <p>{{ user.memberSince }}</p>
             </div>
             <div class="info-item-container">
                 <p>Favourite player:</p>
-                <p>Omar Colley</p>
+                <p>{{ user.favouritePlayer }}</p>
             </div>
             <div class="info-item-container">
                 <p>Location:</p>
-                <p>Spain</p>
+                <p>{{ user.location }}</p>
             </div>
         </div>
         <div *ngIf="displayItem === 'comments'" class="comments-container">

@@ -6,5 +6,8 @@ export interface User {
     password: string;
     profilePic: string;
     profileBanner: string;
+    memberSince: string;
+    favouritePlayer: string;
+    location: string;
     isOnline: boolean;
 }

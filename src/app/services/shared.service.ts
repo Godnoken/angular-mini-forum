@@ -37,4 +37,18 @@ export class SharedService {
         isMobile ? this.isMobile = true : this.isMobile = false;
       })
   }
+
+  getCurrentDate(): string {
+    const currentDate = new Date();
+
+    const date = currentDate.toLocaleDateString("en-SE", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    })
+
+    return date;
+  }
 }

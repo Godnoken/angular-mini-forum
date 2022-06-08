@@ -56,7 +56,7 @@ export class AddCommentComponent implements OnInit {
         threadId: this.threadId,
         ...(this.commentService.isQuoting === true ? { parentId: this.commentService.comment!.id! } : { parentId: null }),
         userId: this.userService.loggedUserId,
-        date: this.getCurrentDate(),
+        date: this.sharedService.getCurrentDate(),
         content: this.comment.value,
         isFirstComment: false,
         ...(this.commentService.isQuoting === true ? { quotedUserId: this.commentService.comment!.userId } : null),
@@ -85,20 +85,6 @@ export class AddCommentComponent implements OnInit {
           });
       }
     }
-  }
-
-  getCurrentDate(): string {
-    const currentDate = new Date();
-
-    const date = currentDate.toLocaleDateString("en-SE", {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    })
-
-    return date;
   }
 
   autoGrowSize(): void {

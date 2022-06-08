@@ -124,7 +124,7 @@ export class ThreadComponent implements OnInit {
         })
       )
       .subscribe(comments => {
-        this.comments = comments;
+        this.comments = comments.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
       })
   }
 

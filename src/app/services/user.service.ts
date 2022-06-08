@@ -27,9 +27,10 @@ export class UserService {
 
   registerUser(user: User): Observable<any> {
     user.isOnline = true;
-    user.title = "Supporter";
+    user.title = "Gröngöling";
     user.profilePic = "";
     user.profileBanner = "";
+    user.memberSince = this.sharedService.getCurrentDate();
     return this.http.post<any>(`${this.apiUrl}/register`, user, httpOptions);
   }
 

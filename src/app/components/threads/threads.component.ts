@@ -27,7 +27,9 @@ export class ThreadsComponent implements OnInit {
 
   getThreads(): void {
     this.threadService.getThreads()
-      .subscribe(threads => this.threads = threads);
+      .subscribe(threads => {
+        this.threads = threads.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      });
   }
 
   handleCreateThreadDisplay(): void {
