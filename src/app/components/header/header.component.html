@@ -1,8 +1,7 @@
 <div *ngIf="!(isTablet$ | async)" class="header-sides"></div>
 <a routerLink="/"><h1 class="home-title">Djurgårdens IF</h1></a>
 <div class="header-sides">
-    <svg (click)="handleColorTheme()" class="dark-light-icon" style="width:32px;height:32px" viewBox="0 0 24 24"><path d="M3.5 18.5 5 20l1.8-1.7-1.5-1.5m5.7 5.8h2v-3h-2m1-14a6 6 0 0 0-6 6 6 6 0 0 0 6 6 6 6 0 0 0 6-6 6 6 0 0 0-6-6m8 7h3v-2h-3m-2.8 7.7L19 20l1.4-1.5-1.7-1.8m1.8-12.2L19 3l-1.8 1.8 1.5 1.5M13 .5h-2v3h2m-9 7H1v2h3m2.8-7.7L5 3 3.5 4.5l1.8 1.8 1.5-1.5Z"/></svg>
-    <div class="header-user-container" *ngIf="userService.loggedUserId !== 0">
+    <div class="header-user-container" *ngIf="userService.loggedUserId !== 0 && !(isTablet$ | async)">
         <a routerLink="/profile/{{ userService.loggedUserId }}"><p class="header-profile-name">{{ userService.user.userName }}</p></a>
         <a routerLink="/profile/{{ userService.loggedUserId }}"><img [src]="userService.user.profilePic || '../../../assets/standardprofilepic.jpg'" onError="this.src='../../../assets/standardprofilepic.jpg'" alt="profile picture" class="header-profile-img"></a>
     </div>
@@ -13,6 +12,7 @@
         <a routerLink="/login" class="nav-item">Login</a>
         <a routerLink="/register" class="nav-item">Register</a>
     </nav>
+    <svg (click)="handleColorTheme()" class="dark-light-icon" viewBox="0 0 24 24"><path d="M3.5 18.5 5 20l1.8-1.7-1.5-1.5m5.7 5.8h2v-3h-2m1-14a6 6 0 0 0-6 6 6 6 0 0 0 6 6 6 6 0 0 0 6-6 6 6 0 0 0-6-6m8 7h3v-2h-3m-2.8 7.7L19 20l1.4-1.5-1.7-1.8m1.8-12.2L19 3l-1.8 1.8 1.5 1.5M13 .5h-2v3h2m-9 7H1v2h3m2.8-7.7L5 3 3.5 4.5l1.8 1.8 1.5-1.5Z"/></svg>
 </div>
 <nav *ngIf="(isTablet$ | async)" class="burger-navigation">
     <ul (click)="showHideBurgerNavigation()" class="burger-ul">
