@@ -25,7 +25,9 @@ import { CreateThreadComponent } from './components/create-thread/create-thread.
 import { UsersOnlineComponent } from './components/users-online/users-online.component';
 import { SideViewComponent } from './components/side-view/side-view.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {}}
+const port = ( window.location.hostname === 'localhost' ) ? ':8080' : '';
+const url = `${window.location.protocol}//${window.location.hostname}${port}`;
+const config: SocketIoConfig = { url: url, options: {}}
 
 @NgModule({
   declarations: [

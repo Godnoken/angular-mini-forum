@@ -5,8 +5,8 @@ import { debounceTime, fromEvent, map, Observable, startWith } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  public apiURL = "http://localhost:8080/api";
-  //public apiURL = "https://dif-mini-forum.herokuapp.com/api";
+  private port = ( window.location.hostname === 'localhost' ) ? ':8080' : '';
+  public apiURL = `${window.location.protocol}//${window.location.hostname}${this.port}/api`;
   
   public isMobile!: boolean;
   public isTablet$!: Observable<any>;
